@@ -9,12 +9,13 @@ public class repulsion : MonoBehaviour {
     GameObject[] efield;
 
     void Start() {
-        charge = GameObject.Find("Test charge");
-        efield = GameObject.FindGameObjectsWithTag("efield");
+        charge = GameObject.Find("electron");
     }
 
     void FixedUpdate() {
-        foreach(GameObject e in efield) {
+
+        efield = GameObject.FindGameObjectsWithTag("efield");
+        foreach (GameObject e in efield) {
             float q2 = e.GetComponent<chargepos>().chargeColomb;
             float d = Vector2.Distance(charge.transform.position,e.transform.position);
 
