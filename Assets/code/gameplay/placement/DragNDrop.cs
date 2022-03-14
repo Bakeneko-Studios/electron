@@ -11,12 +11,23 @@ public class DragNDrop : MonoBehaviour
     public Color invalidLocation;
     public Color validLocation;
     public GameObject theCharge;
+    GameObject lastTouching = null;
+    bool validPosition = false;
+    GameObject spawner;
+    GameObject cam;
+
     // Start is called before the first frame update
     void Start()
     {
-        objectCollider = GetComponent<Collider2D>();
-        isDraggable = false;
-        isDragging = false;
+        objectCollider = GetComponent<BoxCollider2D>();
+        isDraggable = true;
+        isDragging = true;
+    }
+
+    public void setSpawner(GameObject theSpawner, GameObject theCam)
+    {
+        spawner = theSpawner;
+        cam = theCam;
     }
 
     // Update is called once per frame
@@ -28,11 +39,17 @@ public class DragNDrop : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         theCharge.GetComponent<Image>().color = invalidLocation;
+        lastTouching = collision.gameObject;
+        validPosition = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        theCharge.GetComponent<Image>().color = validLocation;
+        if (collision.gameObject == lastTouching)
+        {
+            theCharge.GetComponent<Image>().color = validLocation;
+            validPosition = true;
+        }
     }
 
     void DragAndDrop()
@@ -62,8 +79,15 @@ public class DragNDrop : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            
             isDraggable = false;
             isDragging = false;
+            if (validPosition)
+                spawner.GetComponent<chargeSpawner>().spawnCharge(this.gameObject.transform.position);
+            else
+                spawner.GetComponent<chargeSpawner>().invalidSpawn();
+
+            Destroy(this.gameObject);
         }
     }
 }
