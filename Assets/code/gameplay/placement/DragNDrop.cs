@@ -11,10 +11,11 @@ public class DragNDrop : MonoBehaviour
     public Color invalidLocation;
     public Color validLocation;
     public GameObject theCharge;
-    GameObject lastTouching = null;
-    bool validPosition = false;
+    //GameObject lastTouching = null;
+    bool validPosition = true;
     GameObject spawner;
     GameObject cam;
+    int count;
 
     // Start is called before the first frame update
     void Start()
@@ -39,13 +40,15 @@ public class DragNDrop : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         theCharge.GetComponent<Image>().color = invalidLocation;
-        lastTouching = collision.gameObject;
+        //lastTouching = collision.gameObject;
         validPosition = false;
+        count++;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == lastTouching)
+        count--;
+        if (count == 0)
         {
             theCharge.GetComponent<Image>().color = validLocation;
             validPosition = true;
