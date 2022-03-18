@@ -14,14 +14,16 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     bool dragging = false;
     public int numOfCharges = 0;
     public TextMeshProUGUI text;
-    public GameObject cam;
+    public Color selected;
+    public GameObject gameplayManager;
+    Color unselected;
     public void OnDrag(PointerEventData eventData)
     {
         if (!dragging)
         {
             GameObject theCharge = Instantiate(draggingCharge);
             theCharge.transform.SetParent(canvas.transform);
-            theCharge.GetComponent<DragNDrop>().setSpawner(this.gameObject, cam);
+            theCharge.GetComponent<DragNDrop>().setSpawner(this.gameObject);
             dragging = true;
         }
     }
@@ -30,15 +32,29 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     {
         GameObject spawnedCharge = Instantiate(spawningCharge);
         spawnedCharge.transform.position = position;
-        numOfCharges--;
+
+        if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges)
+            numOfCharges--;
         updateText();
         dragging = false;
-        
+
         // destory self if no more charges left
         if (numOfCharges == 0)
         {
             Destroy(this.gameObject);
         }
+    }
+  
+
+    public void select()
+    {
+        this.GetComponent<Image>().color = selected;
+    }
+
+    public void unselect()
+    {
+
+        this.GetComponent<Image>().color = unselected;
     }
 
     public void invalidSpawn()
@@ -53,11 +69,13 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
 
     void Start()
     {
+        unselected = this.GetComponent<Image>().color;
         updateText();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 }
