@@ -41,7 +41,7 @@ public class placement : MonoBehaviour, IPointerDownHandler
         }
         else
         {
-            if (clickedIndex != -1)
+            if (clickedIndex != -1 && chargeSlots[clickedIndex] != null)
             {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
             }
