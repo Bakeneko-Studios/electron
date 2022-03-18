@@ -14,7 +14,6 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     bool dragging = false;
     public int numOfCharges = 0;
     public TextMeshProUGUI text;
-    public GameObject cam;
     public Color selected;
     public GameObject gameplayManager;
     Color unselected;
@@ -24,7 +23,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
         {
             GameObject theCharge = Instantiate(draggingCharge);
             theCharge.transform.SetParent(canvas.transform);
-            theCharge.GetComponent<DragNDrop>().setSpawner(this.gameObject, cam);
+            theCharge.GetComponent<DragNDrop>().setSpawner(this.gameObject);
             dragging = true;
         }
     }

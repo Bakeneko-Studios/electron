@@ -14,7 +14,6 @@ public class DragNDrop : MonoBehaviour
     //GameObject lastTouching = null;
     bool validPosition = true;
     GameObject spawner;
-    GameObject cam;
     int count;
 
     // Start is called before the first frame update
@@ -25,10 +24,9 @@ public class DragNDrop : MonoBehaviour
         isDragging = true;
     }
 
-    public void setSpawner(GameObject theSpawner, GameObject theCam)
+    public void setSpawner(GameObject theSpawner)
     {
         spawner = theSpawner;
-        cam = theCam;
     }
 
     // Update is called once per frame
