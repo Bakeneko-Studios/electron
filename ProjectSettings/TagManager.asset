@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - efield
+  - collectible
   layers:
   - Default
   - TransparentFX
