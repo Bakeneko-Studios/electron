@@ -16,7 +16,15 @@ public class repulsion : MonoBehaviour {
     public void startPhysics()
     {
         started = true;
+        gameObject.GetComponent<Rigidbody2D>().simulated = true;
     }
+
+    public void stopPhysics()
+    {
+        started = false;
+        gameObject.GetComponent<Rigidbody2D>().simulated = false;
+    }
+
     void FixedUpdate() {
  
         if (started)
