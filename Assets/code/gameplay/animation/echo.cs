@@ -11,18 +11,13 @@ public class echo : MonoBehaviour
     public float startTimeBtwSpawns;
     
     public GameObject[] echos;
-    void Start()
-    {
-
-
-    }
     void Update()
     {
         if(timeBtwSpawns <= 0)
         {
             int rand = Random.Range(0, echos.Length);
             GameObject instance = (GameObject)Instantiate(echos[rand], transform.position, Quaternion.identity);
-            Destroy(instance, 8f);
+            Destroy(instance, 3f);
             timeBtwSpawns = startTimeBtwSpawns;
         }
         else
