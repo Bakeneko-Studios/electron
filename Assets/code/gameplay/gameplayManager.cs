@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class gameplayManager : MonoBehaviour
 {
-    public GameObject victoryPanel;
     public GameObject electron;
+    public GameObject victoryPanel;
+    public GameObject pausePanel;
+    public bool start;
     public bool infiniteCharges = false;
 
-    public void godMode()
+    // Start is called before the first frame update
+    void Start()
     {
-        infiniteCharges = true;
+
     }
+
     public void win()
     {
         victoryPanel.SetActive(true);
@@ -32,15 +36,38 @@ public class gameplayManager : MonoBehaviour
         electron.GetComponent<repulsion>().stopPhysics();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        pause();
+        god();
+    }
+
+    void pause() 
+    {
+        if(Input.GetButtonDown("Jump")) 
+        {
+            start = !start;
+        }
+
+        if (start == true)
+        {
+            electron.GetComponent<repulsion>().startPhysics();
+            pausePanel.SetActive(false);
+        }
+
+        else
+        {
+            electron.GetComponent<repulsion>().stopPhysics();
+            pausePanel.SetActive(true);
+        }
+    }
+
+    void god() 
+    {
+        if(Input.GetKeyDown("g")) 
+        {
+            infiniteCharges = true;
+        }
     }
 }

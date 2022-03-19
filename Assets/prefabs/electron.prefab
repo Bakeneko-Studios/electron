@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 8841835174373067566}
   - component: {fileID: 8841835174373067563}
   - component: {fileID: 8841835174373067560}
+  - component: {fileID: 3182296804862511671}
   m_Layer: 0
   m_Name: electron
   m_TagString: Untagged
@@ -811,7 +812,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8841835174373067565}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -821,7 +822,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &8841835174373067563
 MonoBehaviour:
@@ -835,7 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb766e8a34ef89c44bdc2f540c3ebd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
 --- !u!114 &8841835174373067560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,3 +850,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qt: -0.0001
   started: 0
+--- !u!114 &3182296804862511671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841835174373067565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bd67f97e174492a8c76074f4acf485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
+  coinDisplay: {fileID: 0}

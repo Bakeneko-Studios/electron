@@ -33,9 +33,11 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
         GameObject spawnedCharge = Instantiate(spawningCharge);
         spawnedCharge.transform.position = position;
 
-        if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges)
+        if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges) {
             numOfCharges--;
-        updateText();
+            updateText();
+        }
+
         dragging = false;
 
         // destory self if no more charges left
@@ -76,6 +78,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameplayManager.GetComponent<gameplayManager>().infiniteCharges)
+            text.text = "∞";
     }
 }

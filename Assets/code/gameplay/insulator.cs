@@ -18,7 +18,7 @@ public class insulator : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.GetComponent<electron>()!=null)
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

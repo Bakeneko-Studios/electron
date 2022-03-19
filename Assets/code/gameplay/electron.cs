@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class electron : MonoBehaviour
 {
-    public GameObject manager;
+    GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = GameObject.Find("gameManager");
     }
 
     // Update is called once per frame
