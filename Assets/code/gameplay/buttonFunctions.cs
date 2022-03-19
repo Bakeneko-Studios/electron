@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
-    public GameObject electron;
+    GameObject electron;
     public Transform loadPoint;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        electron = GameObject.Find("electron");
+    }
+
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -26,11 +33,6 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

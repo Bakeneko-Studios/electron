@@ -6,11 +6,11 @@ using TMPro;
 public class coinCount : MonoBehaviour
 {
     public int coins=0;
-    public TextMeshProUGUI coinDisplay;
+    TextMeshProUGUI coinDisplay;
     // Start is called before the first frame update
     void Start()
     {
-        
+        coinDisplay = GameObject.Find("coinCount").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
