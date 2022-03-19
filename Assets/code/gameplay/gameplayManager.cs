@@ -8,17 +8,17 @@ public class gameplayManager : MonoBehaviour
     public GameObject victoryPanel;
     public GameObject pausePanel;
     public GameObject escPanel;
+
     public bool start;
     public bool infiniteCharges = false;
 
-    GameObject restartButton;
+    public GameObject[] hideOnEsc;
     public bool escape;
 
     // Start is called before the first frame update
     void Start()
     {
         electron = GameObject.Find("electron");
-        restartButton = GameObject.Find("restart");
     }
 
     public void win()
@@ -93,16 +93,20 @@ public class gameplayManager : MonoBehaviour
         {
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
-            pausePanel.SetActive(false);
-            restartButton.SetActive(false);
+            for (int i = 0; i < hideOnEsc.Length; i++)
+            {
+                hideOnEsc[i].SetActive(false);
+            }
         }
 
         else
         {
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
-            pausePanel.SetActive(true);
-            restartButton.SetActive(true);
+            for (int i = 0; i < hideOnEsc.Length; i++)
+            {
+                hideOnEsc[i].SetActive(true);
+            }
         }
     }
 }

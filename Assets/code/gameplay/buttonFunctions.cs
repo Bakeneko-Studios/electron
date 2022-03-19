@@ -21,6 +21,8 @@ public class buttonFunctions : MonoBehaviour
     public void loadCheckpoint()
     {
         electron.transform.position=electron.GetComponent<electron>().loadPoint;
+        GetComponent<gameplayManager>().start = false;
+        GetComponent<gameplayManager>().escape = false;
         Debug.Log("checkpoint loaded");
     }
 
