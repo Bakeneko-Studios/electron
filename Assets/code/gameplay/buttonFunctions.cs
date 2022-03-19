@@ -15,6 +15,17 @@ public class buttonFunctions : MonoBehaviour
     {
         electron.transform.position = loadPoint.position;
     }
+
+    public void resume()
+    {
+        GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+    }
+
+    public void mainMenu()
+    {
+        //SceneManager.LoadScene();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
