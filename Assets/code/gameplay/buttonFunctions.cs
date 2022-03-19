@@ -23,7 +23,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void mainMenu()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(0);
     }
 
     // Start is called before the first frame update
