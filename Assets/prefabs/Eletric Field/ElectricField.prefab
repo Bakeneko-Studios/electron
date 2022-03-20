@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7387301148907512921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7387301148907512923}
+  - component: {fileID: 7387301148907512920}
+  m_Layer: 0
+  m_Name: ElectricField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7387301148907512923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387301148907512921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5187539, y: 0.63057846, z: -9.913551}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7387301148907512920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387301148907512921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d2c9f4f85a7d4fac2c3bea05d0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charges: []
+  linePrefab: {fileID: 4340679821111114564, guid: 14f785c9cfde5f4469321dec316b1deb, type: 3}
+  arrowPrefab: {fileID: 8503282124017087205, guid: 9ae6d8215df8dcf44a1a3c7ab5337110, type: 3}
+  arrowRoationOffset: 90
+  spawnArrows: 0
+  showElectricField: 0
+  arrowPositionOffset: 0.4
+  arrowStep: 50
+  numOfPoints: 300
+  step: 0.2
+  margin: 0.4

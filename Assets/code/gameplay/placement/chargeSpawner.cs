@@ -16,6 +16,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     public TextMeshProUGUI text;
     public Color selected;
     public GameObject gameplayManager;
+    public GameObject electricField;
     Color unselected;
     public void OnDrag(PointerEventData eventData)
     {
@@ -33,6 +34,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
         GameObject spawnedCharge = Instantiate(spawningCharge);
         spawnedCharge.transform.position = position;
 
+        electricField.GetComponent<electricFieldLines>().updateCharges();
         if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges) {
             numOfCharges--;
             updateText();
