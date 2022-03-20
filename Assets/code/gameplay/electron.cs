@@ -5,13 +5,14 @@ using UnityEngine;
 public class electron : MonoBehaviour
 {
     GameObject manager;
-    // Start is called before the first frame update
+    public Vector3 loadPoint;
+
     void Start()
     {
         manager = GameObject.Find("gameManager");
+        loadPoint=this.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -22,6 +23,14 @@ public class electron : MonoBehaviour
         if (collision.collider.name == "Finish")
         {
             manager.GetComponent<gameplayManager>().win();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag=="checkpoint" && other.gameObject.transform.position!=loadPoint)
+        {
+            loadPoint=other.gameObject.transform.position;
         }
     }
 }

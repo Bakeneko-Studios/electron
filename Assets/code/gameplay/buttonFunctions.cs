@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class buttonFunctions : MonoBehaviour
 {
     GameObject electron;
-    public Transform loadPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +16,14 @@ public class buttonFunctions : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("scene restarted");
     }
     public void loadCheckpoint()
     {
-        electron.transform.position = loadPoint.position;
+        electron.transform.position=electron.GetComponent<electron>().loadPoint;
+        GetComponent<gameplayManager>().start = false;
+        GetComponent<gameplayManager>().escape = false;
+        Debug.Log("checkpoint loaded");
     }
 
     public void resume()
