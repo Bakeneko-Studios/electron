@@ -207,28 +207,28 @@ public class electricFieldLines : MonoBehaviour
                     invert = false;
                 //up
                 drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin), i, 0);
-                plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin + arrowPositionOffset), i, 0);
+                //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin + arrowPositionOffset), i, 0);
                 //top right
                 drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y + margin), i, 1);
-                plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 1);
+                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 1);
                 //right
                 drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y), i, 2);
-                plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y), i, 2);
+                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y), i, 2);
                 // bottom right
                 drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y - margin), i, 3);
-                plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 3);
+                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 3);
                 // down
                 drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin), i, 4);
-                plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin - arrowPositionOffset), i, 4);
+                //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin - arrowPositionOffset), i, 4);
                 //down left
                 drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y - margin), i, 5);
-                plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 5);
+                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 5);
                 // left
                 drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y), i, 6);
-                plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y), i, 6);
+                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y), i, 6);
                 // top left
                 drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y + margin), i, 7);
-                plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 7);
+                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 7);
             }
 
             //Debug.Log(netE(electron.transform.position.x, electron.transform.position.y));
