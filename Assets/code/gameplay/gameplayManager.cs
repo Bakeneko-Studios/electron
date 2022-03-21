@@ -42,6 +42,12 @@ public class gameplayManager : MonoBehaviour
         electron.GetComponent<repulsion>().stopPhysics();
     }
 
+    public void resetSaves()
+    {
+        placedCharges = new Stack<GameObject>();
+        savedPositions = new Stack<Vector3>();
+    }
+
     // Update is called once per frame
     void Update()
     {

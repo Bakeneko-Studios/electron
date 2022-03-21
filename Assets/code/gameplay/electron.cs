@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class electron : MonoBehaviour
 {
-    GameObject manager;
+    public GameObject gameManager;
     public Vector3 loadPoint;
 
     void Start()
     {
-        manager = GameObject.FindGameObjectWithTag("game manager");
+        gameManager = GameObject.FindGameObjectWithTag("game manager");
         loadPoint=this.transform.position;
     }
 
@@ -22,7 +22,7 @@ public class electron : MonoBehaviour
     {
         if (collision.collider.name == "Finish")
         {
-            manager.GetComponent<gameplayManager>().win();
+            gameManager.GetComponent<gameplayManager>().win();
         }
     }
 
@@ -30,6 +30,7 @@ public class electron : MonoBehaviour
     {
         if(other.gameObject.tag=="checkpoint" && other.gameObject.transform.position!=loadPoint)
         {
+            gameManager.GetComponent<gameplayManager>().resetSaves();
             loadPoint=other.gameObject.transform.position;
         }
     }
