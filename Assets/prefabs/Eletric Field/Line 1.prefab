@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340679821111114566}
   - component: {fileID: 4340679821111114565}
+  - component: {fileID: 2739549022752350607}
   m_Layer: 0
   m_Name: Line 1
   m_TagString: Untagged
@@ -45,20 +46,20 @@ LineRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
-  m_LightProbeUsage: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7e2227b98d8ed3341808b7566b994704, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 100000, guid: 910606942ccdb814c90b90013b553ffa, type: 3}
   m_ScaleInLightmap: 1
   m_ReceiveGI: 1
   m_PreserveUVs: 0
@@ -1126,6 +1127,21 @@ LineRenderer:
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &2739549022752350607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340679821111114564}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c16c2839299643f885e82d2b1ec26d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawningArrow: {fileID: 8503282124017087205, guid: 9ae6d8215df8dcf44a1a3c7ab5337110, type: 3}
+  step: 10
+  electricField: {fileID: 0}
