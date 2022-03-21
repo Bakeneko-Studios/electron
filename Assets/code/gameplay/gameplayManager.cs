@@ -135,6 +135,7 @@ public class gameplayManager : MonoBehaviour
                     }
                 }
                 Destroy(placedCharges.Pop());
+                electron.SetActive(true);
                 electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
                 electron.transform.position = savedPositions.Pop();
                 Debug.Log("undid placement");

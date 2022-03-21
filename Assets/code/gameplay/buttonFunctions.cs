@@ -27,6 +27,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void loadCheckpoint()
     {
+        electron.SetActive(true);
         electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
         electron.transform.position = electron.GetComponent<electron>().loadPoint;
         GetComponent<gameplayManager>().start = false;
