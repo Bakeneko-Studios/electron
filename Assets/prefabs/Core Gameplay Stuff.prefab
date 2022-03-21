@@ -3151,8 +3151,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 7886531970113458307}
     m_Modifications:
     - target: {fileID: 7387301148907512920, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
+      propertyPath: arrowStep
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387301148907512920, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
+      propertyPath: numOfPoints
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387301148907512920, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
+      propertyPath: spawnArrows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387301148907512920, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
       propertyPath: showElectricField
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7387301148907512921, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
       propertyPath: m_Name
