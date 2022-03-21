@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Alan's scene.unity
     guid: 1ca388b75ff46514c8a2722d93b97a8f
   - enabled: 1
-    path: Assets/Scenes/Anda's scene.unity
-    guid: a774dfe3212e35b4096bce6e278cf743
-  - enabled: 1
     path: Assets/Scenes/Ray's scene.unity
     guid: a5aa5c4f7c495438f9ee58f5c1429b3a
+  - enabled: 1
+    path: Assets/Scenes/Trail Testing Area.unity
+    guid: 8754b95a41eafdf4f9fb4b92efa893fb
   m_configObjects: {}
