@@ -8,8 +8,6 @@ TagManager:
   - Missile
   - collectible
   - checkpoint
-  - game manager
-  - player
   layers:
   - Default
   - TransparentFX
