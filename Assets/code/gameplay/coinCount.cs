@@ -16,7 +16,7 @@ public class coinCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinDisplay.text="Coins: "+coins.ToString();
+        coinDisplay.text="Coins: " + coins.ToString();
     }
 
     void OnCollisionEnter2D(Collision2D other)

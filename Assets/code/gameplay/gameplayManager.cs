@@ -10,36 +10,33 @@ public class gameplayManager : MonoBehaviour
     public GameObject escPanel;
     public Stack<GameObject> placedCharges = new Stack<GameObject>();
     public Stack<Vector3> savedPositions = new Stack<Vector3>();
+
+
     public bool start;
     public bool infiniteCharges = false;
-
-    public GameObject[] hideOnEsc;
     public bool escape;
+
+    GameObject positiveSlot;
+    GameObject negativeSlot;
+    public GameObject[] hideOnEsc;
+
 
     // Start is called before the first frame update
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
+        positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
+        negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
     }
 
     public void win()
     {
         victoryPanel.SetActive(true);
-    }
-
-    public void startPhysics()
-    {
-        //GameObject[] efield = GameObject.FindGameObjectsWithTag("efield");
-        //foreach (GameObject e in efield)
-        //{
-        //    e.GetComponent<repulsion>().startPhysics();
-        //}
-        electron.GetComponent<repulsion>().startPhysics();
-    }
-
-    public void stopPhysics()
-    {
         electron.GetComponent<repulsion>().stopPhysics();
+        for (int i = 0; i < hideOnEsc.Length; i++)
+        {
+            hideOnEsc[i].SetActive(false);
+        }
     }
 
     public void resetSaves()
@@ -57,6 +54,7 @@ public class gameplayManager : MonoBehaviour
         {
             pause();
             god();
+            undo();
         }
 
     }
@@ -85,7 +83,7 @@ public class gameplayManager : MonoBehaviour
     {
         if(Input.GetKeyDown("g")) 
         {
-            infiniteCharges = true;
+            GetComponent<gameplayManager>().infiniteCharges = true;
         }
     }
 
@@ -93,7 +91,7 @@ public class gameplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            escape = !escape;
+            GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
         }
 
         if (escape)
@@ -113,6 +111,33 @@ public class gameplayManager : MonoBehaviour
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);
+            }
+        }
+    }
+
+    void undo()
+    {
+        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKeyDown(KeyCode.Z))
+        {
+            if(placedCharges.Count!=0 && savedPositions.Count!=0)
+            {
+                if(infiniteCharges!=true)
+                {
+                    if(placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    {
+                        positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                        positiveSlot.GetComponent<chargeSpawner>().updateText();
+                    }
+                    if(placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
+                    {
+                        negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                        negativeSlot.GetComponent<chargeSpawner>().updateText();
+                    }
+                }
+                Destroy(placedCharges.Pop());
+                electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+                electron.transform.position = savedPositions.Pop();
+                Debug.Log("undid placement");
             }
         }
     }
