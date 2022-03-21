@@ -9,7 +9,7 @@ public class electron : MonoBehaviour
 
     void Start()
     {
-        manager = GameObject.FindGameObjectWithTag("player");
+        manager = GameObject.FindGameObjectWithTag("game manager");
         loadPoint=this.transform.position;
     }
 

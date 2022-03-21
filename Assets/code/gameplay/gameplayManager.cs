@@ -8,7 +8,8 @@ public class gameplayManager : MonoBehaviour
     public GameObject victoryPanel;
     public GameObject pausePanel;
     public GameObject escPanel;
-
+    public Stack<GameObject> placedCharges = new Stack<GameObject>();
+    public Stack<Vector3> savedPositions = new Stack<Vector3>();
     public bool start;
     public bool infiniteCharges = false;
 
@@ -18,7 +19,7 @@ public class gameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        electron = GameObject.Find("electron");
+        electron = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void win()

@@ -8,6 +8,10 @@ TagManager:
   - Missile
   - collectible
   - checkpoint
+  - game manager
+  - negative slot
+  - positive slot
+  - field lines
   layers:
   - Default
   - TransparentFX

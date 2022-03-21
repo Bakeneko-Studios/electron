@@ -10,7 +10,7 @@ public class repulsion : MonoBehaviour {
     public bool started = false;
 
     void Start() {
-        charge = GameObject.Find("electron");
+        charge = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void startPhysics()

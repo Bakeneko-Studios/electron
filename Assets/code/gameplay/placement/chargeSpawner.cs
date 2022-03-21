@@ -31,21 +31,19 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
 
     public void spawnCharge(Vector3 position)
     {
-        GameObject spawnedCharge = Instantiate(spawningCharge);
-        spawnedCharge.transform.position = position;
-
-        electricField.GetComponent<electricFieldLines>().updateCharges();
-        if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges) {
-            numOfCharges--;
-            updateText();
-        }
-
-        dragging = false;
-
-        // destory self if no more charges left
-        if (numOfCharges == 0)
+        if(numOfCharges>0)
         {
-            Destroy(this.gameObject);
+            GameObject spawnedCharge = Instantiate(spawningCharge);
+            spawnedCharge.transform.position = position;
+            gameplayManager.GetComponent<gameplayManager>().placedCharges.Push(spawnedCharge);
+            gameplayManager.GetComponent<gameplayManager>().savedPositions.Push(gameplayManager.GetComponent<gameplayManager>().electron.transform.position);
+
+            electricField.GetComponent<electricFieldLines>().updateCharges();
+            if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges) {
+                numOfCharges--;
+                updateText();
+            }
+            dragging = false;
         }
     }
   
@@ -66,7 +64,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
         dragging = false;
     }
 
-    void updateText()
+    public void updateText()
     {
         text.text = numOfCharges.ToString();
     }
