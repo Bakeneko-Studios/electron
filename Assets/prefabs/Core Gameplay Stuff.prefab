@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 2496080915236083301}
   m_Layer: 0
   m_Name: gameManager
-  m_TagString: Untagged
+  m_TagString: game manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3692,7 +3692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7387301148907512920, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
       propertyPath: showElectricField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7387301148907512921, guid: 9a4ceab1d8feac94cafc74988ae6e21a, type: 3}
       propertyPath: m_Name

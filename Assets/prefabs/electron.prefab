@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 3182296804862511671}
   m_Layer: 0
   m_Name: electron
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb766e8a34ef89c44bdc2f540c3ebd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &8841835174373067560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,4 +864,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  coinDisplay: {fileID: 0}
