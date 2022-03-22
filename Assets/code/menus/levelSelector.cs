@@ -21,7 +21,7 @@ public class levelSelector : MonoBehaviour
     }
     public void levelAnda()
     {
-        SceneManager.LoadScene("Anda's scene");  
+        SceneManager.LoadScene("Trail Testing Area");  
     }
 
     public void levelRay()

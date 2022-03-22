@@ -1565,6 +1565,7 @@ GameObject:
   - component: {fileID: 1888040515656397883}
   - component: {fileID: 1888040515656397880}
   - component: {fileID: 2496080915236083301}
+  - component: {fileID: 1066517761981483181}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: game manager
@@ -1641,6 +1642,18 @@ MonoBehaviour:
   chargeSlots:
   - {fileID: 1888040515735642663}
   - {fileID: 1888040516656922492}
+--- !u!114 &1066517761981483181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888040517741598186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23be8d088846e74cbc6d45bb2d794cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1973714604202916202
 GameObject:
   m_ObjectHideFlags: 0

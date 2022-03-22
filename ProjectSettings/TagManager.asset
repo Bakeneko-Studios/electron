@@ -12,6 +12,8 @@ TagManager:
   - negative slot
   - positive slot
   - field lines
+  - player
+  - skin
   layers:
   - Default
   - TransparentFX
