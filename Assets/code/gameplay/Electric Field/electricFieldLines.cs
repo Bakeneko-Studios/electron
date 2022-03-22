@@ -11,14 +11,10 @@ public class electricFieldLines : MonoBehaviour
 
     public GameObject[] charges;
     public GameObject linePrefab;
-    public GameObject arrowPrefab;
     LineRenderer[,] lr;
-    readonly float k = 8987551792f;
     public GameObject[,] arrows;
-    public float arrowRoationOffset;
     public bool spawnArrows = false;
     public bool showElectricField = false;
-    public float arrowPositionOffset;
     public int arrowStep = 50;
     public int numOfPoints;
     public float step;
@@ -58,9 +54,19 @@ public class electricFieldLines : MonoBehaviour
         updateCharges();
         //numOfPoints = linePrefab.GetComponent<LineRenderer>().positionCount;
     }
-
+    public static void RemoveAt<T>(ref T[] arr, int index)
+    {
+        for (int a = index; a < arr.Length - 1; a++)
+        {
+            // moving elements downwards, to fill the gap at [index]
+            arr[a] = arr[a + 1];
+        }
+        // finally, let's decrement Array's size by one
+        Array.Resize(ref arr, arr.Length - 1);
+    }
     public void updateCharges()
     {
+
         //remove current lines
         foreach (Transform child in transform)
         {
@@ -79,24 +85,17 @@ public class electricFieldLines : MonoBehaviour
                     lr[i, j] = Instantiate(linePrefab).GetComponent<LineRenderer>();
                     lr[i, j].transform.SetParent(this.transform);
                     //lr[i, j].positionCount = numOfPoints;
+
+                    if (spawnArrows)
+                    {
+                        lr[i, j].GetComponent<efArrow>().enabled = true;
+                        lr[i, j].GetComponent<efArrow>().setVariables(arrowStep, this.gameObject);
+                    }
                 }
             }
 
         }
 
-        if (spawnArrows)
-        {
-            arrows = new GameObject[charges.Length, 8];
-            for (int i = 0; i < charges.Length; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    arrows[i, j] = Instantiate(arrowPrefab);
-                    arrows[i, j].transform.SetParent(this.transform);
-                    //arrows[i, j].SetActive(false);
-                }
-            }
-        }
             
 
 
@@ -129,22 +128,22 @@ public class electricFieldLines : MonoBehaviour
     //    }
     //}
 
-    void plotArrow(Vector2 startPos, int chargeIdx, int pointIdx)
-    {
-        if (!spawnArrows)
-            return;
-        arrows[chargeIdx, pointIdx].transform.position = startPos;
-        // roatate arrow towards/away charge\Vector3 targ = staticCompassTarget.transform.position;
-        Vector3 targ = charges[chargeIdx].transform.position;
-        targ.z = 0f;
+    //void plotArrow(Vector2 startPos, int chargeIdx, int pointIdx)
+    //{
+    //    if (!spawnArrows)
+    //        return;
+    //    arrows[chargeIdx, pointIdx].transform.position = startPos;
+    //    // roatate arrow towards/away charge\Vector3 targ = staticCompassTarget.transform.position;
+    //    Vector3 targ = charges[chargeIdx].transform.position;
+    //    targ.z = 0f;
 
-        Vector3 objectPos = arrows[chargeIdx, pointIdx].transform.position;
-        targ.x = targ.x - objectPos.x;
-        targ.y = targ.y - objectPos.y;
+    //    Vector3 objectPos = arrows[chargeIdx, pointIdx].transform.position;
+    //    targ.x = targ.x - objectPos.x;
+    //    targ.y = targ.y - objectPos.y;
 
-        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg + arrowRoationOffset;
-        arrows[chargeIdx, pointIdx].transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
+    //    float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg + arrowRoationOffset;
+    //    arrows[chargeIdx, pointIdx].transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    //}
 
     void drawLine(Vector2 startPos, int chargeIdx, int pointIdx)
     {
@@ -201,34 +200,43 @@ public class electricFieldLines : MonoBehaviour
 
             for (int i = 0; i < charges.Length; i++)
             {
-                if (charges[i].GetComponent<chargepos>().chargeColomb > 0)
-                    invert = true;
-                else
-                    invert = false;
-                //up
-                drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin), i, 0);
-                //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin + arrowPositionOffset), i, 0);
-                //top right
-                drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y + margin), i, 1);
-                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 1);
-                //right
-                drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y), i, 2);
-                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y), i, 2);
-                // bottom right
-                drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y - margin), i, 3);
-                //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 3);
-                // down
-                drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin), i, 4);
-                //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin - arrowPositionOffset), i, 4);
-                //down left
-                drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y - margin), i, 5);
-                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 5);
-                // left
-                drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y), i, 6);
-                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y), i, 6);
-                // top left
-                drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y + margin), i, 7);
-                //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 7);
+
+                try //charge delted in the middle
+                {
+
+                    if (charges[i].GetComponent<chargepos>().chargeColomb > 0)
+                        invert = true;
+                    else
+                        invert = false;
+
+                    drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin), i, 0);
+                    //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y + margin + arrowPositionOffset), i, 0);
+                    //top right
+                    drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y + margin), i, 1);
+                    //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 1);
+                    //right
+                    drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y), i, 2);
+                    //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y), i, 2);
+                    // bottom right
+                    drawLine(new Vector2(charges[i].transform.position.x + margin, charges[i].transform.position.y - margin), i, 3);
+                    //plotArrow(new Vector2(charges[i].transform.position.x + margin + arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 3);
+                    // down
+                    drawLine(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin), i, 4);
+                    //plotArrow(new Vector2(charges[i].transform.position.x, charges[i].transform.position.y - margin - arrowPositionOffset), i, 4);
+                    //down left
+                    drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y - margin), i, 5);
+                    //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y - margin - arrowPositionOffset), i, 5);
+                    // left
+                    drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y), i, 6);
+                    //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y), i, 6);
+                    // top left
+                    drawLine(new Vector2(charges[i].transform.position.x - margin, charges[i].transform.position.y + margin), i, 7);
+                    //plotArrow(new Vector2(charges[i].transform.position.x - margin - arrowPositionOffset, charges[i].transform.position.y + margin + arrowPositionOffset), i, 7);
+                }
+                catch
+                {
+                    updateCharges();
+                }
             }
 
             //Debug.Log(netE(electron.transform.position.x, electron.transform.position.y));

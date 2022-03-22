@@ -5,26 +5,31 @@ using TMPro;
 
 public class coinCount : MonoBehaviour
 {
-    public int coins=0;
+    public int coins=69;
     TextMeshProUGUI coinDisplay;
-    // Start is called before the first frame update
+
     void Start()
     {
         coinDisplay = GameObject.Find("coinCount").GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        coinDisplay.text="Coins: "+coins.ToString();
+
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void updateCoins()
+    {
+        coinDisplay.text="Coins: " + coins.ToString();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag=="collectible")
         {
-            coins+=1;
+            coins+=33554432;
             Destroy(other.gameObject);
+            updateCoins();
         }
     }
 }

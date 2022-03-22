@@ -13,7 +13,7 @@ TagManager:
   - positive slot
   - field lines
   - player
-  - skin
+  - core gameplay
   layers:
   - Default
   - TransparentFX

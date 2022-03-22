@@ -10,36 +10,39 @@ public class gameplayManager : MonoBehaviour
     public GameObject escPanel;
     public Stack<GameObject> placedCharges = new Stack<GameObject>();
     public Stack<Vector3> savedPositions = new Stack<Vector3>();
+
+
     public bool start;
     public bool infiniteCharges = false;
-
-    public GameObject[] hideOnEsc;
     public bool escape;
+
+    GameObject positiveSlot;
+    GameObject negativeSlot;
+    public GameObject[] hideOnEsc;
+
 
     // Start is called before the first frame update
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
+        positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
+        negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
     }
 
     public void win()
     {
         victoryPanel.SetActive(true);
-    }
-
-    public void startPhysics()
-    {
-        //GameObject[] efield = GameObject.FindGameObjectsWithTag("efield");
-        //foreach (GameObject e in efield)
-        //{
-        //    e.GetComponent<repulsion>().startPhysics();
-        //}
-        electron.GetComponent<repulsion>().startPhysics();
-    }
-
-    public void stopPhysics()
-    {
         electron.GetComponent<repulsion>().stopPhysics();
+        for (int i = 0; i < hideOnEsc.Length; i++)
+        {
+            hideOnEsc[i].SetActive(false);
+        }
+    }
+
+    public void resetSaves()
+    {
+        placedCharges = new Stack<GameObject>();
+        savedPositions = new Stack<Vector3>();
     }
 
     // Update is called once per frame
@@ -53,6 +56,13 @@ public class gameplayManager : MonoBehaviour
             god();
         }
 
+        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)))
+        {
+            if(Input.GetKeyDown(KeyCode.Z))
+            {
+                GetComponent<buttonFunctions>().undo();
+            }
+        }
     }
 
     void pause() 
@@ -79,7 +89,7 @@ public class gameplayManager : MonoBehaviour
     {
         if(Input.GetKeyDown("g")) 
         {
-            infiniteCharges = true;
+            GetComponent<gameplayManager>().infiniteCharges = true;
         }
     }
 
@@ -87,7 +97,7 @@ public class gameplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            escape = !escape;
+            GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
         }
 
         if (escape)
