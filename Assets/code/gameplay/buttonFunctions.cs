@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class buttonFunctions : MonoBehaviour
 {
     public GameObject electron;
+    public GameObject positiveSlot;
+    public GameObject negativeSlot;
 
-    GameObject positiveSlot;
-    GameObject negativeSlot;
-
-    // Start is called before the first frame update
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
@@ -25,6 +23,33 @@ public class buttonFunctions : MonoBehaviour
         Debug.Log("scene restarted");
     }
 
+public void undo()
+    {
+        if(!GetComponent<gameplayManager>().escape)
+        {
+            if(GetComponent<gameplayManager>().placedCharges.Count!=0 && GetComponent<gameplayManager>().savedPositions.Count!=0)
+            {
+                if(GetComponent<gameplayManager>().infiniteCharges!=true)
+                {
+                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    {
+                        positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                        positiveSlot.GetComponent<chargeSpawner>().updateText();
+                    }
+                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
+                    {
+                        negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                        negativeSlot.GetComponent<chargeSpawner>().updateText();
+                    }
+                }
+                Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
+                electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+                electron.transform.position=GetComponent<gameplayManager>().savedPositions.Pop();
+                Debug.Log("undid placement");
+            }
+        }
+    }
+    
     public void loadCheckpoint()
     {
         electron.SetActive(true);
@@ -33,14 +58,21 @@ public class buttonFunctions : MonoBehaviour
         GetComponent<gameplayManager>().start = false;
         GetComponent<gameplayManager>().escape = false;
 
-        negativeSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().negativeAmount;
-        positiveSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().positiveAmount;
-
-        negativeSlot.GetComponent<chargeSpawner>().updateText();
-        positiveSlot.GetComponent<chargeSpawner>().updateText();
-
         while(GetComponent<gameplayManager>().placedCharges.Count!=0)
         {
+            if(GetComponent<gameplayManager>().infiniteCharges!=true)
+                {
+                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    {
+                        positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                    }
+                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
+                    {
+                        negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
+                    }
+                }
+            positiveSlot.GetComponent<chargeSpawner>().updateText();
+            negativeSlot.GetComponent<chargeSpawner>().updateText();
             Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
         }
         while(GetComponent<gameplayManager>().savedPositions.Count!=0)
@@ -60,8 +92,6 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         

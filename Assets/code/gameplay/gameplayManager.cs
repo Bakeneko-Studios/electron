@@ -54,9 +54,15 @@ public class gameplayManager : MonoBehaviour
         {
             pause();
             god();
-            undo();
         }
 
+        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)))
+        {
+            if(Input.GetKeyDown(KeyCode.Z))
+            {
+                GetComponent<buttonFunctions>().undo();
+            }
+        }
     }
 
     void pause() 
@@ -111,34 +117,6 @@ public class gameplayManager : MonoBehaviour
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);
-            }
-        }
-    }
-
-    void undo()
-    {
-        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKeyDown(KeyCode.Z))
-        {
-            if(placedCharges.Count!=0 && savedPositions.Count!=0)
-            {
-                if(infiniteCharges!=true)
-                {
-                    if(placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
-                    {
-                        positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
-                        positiveSlot.GetComponent<chargeSpawner>().updateText();
-                    }
-                    if(placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
-                    {
-                        negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
-                        negativeSlot.GetComponent<chargeSpawner>().updateText();
-                    }
-                }
-                Destroy(placedCharges.Pop());
-                electron.SetActive(true);
-                electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
-                electron.transform.position = savedPositions.Pop();
-                Debug.Log("undid placement");
             }
         }
     }
