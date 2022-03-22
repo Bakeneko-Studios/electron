@@ -5,10 +5,8 @@ using UnityEngine;
 public class ItemSlot : MonoBehaviour
 {
     public GameObject mySkin;
-    static GameObject skinSelected;
-    public void equipSkin()
-    {
-        skinSelected = null;
-        skinSelected = mySkin;
+    public void equipSkin() {
+        GameObject.Find("UserData").GetComponent<UserData>().skin = mySkin;
+
     }  
 }
