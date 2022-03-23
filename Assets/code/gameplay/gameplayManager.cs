@@ -33,6 +33,7 @@ public class gameplayManager : MonoBehaviour
     {
         victoryPanel.SetActive(true);
         electron.GetComponent<repulsion>().stopPhysics();
+        GetComponent<timer>().pauseTimer();
         for (int i = 0; i < hideOnEsc.Length; i++)
         {
             hideOnEsc[i].SetActive(false);
@@ -75,12 +76,14 @@ public class gameplayManager : MonoBehaviour
         if (start == true)
         {
             electron.GetComponent<repulsion>().startPhysics();
+            GetComponent<timer>().unpauseTimer();
             pausePanel.SetActive(false);
         }
 
         else
         {
             electron.GetComponent<repulsion>().stopPhysics();
+            GetComponent<timer>().pauseTimer();
             pausePanel.SetActive(true);
         }
     }
@@ -104,6 +107,7 @@ public class gameplayManager : MonoBehaviour
         {
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
+            GetComponent<timer>().pauseTimer();
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);
@@ -114,6 +118,7 @@ public class gameplayManager : MonoBehaviour
         {
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
+            GetComponent<timer>().unpauseTimer();
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);

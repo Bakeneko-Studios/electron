@@ -20,6 +20,7 @@ public class buttonFunctions : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GetComponent<timer>().pauseTimer();
         Debug.Log("scene restarted");
     }
 

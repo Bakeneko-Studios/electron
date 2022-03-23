@@ -18,12 +18,9 @@ public class fakeWall : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.GetComponent<electron>()!=null)
+        if(other.gameObject.tag=="Player")
         {
-            if(other.gameObject.transform.forward.magnitude>=10)
-            {
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
     }
 }
