@@ -31,9 +31,12 @@ public class electron : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        this.GetComponent<AudioSource>().Play();
         if (collision.collider.name == "Finish")
         {
             gameManager.GetComponent<gameplayManager>().win();
+
         }
     }
 
