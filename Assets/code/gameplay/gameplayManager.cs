@@ -33,7 +33,7 @@ public class gameplayManager : MonoBehaviour
     {
         victoryPanel.SetActive(true);
         electron.GetComponent<repulsion>().stopPhysics();
-        GetComponent<timer>().pauseTimer();
+        GetComponent<timer>().enabled=false;
         for (int i = 0; i < hideOnEsc.Length; i++)
         {
             hideOnEsc[i].SetActive(false);
