@@ -30,7 +30,9 @@ public void undo()
         {
             if(GetComponent<gameplayManager>().placedCharges.Count!=0 && GetComponent<gameplayManager>().savedPositions.Count!=0)
             {
-                if(GetComponent<gameplayManager>().infiniteCharges!=true)
+
+                Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
+                if (GetComponent<gameplayManager>().infiniteCharges!=true)
                 {
                     if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
                     {
@@ -43,9 +45,17 @@ public void undo()
                         negativeSlot.GetComponent<chargeSpawner>().updateText();
                     }
                 }
-                Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
-                electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+                //electron.GetComponent<repulsion>().started = false;
+                //electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+                electron.GetComponent<Rigidbody2D>().angularVelocity = 0;
+                electron.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                //electron.GetComponent<Rigidbody2D>().drag = 0;
+                //electron.GetComponent<Rigidbody2D>().angularDrag = 0;
+                //electron.GetComponent<Rigidbody2D>().inertia = 0;
+
+                //electron.GetComponent<repulsion>().started = true;
                 electron.transform.position=GetComponent<gameplayManager>().savedPositions.Pop();
+                //electron.GetComponent<Rigidbody2D>().centerOfMass = electron.transform.position;
                 Debug.Log("undid placement");
             }
         }
