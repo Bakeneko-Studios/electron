@@ -56,6 +56,7 @@ public class timer : MonoBehaviour
     }
     public void resetTimer()
     {
+        levelTime.Stop();
         levelTime.Reset();
     }
 }
