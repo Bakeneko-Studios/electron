@@ -24,9 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Ray's scene.unity
     guid: a5aa5c4f7c495438f9ee58f5c1429b3a
   - enabled: 1
-    path: Assets/Scenes/Trail Testing Area.unity
-    guid: 8754b95a41eafdf4f9fb4b92efa893fb
-  - enabled: 1
     path: Assets/Scenes/Minchan's scene.unity
     guid: fcb86902c118d734892823bfb8667eb4
+  - enabled: 1
+    path: Assets/Scenes/Trail Testing Area.unity
+    guid: 8754b95a41eafdf4f9fb4b92efa893fb
   m_configObjects: {}
