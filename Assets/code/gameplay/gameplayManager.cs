@@ -11,7 +11,6 @@ public class gameplayManager : MonoBehaviour
     public Stack<GameObject> placedCharges = new Stack<GameObject>();
     public Stack<Vector3> savedPositions = new Stack<Vector3>();
 
-
     public bool start;
     public bool infiniteCharges = false;
     public bool escape;
@@ -19,6 +18,7 @@ public class gameplayManager : MonoBehaviour
     GameObject positiveSlot;
     GameObject negativeSlot;
     public GameObject[] hideOnEsc;
+    public AudioSource lofi;
 
 
     // Start is called before the first frame update
@@ -27,6 +27,10 @@ public class gameplayManager : MonoBehaviour
         electron = GameObject.FindGameObjectWithTag("Player");
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
+        if(lofi!=null)
+        {
+            lofi.Play();
+        }
     }
 
     public void win()
@@ -108,6 +112,10 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
+            if(lofi!=null)
+            {
+                lofi.Pause();
+            }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);
@@ -119,6 +127,10 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
+            if(lofi!=null)
+            {
+                lofi.UnPause();
+            }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);
