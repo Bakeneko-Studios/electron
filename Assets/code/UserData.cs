@@ -4,16 +4,41 @@ using UnityEngine;
 
 public class UserData : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject skin;
+
+    //Alan's level
+
+
+    //Anda's level
+
+
+    //Dylan's level
+    public bool coin0=false;
+    public bool coin1=false;
+    public bool coin2=false;
+    public bool coin3=false;
+    public bool coin4=false;
+
+    //Ray's level
+
+
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void Awake()
+    {
+        GameObject[] dataCarriers = GameObject.FindGameObjectsWithTag("user data");
+        if (dataCarriers.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
 }

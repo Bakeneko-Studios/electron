@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameplayManager : MonoBehaviour
 {
@@ -19,9 +20,8 @@ public class gameplayManager : MonoBehaviour
     GameObject negativeSlot;
     public GameObject[] hideOnEsc;
     public AudioSource lofi;
+    GameObject userData;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
@@ -50,7 +50,6 @@ public class gameplayManager : MonoBehaviour
         savedPositions = new Stack<Vector3>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         esc();
@@ -135,6 +134,31 @@ public class gameplayManager : MonoBehaviour
             {
                 hideOnEsc[i].SetActive(true);
             }
+        }
+    }
+
+    void Awake()
+    {
+        userData = GameObject.FindGameObjectWithTag("user data");
+        if(userData.GetComponent<UserData>().coin0==true)
+        {
+            GameObject.Find("Coin (0)").SetActive(false);
+        }
+        if(userData.GetComponent<UserData>().coin1==true)
+        {
+            GameObject.Find("Coin (1)").SetActive(false);
+        }
+        if(userData.GetComponent<UserData>().coin2==true)
+        {
+            GameObject.Find("Coin (2)").SetActive(false);
+        }
+        if(userData.GetComponent<UserData>().coin3==true)
+        {
+            GameObject.Find("Coin (3)").SetActive(false);
+        }
+        if(userData.GetComponent<UserData>().coin4==true)
+        {
+            GameObject.Find("Coin (4)").SetActive(false);
         }
     }
 }
