@@ -20,7 +20,7 @@ public class gameplayManager : MonoBehaviour
     GameObject negativeSlot;
     public GameObject[] hideOnEsc;
     public AudioSource lofi;
-    GameObject userData;
+    public UserData data;
 
     void Start()
     {
@@ -139,26 +139,29 @@ public class gameplayManager : MonoBehaviour
 
     void Awake()
     {
-        userData = GameObject.FindGameObjectWithTag("user data");
-        if(userData.GetComponent<UserData>().coin0==true)
+        data = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        if(GameObject.Find("Coins")!=null)
         {
-            GameObject.Find("Coin (0)").SetActive(false);
-        }
-        if(userData.GetComponent<UserData>().coin1==true)
-        {
-            GameObject.Find("Coin (1)").SetActive(false);
-        }
-        if(userData.GetComponent<UserData>().coin2==true)
-        {
-            GameObject.Find("Coin (2)").SetActive(false);
-        }
-        if(userData.GetComponent<UserData>().coin3==true)
-        {
-            GameObject.Find("Coin (3)").SetActive(false);
-        }
-        if(userData.GetComponent<UserData>().coin4==true)
-        {
-            GameObject.Find("Coin (4)").SetActive(false);
+            if(data.coin0==true)
+            {
+                GameObject.Find("Coin (0)").SetActive(false);
+            }
+            if(data.coin1==true)
+            {
+                GameObject.Find("Coin (1)").SetActive(false);
+            }
+            if(data.coin2==true)
+            {
+                GameObject.Find("Coin (2)").SetActive(false);
+            }
+            if(data.coin3==true)
+            {
+                GameObject.Find("Coin (3)").SetActive(false);
+            }
+            if(data.coin4==true)
+            {
+                GameObject.Find("Coin (4)").SetActive(false);
+            }
         }
     }
 }

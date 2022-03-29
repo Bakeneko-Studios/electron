@@ -8,11 +8,12 @@ public class buttonFunctions : MonoBehaviour
     public GameObject electron;
     public GameObject positiveSlot;
     public GameObject negativeSlot;
+    public gameplayManager gm;
 
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
-
+        gm = GetComponent<gameplayManager>();
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
     }
@@ -26,36 +27,29 @@ public class buttonFunctions : MonoBehaviour
 
 public void undo()
     {
-        if(!GetComponent<gameplayManager>().escape)
+        if(!gm.escape)
         {
-            if(GetComponent<gameplayManager>().placedCharges.Count!=0 && GetComponent<gameplayManager>().savedPositions.Count!=0)
+            if(gm.placedCharges.Count!=0 && gm.savedPositions.Count!=0)
             {
 
-                Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
-                if (GetComponent<gameplayManager>().infiniteCharges!=true)
+                Destroy(gm.placedCharges.Pop());
+                if (gm.infiniteCharges!=true)
                 {
-                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
                     {
                         positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
                         positiveSlot.GetComponent<chargeSpawner>().updateText();
                     }
-                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
+                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
                     {
                         negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
                         negativeSlot.GetComponent<chargeSpawner>().updateText();
                     }
                 }
-                //electron.GetComponent<repulsion>().started = false;
-                //electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
                 electron.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 electron.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                //electron.GetComponent<Rigidbody2D>().drag = 0;
-                //electron.GetComponent<Rigidbody2D>().angularDrag = 0;
-                //electron.GetComponent<Rigidbody2D>().inertia = 0;
-
-                //electron.GetComponent<repulsion>().started = true;
-                electron.transform.position=GetComponent<gameplayManager>().savedPositions.Pop();
-                //electron.GetComponent<Rigidbody2D>().centerOfMass = electron.transform.position;
+                electron.transform.position=gm.savedPositions.Pop();
+                electron.SetActive(true);
                 Debug.Log("undid placement");
             }
         }
@@ -66,36 +60,36 @@ public void undo()
         electron.SetActive(true);
         electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
         electron.transform.position = electron.GetComponent<electron>().loadPoint;
-        GetComponent<gameplayManager>().start = false;
-        GetComponent<gameplayManager>().escape = false;
+        gm.start = false;
+        gm.escape = false;
 
-        while(GetComponent<gameplayManager>().placedCharges.Count!=0)
+        while(gm.placedCharges.Count!=0)
         {
-            if(GetComponent<gameplayManager>().infiniteCharges!=true)
+            if(gm.infiniteCharges!=true)
                 {
-                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
                     {
                         positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
                     }
-                    if(GetComponent<gameplayManager>().placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
+                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
                     {
                         negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
                     }
                 }
             positiveSlot.GetComponent<chargeSpawner>().updateText();
             negativeSlot.GetComponent<chargeSpawner>().updateText();
-            Destroy(GetComponent<gameplayManager>().placedCharges.Pop());
+            Destroy(gm.placedCharges.Pop());
         }
-        while(GetComponent<gameplayManager>().savedPositions.Count!=0)
+        while(gm.savedPositions.Count!=0)
         {
-            GetComponent<gameplayManager>().savedPositions.Pop();
+            gm.savedPositions.Pop();
         }
         Debug.Log("checkpoint loaded");
     }
 
     public void resume()
     {
-        GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+        gm.escape = !gm.escape;
     }
 
     public void mainMenu()
