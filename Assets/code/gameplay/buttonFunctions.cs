@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
-    public GameObject electron;
-    public GameObject positiveSlot;
-    public GameObject negativeSlot;
-    public gameplayManager gm;
+    GameObject electron;
+    GameObject positiveSlot;
+    GameObject negativeSlot;
+    gameplayManager gm;
 
     void Start()
     {
