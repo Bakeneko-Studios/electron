@@ -97,6 +97,11 @@ public void undo()
         SceneManager.LoadScene(1);
     }
 
+    public void nextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     void Update()
     {
         
