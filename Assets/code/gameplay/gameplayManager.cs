@@ -93,9 +93,13 @@ public class gameplayManager : MonoBehaviour
 
     void god() 
     {
-        if(Input.GetKeyDown("g")) 
+        if(GetComponent<gameplayManager>().infiniteCharges == false) 
         {
             GetComponent<gameplayManager>().infiniteCharges = true;
+        }
+        else
+        {
+            GetComponent<gameplayManager>().infiniteCharges = false;
         }
     }
 
@@ -139,6 +143,7 @@ public class gameplayManager : MonoBehaviour
 
     void Awake()
     {
+
         userData = GameObject.FindGameObjectWithTag("user data");
         if(userData.GetComponent<UserData>().coin0==true)
         {
