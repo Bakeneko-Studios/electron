@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 390978103}
   m_Layer: 0
   m_Name: UserData
-  m_TagString: Untagged
+  m_TagString: user data
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -892,6 +892,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
+  coin0: 0
+  coin1: 0
+  coin2: 0
+  coin3: 0
+  coin4: 0
 --- !u!4 &390978104
 Transform:
   m_ObjectHideFlags: 0
