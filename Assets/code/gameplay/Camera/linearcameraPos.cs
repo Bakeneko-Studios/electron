@@ -8,16 +8,28 @@ public class linearcameraPos : MonoBehaviour
 
     private float smoothTime = 0.25f;
     private float velocity;
+    public bool freezex;
+    public bool freezey;
 
-    void Start () {
+    void Start()
+    {
         electron = GameObject.Find("electron");
     }
 
-    void Update() {
-        float targetPositionx = electron.transform.position.x;
-
-        float posx = Mathf.SmoothDamp(transform.position.x,targetPositionx, ref velocity, smoothTime);
+    void Update()
+    {
+        if(freezex==false)
+        {
+            float targetPositionx = electron.transform.position.x;
+            float posx = Mathf.SmoothDamp(transform.position.x,targetPositionx, ref velocity, smoothTime);
+            this.transform.position = new Vector3(posx, 0 , -10f);
+        }
+        if(freezey==false)
+        {
+            float targetPositiony = electron.transform.position.y;
+            float posy = Mathf.SmoothDamp(transform.position.y,targetPositiony, ref velocity, smoothTime);
+            this.transform.position = new Vector3(0, posy , -10f);
+        }
         
-        this.transform.position = new Vector3(posx, 0 , -10f);
     }
 }
