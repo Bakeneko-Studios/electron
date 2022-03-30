@@ -37,6 +37,8 @@ public class DragNDrop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "room") return;
+
         theCharge.GetComponent<Image>().color = invalidLocation;
         //lastTouching = collision.gameObject;
         validPosition = false;
@@ -45,6 +47,9 @@ public class DragNDrop : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
+        if (collision.tag == "room") return;
+
         count--;
         if (count == 0)
         {

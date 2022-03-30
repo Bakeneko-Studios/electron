@@ -16,7 +16,7 @@ public class portals : MonoBehaviour
         Vector3 d = transform.position - obj.transform.position;
         obj.transform.position = destination.transform.position + d;
         Vector2 dir = destination.transform.position - destination.transform.parent.position;
-        obj.gameObject.GetComponent<Rigidbody2D>().AddForce(dir.normalized * teleportForce);
+        obj.gameObject.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * teleportForce);
     }
 
 

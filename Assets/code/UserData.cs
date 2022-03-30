@@ -5,23 +5,11 @@ using UnityEngine;
 public class UserData : MonoBehaviour
 {
     public GameObject skin;
-
-    //Alan's level
-
-
-    //Anda's level
-
-
-    //Dylan's level
     public bool coin0=false;
     public bool coin1=false;
     public bool coin2=false;
     public bool coin3=false;
     public bool coin4=false;
-
-    //Ray's level
-
-
     void Start()
     {
 

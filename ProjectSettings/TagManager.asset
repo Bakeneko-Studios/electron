@@ -4,18 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - efield
-  - Missile
-  - collectible
-  - checkpoint
+  - skin
+  - room
   - game manager
+  - field lines
   - negative slot
   - positive slot
-  - field lines
-  - player
-  - core gameplay
-  - skin
+  - efield
   - user data
+  - collectible
+  - checkpoint
+  - core gameplay
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Boundaries
+  - camera boundaries
   - 
   - 
   - 

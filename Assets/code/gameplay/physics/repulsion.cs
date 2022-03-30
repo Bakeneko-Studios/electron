@@ -8,9 +8,10 @@ public class repulsion : MonoBehaviour {
     //GameObject charge;
     GameObject[] efield;
     public bool started = false;
-
+    GameObject room;
     void Start() {
         //charge = GameObject.FindGameObjectWithTag("Player");
+        room = GameObject.FindGameObjectWithTag("room");
     }
 
     public void startPhysics()
@@ -29,15 +30,25 @@ public class repulsion : MonoBehaviour {
  
         if (started)
         {
-            efield = GameObject.FindGameObjectsWithTag("efield");
-            foreach (GameObject e in efield)
+            foreach (Transform e in room.transform)
             {
-                float q2 = e.GetComponent<chargepos>().chargeColomb;
-                float d = Vector2.Distance(transform.position, e.transform.position);
+                float q2 = e.gameObject.GetComponent<chargepos>().chargeColomb;
+                float d = Vector2.Distance(transform.position, e.position);
 
-                GetComponent<Rigidbody2D>().AddForce((e.transform.position - transform.position).normalized * (-k * (qt * q2) / (d * d)));
+                GetComponent<Rigidbody2D>().AddForce((e.position - transform.position).normalized * (-k * (qt * q2) / (d * d)));
+               
             }
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "room")
+        {
+            room = collision.gameObject;
+        }
+    }
+
+
 }

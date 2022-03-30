@@ -22,28 +22,28 @@ public class electricFieldLines : MonoBehaviour
     bool touchingCharge = false;
     public float margin = 3;
     bool invert = false; // switch electron to proton for testing
-    Vector3 netE(Vector2 pos)
+    GameObject electron;
+    Vector3 netE(Vector2 pos, GameObject curCharge)
     {
         float x = pos.x;
         float y = pos.y;
 
         double ex = x;
         double ey = y;
-
-        for (int i=0; i<charges.Length; i++)
+        
+        foreach (Transform charge in curCharge.transform.parent)
         {
-            float xDist = charges[i].transform.position.x - x;
-            float yDist = charges[i].transform.position.y - y;
+            float xDist = charge.position.x - x;
+            float yDist = charge.position.y - y;
             float denom = Mathf.Pow(Mathf.Pow(xDist, 2) + Mathf.Pow(yDist, 2), 2);
-            double num = charges[i].GetComponent<chargepos>().chargeColomb / (4 * Mathf.PI * 8.85e-12); // permittivity of free space
+            double num = charge.GetComponent<chargepos>().chargeColomb / (4 * Mathf.PI * 8.85e-12); // permittivity of free space
             if (invert)
                 num *= -1;
 
             ex += num * xDist / denom;
             ey += num * yDist / denom;
         }
-        //ex /= 100;
-        //ey /= 100;
+
         return new Vector3((float)ex,(float)ey,0);
     }
 
@@ -52,6 +52,7 @@ public class electricFieldLines : MonoBehaviour
     void Start()
     {
         updateCharges();
+        electron = GameObject.FindGameObjectWithTag("Player");
         //numOfPoints = linePrefab.GetComponent<LineRenderer>().positionCount;
     }
     public static void RemoveAt<T>(ref T[] arr, int index)
@@ -152,27 +153,47 @@ public class electricFieldLines : MonoBehaviour
         linePoints[0] = startPos;
         for (int i = 1; i < numOfPoints; i++)
         {
-            linePoints[i] = Vector2.MoveTowards(linePoints[i - 1], netE(linePoints[i - 1]), step);
+            linePoints[i] = Vector2.MoveTowards(linePoints[i - 1], netE(linePoints[i - 1], charges[chargeIdx]), step);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(linePoints[i], 0.0f);
 
+            bool stop = true;
             for (int j = 0; j < colliders.Length; j++)
             {
                 if (colliders[j].tag == "efield")
                 {
+                    stop = true;
                     //remove repeating lines
                     if (colliders[j].GetComponent<chargepos>().chargeColomb > 0 && charges[chargeIdx].GetComponent<chargepos>().chargeColomb < 0)
                     {
 
                         lr[chargeIdx, pointIdx].gameObject.SetActive(false);
-                       
+
                         return;
                     }
-                    Array.Resize(ref linePoints, i+1);
-                    lr[chargeIdx, pointIdx].positionCount = linePoints.Length;
-                    lr[chargeIdx, pointIdx].SetPositions(linePoints);
-                   
-                    return;
+                    break;
                 }
+                else if (colliders[j].tag == "room")
+                {
+
+                    // check if the room collider is the parent of the charge
+                    if (colliders[j].gameObject == charges[chargeIdx].transform.parent.gameObject)
+                    {
+                        stop = false;
+                        break;
+                    }
+                }
+
+                
+            }
+
+            if (stop)
+            {
+
+                Array.Resize(ref linePoints, i + 1);
+                lr[chargeIdx, pointIdx].positionCount = linePoints.Length;
+                lr[chargeIdx, pointIdx].SetPositions(linePoints);
+
+                return;
             }
         }
 
