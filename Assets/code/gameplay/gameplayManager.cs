@@ -139,7 +139,9 @@ public class gameplayManager : MonoBehaviour
 
     void Awake()
     {
-        data = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        //data = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        if(data!=null)
+        {
         if(GameObject.Find("Coins")!=null)
         {
             if(data.coin0==true)
@@ -162,6 +164,7 @@ public class gameplayManager : MonoBehaviour
             {
                 GameObject.Find("Coin (4)").SetActive(false);
             }
+        }
         }
     }
 }
