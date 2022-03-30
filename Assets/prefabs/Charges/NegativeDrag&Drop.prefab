@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8132210905975500055}
   - component: {fileID: 8132210905975500054}
   - component: {fileID: 8132210905975500053}
-  - component: {fileID: 5959072395360776776}
   m_Layer: 5
   m_Name: NegativeDrag&Drop
   m_TagString: Untagged
@@ -103,19 +102,6 @@ MonoBehaviour:
   invalidLocation: {r: 0.3773585, g: 0.26877892, b: 0.26877892, a: 1}
   validLocation: {r: 1, g: 0, b: 0, a: 1}
   theCharge: {fileID: 8132210906479942587}
---- !u!114 &5959072395360776776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132210905975500051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939cd87249b7b4fb89b2ebf74df4c296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeColomb: -0.0001
 --- !u!1 &8132210906479942587
 GameObject:
   m_ObjectHideFlags: 0

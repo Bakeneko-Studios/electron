@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeColomb: -0.0001
-  curRoom: 0
+  destroyOnHit: 1
 --- !u!61 &5419725018703368362
 BoxCollider2D:
   m_ObjectHideFlags: 0
