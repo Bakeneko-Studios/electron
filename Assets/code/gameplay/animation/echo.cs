@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class echo : MonoBehaviour
 {
-    //This Script just spawns a list of objects randomly on the position of the trail
-    //The stuff you attach on this thing should be animated with fadding animation
-    //Still room for improvement, I want to make it not spawn when the onject is moving
+    private Vector2 curDirection;
+    public float minDistance = 1f;
+
     private float timeBtwSpawns;
     public float startTimeBtwSpawns;
+    public float dTime = 1f;
     
     public GameObject[] echos;
+
     void Update()
     {
-        if(timeBtwSpawns <= 0)
+        curDirection = gameObject.GetComponentInParent<Rigidbody2D>().velocity;
+        //Debug.Log(curDirection);
+        if (curDirection.y > minDistance | curDirection.y < -minDistance | curDirection.x > minDistance | curDirection.x < -minDistance)
         {
-            int rand = Random.Range(0, echos.Length);
-            GameObject instance = (GameObject)Instantiate(echos[rand], transform.position, Quaternion.identity);
-            Destroy(instance, 3f);
-            timeBtwSpawns = startTimeBtwSpawns;
-        }
-        else
-        {
-            timeBtwSpawns -= Time.deltaTime;
+            if(timeBtwSpawns <= 0)
+            {
+                int rand = Random.Range(0, echos.Length);
+                GameObject instance = (GameObject)Instantiate(echos[rand], transform.position, Quaternion.identity);
+                Destroy(instance, dTime);
+                timeBtwSpawns = startTimeBtwSpawns;
+            }
+            else
+            {
+                timeBtwSpawns -= Time.deltaTime;
+            }
         }
     }
 }
