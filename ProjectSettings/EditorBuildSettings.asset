@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/world1/level5.unity
     guid: cf3013b316c5c4327957df6fb1d2185d
   - enabled: 1
+    path: Assets/Scenes/world1/level6.unity
+    guid: d876a0bafb6b9421b84cf80426622f66
+  - enabled: 1
+    path: Assets/Scenes/world1/level7.unity
+    guid: dcdc9400ac046449bbe26314e1fdb88b
+  - enabled: 1
     path: Assets/Scenes/Dylan's scene.unity
     guid: 23d4bf8691bb044228e78621eb646ff8
   - enabled: 1
