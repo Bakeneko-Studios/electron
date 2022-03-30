@@ -8,9 +8,10 @@ public class repulsion : MonoBehaviour {
     //GameObject charge;
     GameObject[] efield;
     public bool started = false;
-    public GameObject room;
+    GameObject room;
     void Start() {
         //charge = GameObject.FindGameObjectWithTag("Player");
+        room = GameObject.FindGameObjectWithTag("room");
     }
 
     public void startPhysics()
