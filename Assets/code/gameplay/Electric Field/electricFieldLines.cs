@@ -163,9 +163,8 @@ public class electricFieldLines : MonoBehaviour
                 {
                     stop = true;
                     //remove repeating lines
-                    if (colliders[j].GetComponent<chargepos>().chargeColomb > 0 && charges[chargeIdx].GetComponent<chargepos>().chargeColomb < 0)
+                    if (colliders[j].gameObject.GetComponent<chargepos>().chargeColomb < 0 && charges[chargeIdx].GetComponent<chargepos>().chargeColomb > 0)
                     {
-
                         lr[chargeIdx, pointIdx].gameObject.SetActive(false);
 
                         return;
