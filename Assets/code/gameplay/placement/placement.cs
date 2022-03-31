@@ -24,7 +24,7 @@ public class placement : MonoBehaviour, IPointerDownHandler
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // if did not click on object
-            if (hit.collider == null)
+            if (hit.collider == null || hit.collider.tag=="room")
             {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().spawnCharge(new Vector3(mousePos.x, mousePos.y, 0));
             }
@@ -86,7 +86,8 @@ public class placement : MonoBehaviour, IPointerDownHandler
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // if did not click on object
-            if(hit.collider == null) {
+            if(hit.collider == null || hit.collider.tag=="room")
+            {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().spawnCharge(new Vector3(mousePos.x, mousePos.y, 0));
             }
         }
