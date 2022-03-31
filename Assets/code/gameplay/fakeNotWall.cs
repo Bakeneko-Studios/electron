@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fakeWall : MonoBehaviour
+public class fakeNotWall : MonoBehaviour
 {
+    public Color wallColor;
     void Start()
     {
         
@@ -11,14 +12,13 @@ public class fakeWall : MonoBehaviour
 
     void Update()
     {
-
+        
     }
-    
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag=="Player")
         {
-            Destroy(this.gameObject);
+            this.gameObject.GetComponent<SpriteRenderer>().color=wallColor;
         }
     }
 }
