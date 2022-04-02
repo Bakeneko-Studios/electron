@@ -9,7 +9,9 @@ public class electron : MonoBehaviour
     public Vector3 loadPoint;
     public int negativeAmount;
     public int positiveAmount;
-
+    public Rigidbody2D rib;
+    public Vector3 velocity;
+    public float speedMultiplier;
     TextMeshProUGUI negativeText;
     TextMeshProUGUI positiveText;
 
@@ -17,6 +19,8 @@ public class electron : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager");
         loadPoint=this.transform.position;
+
+        rib=GetComponent<Rigidbody2D>();
 
         negativeText = GameObject.Find("chargeSlots/negative/Text (TMP)").GetComponent<TextMeshProUGUI>();
         positiveText = GameObject.Find("chargeSlots/positive/Text (TMP)").GetComponent<TextMeshProUGUI>();
@@ -26,7 +30,7 @@ public class electron : MonoBehaviour
 
     void Update()
     {
-        
+        velocity = rib.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +40,12 @@ public class electron : MonoBehaviour
         if (collision.collider.name == "Finish")
         {
             gameManager.GetComponent<gameplayManager>().win();
-
+        }
+        if(collision.collider.CompareTag("bouncy boi"))
+        {
+            var speed = velocity.magnitude;
+            var direction = Vector3.Reflect(velocity.normalized, collision.contacts[0].normal);
+            rib.velocity = direction*Mathf.Max(speed*speedMultiplier,0f);
         }
     }
 

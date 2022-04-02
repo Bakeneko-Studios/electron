@@ -15,6 +15,7 @@ TagManager:
   - collectible
   - checkpoint
   - core gameplay
+  - bouncy boi
   layers:
   - Default
   - TransparentFX
