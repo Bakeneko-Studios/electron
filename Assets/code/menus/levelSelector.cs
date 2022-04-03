@@ -65,6 +65,11 @@ public class levelSelector : MonoBehaviour
         SceneManager.LoadScene("Minchan's scene");
     }
 
+    public void loadLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
     public void mainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
