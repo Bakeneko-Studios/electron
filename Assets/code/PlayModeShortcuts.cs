@@ -1,3 +1,4 @@
+#if (UNITY_EDITOR) 
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
 
@@ -24,3 +25,4 @@ public static class EnterPlayModeBindings
         ShortcutManager.instance.activeProfileId = "Default";
     }
 }
+#endif
