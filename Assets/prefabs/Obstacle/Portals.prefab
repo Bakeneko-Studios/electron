@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 9182666522685830924}
+  teleportForce: 500
 --- !u!61 &7323223112259555727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 4647563625509637247}
+  teleportForce: 200
 --- !u!61 &7323223112476079343
 BoxCollider2D:
   m_ObjectHideFlags: 0

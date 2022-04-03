@@ -13,10 +13,14 @@ public class portals : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D obj) {
-        Vector3 d = transform.position - obj.transform.position;
-        obj.transform.position = destination.transform.position + d;
-        Vector2 dir = destination.transform.position - destination.transform.parent.position;
-        obj.gameObject.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * teleportForce);
+        if (obj.collider.tag == "Player")
+        {
+            //Vector3 d = transform.position - transform.GetChild(0).position;
+            obj.transform.position = destination.transform.position;
+            Vector2 dir = destination.transform.position - destination.transform.parent.position;
+            Debug.Log(dir);
+            obj.gameObject.GetComponent<Rigidbody2D>().AddForce(dir.normalized * teleportForce);
+        }
     }
 
 
