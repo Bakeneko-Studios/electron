@@ -10,6 +10,7 @@ public class linearcameraPos : MonoBehaviour
     private float velocity;
     public bool freezex;
     public bool freezey;
+    public float verticalDilation = 2.3f;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class linearcameraPos : MonoBehaviour
         if(freezey==false)
         {
             float targetPositiony = electron.transform.position.y;
-            float posy = Mathf.SmoothDamp(transform.position.y,targetPositiony, ref velocity, smoothTime);
+            float posy = Mathf.SmoothDamp(transform.position.y,targetPositiony + verticalDilation, ref velocity, smoothTime);
             this.transform.position = new Vector3(0, posy , -10f);
         }
         
