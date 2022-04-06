@@ -43,6 +43,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
                 numOfCharges--;
                 updateText();
             }
+            gameplayManager.GetComponent<scoring>().chargesUsed+=1;
             dragging = false;
         }
     }

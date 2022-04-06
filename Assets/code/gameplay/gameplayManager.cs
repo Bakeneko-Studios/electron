@@ -21,12 +21,14 @@ public class gameplayManager : MonoBehaviour
     public GameObject[] hideOnEsc;
     public AudioSource lofi;
     public UserData data;
+    public scoring scoring;
 
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
+        scoring = GetComponent<scoring>();
         if(lofi!=null)
         {
             lofi.Play();
@@ -42,6 +44,7 @@ public class gameplayManager : MonoBehaviour
         {
             hideOnEsc[i].SetActive(false);
         }
+        scoring.results();
     }
 
     public void resetSaves()
@@ -144,26 +147,26 @@ public class gameplayManager : MonoBehaviour
         {
         if(GameObject.Find("Coins")!=null)
         {
-            if(data.coin0==true)
-            {
-                GameObject.Find("Coin (0)").SetActive(false);
-            }
-            if(data.coin1==true)
-            {
-                GameObject.Find("Coin (1)").SetActive(false);
-            }
-            if(data.coin2==true)
-            {
-                GameObject.Find("Coin (2)").SetActive(false);
-            }
-            if(data.coin3==true)
-            {
-                GameObject.Find("Coin (3)").SetActive(false);
-            }
-            if(data.coin4==true)
-            {
-                GameObject.Find("Coin (4)").SetActive(false);
-            }
+            //if(data.coin0==true)
+            //{
+            //    GameObject.Find("Coin (0)").SetActive(false);
+            //}
+            //if(data.coin1==true)
+            //{
+            //    GameObject.Find("Coin (1)").SetActive(false);
+            //}
+            //if(data.coin2==true)
+            //{
+            //    GameObject.Find("Coin (2)").SetActive(false);
+            //}
+            //if(data.coin3==true)
+            //{
+            //    GameObject.Find("Coin (3)").SetActive(false);
+            //}
+            //if(data.coin4==true)
+            //{
+            //    GameObject.Find("Coin (4)").SetActive(false);
+            //}
         }
         }
     }

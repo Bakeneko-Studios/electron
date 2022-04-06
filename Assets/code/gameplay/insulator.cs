@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class insulator : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject gameManager;
     void Start()
     {
-        
+        gameManager = GameObject.FindGameObjectWithTag("game manager");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
-    void OnCollisionEnter2D(Collision2D other){
+    void OnCollisionEnter2D(Collision2D other)
+    {
         if(other.gameObject.GetComponent<electron>()!=null)
         {
+            other.gameObject.GetComponent<repulsion>().stopPhysics();
             other.gameObject.SetActive(false);
+            gameManager.GetComponent<scoring>().deaths+=1;
         }
     }
 }
