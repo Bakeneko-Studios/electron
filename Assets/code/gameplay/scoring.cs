@@ -98,23 +98,23 @@ public class scoring : MonoBehaviour
     {
         while(displayedScore<score)
         {
-            yield return new WaitForSeconds(0.005f);
-            displayedScore+=score/100;
+            yield return new WaitForSeconds(0.015f);
+            displayedScore+=score/200;
             scoreCount.text = "Score: " + displayedScore.ToString();
         }
     }
 
     IEnumerator showBreakdown()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.2f);
         scoreBreakdown.text = "Star bonus: +" + (stars*20000).ToString();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = "Coin bonus: +" + (collectedCoins*10000).ToString();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = "Death penalty: -" + (deaths*5000).ToString();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = "Time bonus: +" + timeBonus.ToString();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         scoreBreakdown.gameObject.SetActive(false);
     }
 }
