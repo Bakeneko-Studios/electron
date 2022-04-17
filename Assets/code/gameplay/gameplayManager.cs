@@ -23,6 +23,9 @@ public class gameplayManager : MonoBehaviour
     public UserData data;
     public scoring scoring;
 
+    public int nextSceneLoad;
+    int unlockedLevel;
+
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
@@ -33,6 +36,9 @@ public class gameplayManager : MonoBehaviour
         {
             lofi.Play();
         }
+
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
     }
 
     public void win()
@@ -45,6 +51,16 @@ public class gameplayManager : MonoBehaviour
             hideOnEsc[i].SetActive(false);
         }
         scoring.results();
+
+        if(SceneManager.GetActiveScene().buildIndex == 11) 
+        {
+            Debug.Log("World 1 finished");
+        } else {
+            if (nextSceneLoad > unlockedLevel) 
+            {
+                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 2;
+            }
+        }
     }
 
     public void resetSaves()

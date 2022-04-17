@@ -1,10 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class levelSelector : MonoBehaviour
 {
+    public Button[] lvlButtons;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        int levelAt = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 2;
+
+        for (int i = 0; i < lvlButtons.Length; i++)
+        {
+            if (i + 2 > levelAt)
+                lvlButtons[i].interactable = false;
+        }
+    }
+
     public void level1() {
         SceneManager.LoadScene("level1");
     }
@@ -44,7 +59,7 @@ public class levelSelector : MonoBehaviour
     public void level10() {
         SceneManager.LoadScene("level10");
     }
-    
+
     public void levelDylan()
     {
         SceneManager.LoadScene("Dylan's scene");
