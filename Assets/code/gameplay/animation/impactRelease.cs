@@ -5,6 +5,7 @@ using UnityEngine;
 public class impactRelease : MonoBehaviour
 {
     public GameObject myPartical;
+    public bool directional = true;
 
     private Vector2 curDirection;
     //Get Direction
@@ -19,7 +20,14 @@ public class impactRelease : MonoBehaviour
         Vector3 daPos = new Vector3(transform.position.x+(curDirection.x/30), transform.position.y+(curDirection.y/30), transform.position.z);
         Quaternion daQuat = Quaternion.LookRotation(Vector3.forward, curDirection);
 
-        GameObject particalC = Instantiate(myPartical, daPos, daQuat);
+        if (directional == true)
+        {
+            GameObject particalC = Instantiate(myPartical, daPos, daQuat);
+        }
+        else
+        {
+            GameObject particalC = Instantiate(myPartical, gameObject.transform.position, Quaternion.identity);
+        }
     }
 }
 //Quaternion(0.707106829,0,0,0.707106829)
