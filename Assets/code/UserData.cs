@@ -5,6 +5,7 @@ using UnityEngine;
 public class UserData : MonoBehaviour
 {
     public GameObject skin;
+    public int unlockedLevel;
     public bool coin0=false;
     public bool coin1=false;
     public bool coin2=false;

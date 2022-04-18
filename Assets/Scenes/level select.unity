@@ -5266,6 +5266,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391dd8095e30e4773ae72ec301184dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvlButtons:
+  - {fileID: 2020869366}
+  - {fileID: 1769406415}
+  - {fileID: 706511057}
+  - {fileID: 930709467}
+  - {fileID: 1501242509}
+  - {fileID: 1796556422}
+  - {fileID: 741017675}
+  - {fileID: 862189297}
+  - {fileID: 352011078}
+  - {fileID: 1578007009}
 --- !u!224 &1660468477
 RectTransform:
   m_ObjectHideFlags: 0
