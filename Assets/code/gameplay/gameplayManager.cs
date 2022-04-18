@@ -15,6 +15,7 @@ public class gameplayManager : MonoBehaviour
     public bool start;
     public bool infiniteCharges = false;
     public bool escape;
+    bool victory = false;
 
     GameObject positiveSlot;
     GameObject negativeSlot;
@@ -43,13 +44,19 @@ public class gameplayManager : MonoBehaviour
 
     public void win()
     {
+        victory = true;
         victoryPanel.SetActive(true);
         electron.GetComponent<repulsion>().stopPhysics();
         GetComponent<timer>().enabled=false;
+        if(lofi!=null)
+        {
+            lofi.Pause();
+        }
         for (int i = 0; i < hideOnEsc.Length; i++)
         {
             hideOnEsc[i].SetActive(false);
         }
+
         scoring.results();
 
         if(SceneManager.GetActiveScene().buildIndex == 11) 
@@ -90,7 +97,7 @@ public class gameplayManager : MonoBehaviour
 
     void pause() 
     {
-        if(Input.GetButtonDown("Jump")) 
+        if(Input.GetButtonDown("Jump") && victory == false) 
         {
             start = !start;
         }
@@ -98,14 +105,14 @@ public class gameplayManager : MonoBehaviour
         if (start == true)
         {
             electron.GetComponent<repulsion>().startPhysics();
-            GetComponent<timer>().unpauseTimer();
+            //GetComponent<timer>().unpauseTimer();
             pausePanel.SetActive(false);
         }
 
         else
         {
             electron.GetComponent<repulsion>().stopPhysics();
-            GetComponent<timer>().pauseTimer();
+            //GetComponent<timer>().pauseTimer();
             pausePanel.SetActive(true);
         }
     }
@@ -120,7 +127,7 @@ public class gameplayManager : MonoBehaviour
 
     void esc() 
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape) && victory == false) 
         {
             GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
         }
