@@ -57,17 +57,17 @@ public class electron : MonoBehaviour
             gameManager.GetComponent<gameplayManager>().resetSaves();
             loadPoint = other.gameObject.transform.position;
             firstCheckpoint = true;
+            
             saveAmount();
         }
     }
 
     void saveAmount()
     {
-        if(!gameManager.GetComponent<gameplayManager>().escape)
+        if(!gameManager.GetComponent<gameplayManager>().infiniteCharges)
         {
             negativeAmount = int.Parse(negativeText.text);
             positiveAmount = int.Parse(positiveText.text);
         }
-
     }
 }
