@@ -57,34 +57,32 @@ public void undo()
     
     public void loadCheckpoint()
     {
-        electron.SetActive(true);
-        electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
-        electron.transform.position = electron.GetComponent<electron>().loadPoint;
-        gm.start = false;
-        gm.escape = false;
+        if (electron.GetComponent<electron>().firstCheckpoint)
+        {
+            electron.SetActive(true);
+            electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+            electron.transform.position = electron.GetComponent<electron>().loadPoint;
+            gm.start = false;
+            gm.escape = false;
+            
+            negativeSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().negativeAmount;
+            positiveSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().positiveAmount;
 
-        while(gm.placedCharges.Count!=0)
-        {
-            if(gm.infiniteCharges!=true)
-                {
-                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
-                    {
-                        positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
-                    }
-                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb<0)
-                    {
-                        negativeSlot.GetComponent<chargeSpawner>().numOfCharges++;
-                    }
-                }
-            positiveSlot.GetComponent<chargeSpawner>().updateText();
             negativeSlot.GetComponent<chargeSpawner>().updateText();
-            Destroy(gm.placedCharges.Pop());
+            positiveSlot.GetComponent<chargeSpawner>().updateText();
+
+            while(gm.savedPositions.Count!=0)
+            {
+                Destroy(gm.placedCharges.Pop());
+                gm.savedPositions.Pop();
+            }
+            Debug.Log("checkpoint loaded");
         }
-        while(gm.savedPositions.Count!=0)
+        else
         {
-            gm.savedPositions.Pop();
+            restart();
         }
-        Debug.Log("checkpoint loaded");
+        
     }
 
     public void resume()

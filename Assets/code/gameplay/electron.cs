@@ -9,6 +9,7 @@ public class electron : MonoBehaviour
     public Vector3 loadPoint;
     public int negativeAmount;
     public int positiveAmount;
+    public bool firstCheckpoint = false;
     public Rigidbody2D rib;
     public Vector3 velocity;
     public float speedMultiplier;
@@ -55,7 +56,7 @@ public class electron : MonoBehaviour
         {
             gameManager.GetComponent<gameplayManager>().resetSaves();
             loadPoint = other.gameObject.transform.position;
-
+            firstCheckpoint = true;
             saveAmount();
         }
     }
