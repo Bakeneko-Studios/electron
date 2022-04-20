@@ -57,6 +57,12 @@ EditorBuildSettings:
     path: Assets/Scenes/world2/level11.unity
     guid: 2f0ef0f1f4970434885dffb9358a2b0f
   - enabled: 1
+    path: Assets/Scenes/world2/level12.unity
+    guid: 1e56543517114476db6d51e2686e34a3
+  - enabled: 1
+    path: Assets/Scenes/world2/level13.unity
+    guid: 39dc407b4a7f541f4865f580735767c4
+  - enabled: 1
     path: Assets/Scenes/Dylan's scene.unity
     guid: 23d4bf8691bb044228e78621eb646ff8
   - enabled: 1

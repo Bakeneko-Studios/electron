@@ -64,6 +64,14 @@ public class levelSelector : MonoBehaviour
         SceneManager.LoadScene("level11");
     }
 
+    public void level12() {
+        SceneManager.LoadScene("level12");
+    }
+
+    public void level13() {
+        SceneManager.LoadScene("level13");
+    }
+
     public void levelDylan()
     {
         SceneManager.LoadScene("Dylan's scene");
