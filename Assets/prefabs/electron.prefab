@@ -98,9 +98,15 @@ MonoBehaviour:
   loadPoint: {x: 0, y: 0, z: 0}
   negativeAmount: 0
   positiveAmount: 0
+  firstCheckpoint: 0
   rib: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   speedMultiplier: 0
+  soundPlayer: {fileID: 0}
+  collisionFX: {fileID: 8300000, guid: e8fdb5964df3b4288ab58400c568c990, type: 3}
+  deathFX: {fileID: 8300000, guid: 637379b85d75842d0be4b7b043e49979, type: 3}
+  teleportFX: {fileID: 8300000, guid: 14079ed00ca8d4e9f844472964d359c4, type: 3}
+  fakewallFX: {fileID: 8300000, guid: 9fc349c819abb46dbbd3190802a19650, type: 3}
 --- !u!114 &8841835174373067560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6501191723754063591, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_RootOrder

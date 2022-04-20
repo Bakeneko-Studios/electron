@@ -16,6 +16,7 @@ TagManager:
   - checkpoint
   - core gameplay
   - bouncy boi
+  - menu music
   layers:
   - Default
   - TransparentFX

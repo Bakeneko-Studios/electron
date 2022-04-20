@@ -39,7 +39,7 @@ public class gameplayManager : MonoBehaviour
         }
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
-        unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
+        //unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
     }
 
     public void win()
@@ -105,14 +105,14 @@ public class gameplayManager : MonoBehaviour
         if (start == true)
         {
             electron.GetComponent<repulsion>().startPhysics();
-            //GetComponent<timer>().unpauseTimer();
+            GetComponent<timer>().unpauseTimer();
             pausePanel.SetActive(false);
         }
 
         else
         {
             electron.GetComponent<repulsion>().stopPhysics();
-            //GetComponent<timer>().pauseTimer();
+            GetComponent<timer>().pauseTimer();
             pausePanel.SetActive(true);
         }
     }

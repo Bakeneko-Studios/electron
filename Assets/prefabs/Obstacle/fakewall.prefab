@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3886955770661087049}
   m_Layer: 0
   m_Name: fakewall
-  m_TagString: Untagged
+  m_TagString: fake wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

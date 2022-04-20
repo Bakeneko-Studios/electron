@@ -5,9 +5,12 @@ using UnityEngine;
 public class insulator : MonoBehaviour
 {
     GameObject gameManager;
+    AudioSource death;
+    public AudioClip deathSound;
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager");
+        death = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -16,8 +19,9 @@ public class insulator : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.GetComponent<electron>()!=null)
+        if(other.gameObject.CompareTag("Player"))
         {
+            death.PlayOneShot(deathSound);
             other.gameObject.GetComponent<repulsion>().stopPhysics();
             other.gameObject.SetActive(false);
             gameManager.GetComponent<scoring>().deaths+=1;

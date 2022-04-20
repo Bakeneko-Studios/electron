@@ -16,12 +16,20 @@ public class electron : MonoBehaviour
     TextMeshProUGUI negativeText;
     TextMeshProUGUI positiveText;
 
+    //sounds
+    public AudioSource soundPlayer;
+    public AudioClip collisionFX;
+    public AudioClip deathFX;
+    public AudioClip teleportFX;
+    public AudioClip fakewallFX;
+
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("game manager");
         loadPoint=this.transform.position;
 
         rib=GetComponent<Rigidbody2D>();
+        soundPlayer = GetComponent<AudioSource>();
 
         negativeText = GameObject.Find("chargeSlots/negative/Text (TMP)").GetComponent<TextMeshProUGUI>();
         positiveText = GameObject.Find("chargeSlots/positive/Text (TMP)").GetComponent<TextMeshProUGUI>();
@@ -36,17 +44,31 @@ public class electron : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        this.GetComponent<AudioSource>().Play();
         if (collision.collider.name == "Finish")
         {
             gameManager.GetComponent<gameplayManager>().win();
         }
-        if(collision.collider.CompareTag("bouncy boi"))
+        else if(collision.collider.CompareTag("bouncy boi"))
         {
             var speed = velocity.magnitude;
             var direction = Vector3.Reflect(velocity.normalized, collision.contacts[0].normal);
             rib.velocity = direction*Mathf.Max(speed*speedMultiplier,0f);
+        }
+        else if(collision.gameObject.tag=="insulator")
+        {
+            return;
+        }
+        else if(collision.gameObject.tag=="fake wall")
+        {
+            soundPlayer.PlayOneShot(fakewallFX);
+        }
+        else if(collision.gameObject.tag=="portal")
+        {
+            soundPlayer.PlayOneShot(teleportFX);
+        }
+        else
+        {
+            soundPlayer.PlayOneShot(collisionFX);
         }
     }
 
@@ -59,6 +81,10 @@ public class electron : MonoBehaviour
             firstCheckpoint = true;
             
             saveAmount();
+        }
+        if(other.gameObject.tag=="fake wall")
+        {
+            soundPlayer.PlayOneShot(fakewallFX);
         }
     }
 

@@ -6,7 +6,6 @@ public class portals : MonoBehaviour
 {
     public GameObject destination;
     public float teleportForce = 5;
-    // Start is called before the first frame update
     void Start()
     {
 

@@ -107,11 +107,11 @@ public class scoring : MonoBehaviour
     IEnumerator showBreakdown()
     {
         yield return new WaitForSeconds(0.2f);
-        scoreBreakdown.text = "Star bonus: +" + (stars*20000).ToString();
+        scoreBreakdown.text = "Star bonus (" + stars.ToString() + "): +" + (stars*20000).ToString();
         yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.text = "Coin bonus: +" + (collectedCoins*10000).ToString();
+        scoreBreakdown.text = "Coin bonus (" + collectedCoins.ToString() + "/" + maxCoins.ToString() + "): +" + (collectedCoins*10000).ToString();
         yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.text = "Death penalty: -" + (deaths*5000).ToString();
+        scoreBreakdown.text = "Death penalty (" + deaths.ToString() + "): -" + (deaths*5000).ToString();
         yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = "Time bonus: +" + timeBonus.ToString();
         yield return new WaitForSeconds(0.7f);
