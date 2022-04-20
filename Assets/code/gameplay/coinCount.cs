@@ -10,6 +10,8 @@ public class coinCount : MonoBehaviour
     public GameObject userData;
     public scoring scoring;
 
+    public GameObject collectRelease;
+
     void Start()
     {
         coinDisplay = GameObject.Find("coinCount").GetComponent<TextMeshProUGUI>();
@@ -56,6 +58,7 @@ public class coinCount : MonoBehaviour
             }
             coins+=33554432;
             scoring.collectedCoins+=1;
+            Instantiate(collectRelease, gameObject.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             updateCoins();
         }

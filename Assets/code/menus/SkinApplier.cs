@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SkinApplier : MonoBehaviour
 {
-    private GameObject[] daParent;
-    public GameObject mySkin;
+    //private GameObject[] daParent;
+    //public GameObject mySkin;
     static GameObject skinSelected; 
+    public GameObject[] allSkins;
     void Awake()
     {
+        allSkins = GameObject.FindGameObjectsWithTag("skin");
+        foreach (GameObject child in allSkins)
+        {
+            child.SetActive(false);
+        }
         skinSelected = GameObject.Find("UserData").GetComponent<UserData>().skin;
-        Debug.Log("Awake function called");
+        //Debug.Log("Awake function called");
         GameObject.FindGameObjectWithTag("Player").transform.Find(skinSelected.name).gameObject.SetActive(true);
 
 
