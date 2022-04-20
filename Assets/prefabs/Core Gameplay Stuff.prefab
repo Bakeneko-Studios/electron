@@ -1283,10 +1283,11 @@ MonoBehaviour:
   - {fileID: 6457945722584352943}
   - {fileID: 4467767530970071163}
   - {fileID: 3756846721367551295}
-  lofi: {fileID: 0}
   data: {fileID: 0}
   scoring: {fileID: 0}
   nextSceneLoad: 0
+  moosicPlayer: {fileID: 0}
+  moosic: {fileID: 0}
 --- !u!114 &2496080915236083301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23be8d088846e74cbc6d45bb2d794cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySkin: {fileID: 0}
+  allSkins: []
 --- !u!114 &2731312586191820095
 MonoBehaviour:
   m_ObjectHideFlags: 0

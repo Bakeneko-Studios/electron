@@ -20,12 +20,13 @@ public class gameplayManager : MonoBehaviour
     GameObject positiveSlot;
     GameObject negativeSlot;
     public GameObject[] hideOnEsc;
-    public AudioSource lofi;
     public UserData data;
     public scoring scoring;
 
     public int nextSceneLoad;
     int unlockedLevel;
+
+    public AudioSource moosicPlayer;
 
     void Start()
     {
@@ -33,10 +34,9 @@ public class gameplayManager : MonoBehaviour
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
         scoring = GetComponent<scoring>();
-        if(lofi!=null)
-        {
-            lofi.Play();
-        }
+        moosicPlayer = GameObject.FindGameObjectWithTag("moosic").GetComponent<AudioSource>();
+        moosicPlayer.Play();
+        moosicPlayer.Pause();
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
         //unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
@@ -48,26 +48,30 @@ public class gameplayManager : MonoBehaviour
         victoryPanel.SetActive(true);
         electron.GetComponent<repulsion>().stopPhysics();
         GetComponent<timer>().enabled=false;
-        if(lofi!=null)
-        {
-            lofi.Pause();
-        }
         for (int i = 0; i < hideOnEsc.Length; i++)
         {
             hideOnEsc[i].SetActive(false);
         }
 
+        moosicPlayer.Stop();
         scoring.results();
 
         if(SceneManager.GetActiveScene().buildIndex == 18) 
         {
             Debug.Log("finished");
-        } else {
+        }
+        else
+        {
             if (nextSceneLoad > unlockedLevel) 
             {
-                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
+                if(GameObject.FindGameObjectWithTag("user data")!=null)
+                {
+                    GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
+                }
             }
         }
+
+        electron.SetActive(false);
     }
 
     public void resetSaves()
@@ -78,7 +82,10 @@ public class gameplayManager : MonoBehaviour
 
     void Update()
     {
-        esc();
+        if(!electron.activeInHierarchy)
+        {
+            esc();
+        }
 
         if (!escape)
         {
@@ -110,6 +117,7 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
+            moosicPlayer.UnPause();
             pausePanel.SetActive(false);
         }
 
@@ -117,6 +125,7 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
+            moosicPlayer.Pause();
             pausePanel.SetActive(true);
         }
     }
@@ -146,10 +155,7 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
-            if(lofi!=null)
-            {
-                lofi.Pause();
-            }
+            moosicPlayer.Pause();
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);
@@ -161,10 +167,7 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
-            if(lofi!=null)
-            {
-                lofi.UnPause();
-            }
+            moosicPlayer.UnPause();
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);
