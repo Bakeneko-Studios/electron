@@ -38,7 +38,7 @@ public class gameplayManager : MonoBehaviour
             lofi.Play();
         }
 
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
         //unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
     }
 
@@ -59,13 +59,13 @@ public class gameplayManager : MonoBehaviour
 
         scoring.results();
 
-        if(SceneManager.GetActiveScene().buildIndex == 11) 
+        if(SceneManager.GetActiveScene().buildIndex == 18) 
         {
-            Debug.Log("World 1 finished");
+            Debug.Log("finished");
         } else {
             if (nextSceneLoad > unlockedLevel) 
             {
-                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 2;
+                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
             }
         }
     }
@@ -93,6 +93,10 @@ public class gameplayManager : MonoBehaviour
                 GetComponent<buttonFunctions>().undo();
             }
         }
+    }
+    public void pauseButton()
+    {
+        start = !start;
     }
 
     void pause() 
@@ -123,6 +127,11 @@ public class gameplayManager : MonoBehaviour
         {
             GetComponent<gameplayManager>().infiniteCharges = true;
         }
+    }
+
+    public void escapeButton()
+    {
+        GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
     }
 
     void esc() 

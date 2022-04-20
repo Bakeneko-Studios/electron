@@ -9,6 +9,7 @@ public class buttonFunctions : MonoBehaviour
     GameObject positiveSlot;
     GameObject negativeSlot;
     gameplayManager gm;
+    public GameObject load;
 
     void Start()
     {
@@ -82,7 +83,7 @@ public void undo()
         {
             restart();
         }
-        
+        load.SetActive(false);
     }
 
     public void resume()
@@ -102,6 +103,19 @@ public void undo()
 
     void Update()
     {
-        
+        if (!gm.infiniteCharges)
+        {
+            if (!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0)
+            {
+                load.SetActive(true);
+            }
+        }
+        else
+        {
+            if (!electron.activeInHierarchy)
+            {
+                load.SetActive(true);
+            }
+        }
     }
 }
