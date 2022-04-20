@@ -136,6 +136,7 @@ MonoBehaviour:
   coins: 0
   userData: {fileID: 0}
   scoring: {fileID: 0}
+  collectRelease: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
 --- !u!82 &5969996639765434165
 AudioSource:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501191723754063591, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_RootOrder
