@@ -5,7 +5,7 @@ using TMPro;
 
 public class electron : MonoBehaviour
 {
-    public GameObject gameManager;
+    public gameplayManager gm;
     public Vector3 loadPoint;
     public int negativeAmount;
     public int positiveAmount;
@@ -25,7 +25,7 @@ public class electron : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("game manager");
+        gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<gameplayManager>();
         loadPoint=this.transform.position;
 
         rib=GetComponent<Rigidbody2D>();
@@ -44,31 +44,34 @@ public class electron : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Finish")
+        if(!gm.escape && !gm.start)
         {
-            gameManager.GetComponent<gameplayManager>().win();
-        }
-        else if(collision.collider.CompareTag("bouncy boi"))
-        {
-            var speed = velocity.magnitude;
-            var direction = Vector3.Reflect(velocity.normalized, collision.contacts[0].normal);
-            rib.velocity = direction*Mathf.Max(speed*speedMultiplier,0f);
-        }
-        else if(collision.gameObject.tag=="insulator")
-        {
-            return;
-        }
-        else if(collision.gameObject.tag=="fake wall")
-        {
-            soundPlayer.PlayOneShot(fakewallFX);
-        }
-        else if(collision.gameObject.tag=="portal")
-        {
-            soundPlayer.PlayOneShot(teleportFX);
-        }
-        else
-        {
-            soundPlayer.PlayOneShot(collisionFX);
+            if (collision.collider.name == "Finish")
+            {
+                gm.win();
+            }
+            else if(collision.collider.CompareTag("bouncy boi"))
+            {
+                var speed = velocity.magnitude;
+                var direction = Vector3.Reflect(velocity.normalized, collision.contacts[0].normal);
+                rib.velocity = direction*Mathf.Max(speed*speedMultiplier,0f);
+            }
+            else if(collision.gameObject.tag=="insulator")
+            {
+                return;
+            }
+            else if(collision.gameObject.tag=="fake wall")
+            {
+                soundPlayer.PlayOneShot(fakewallFX);
+            }
+            else if(collision.gameObject.tag=="portal")
+            {
+                soundPlayer.PlayOneShot(teleportFX);
+            }
+            else
+            {
+                soundPlayer.PlayOneShot(collisionFX);
+            }
         }
     }
 
@@ -76,7 +79,7 @@ public class electron : MonoBehaviour
     {
         if(other.gameObject.tag=="checkpoint" && other.gameObject.transform.position!=loadPoint)
         {
-            gameManager.GetComponent<gameplayManager>().resetSaves();
+            gm.resetSaves();
             loadPoint = other.gameObject.transform.position;
             firstCheckpoint = true;
             
@@ -90,7 +93,7 @@ public class electron : MonoBehaviour
 
     void saveAmount()
     {
-        if(!gameManager.GetComponent<gameplayManager>().infiniteCharges)
+        if(!gm.infiniteCharges)
         {
             negativeAmount = int.Parse(negativeText.text);
             positiveAmount = int.Parse(positiveText.text);

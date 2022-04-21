@@ -16,12 +16,15 @@ public class menuMusic : MonoBehaviour
         }
         DontDestroyOnLoad(transform.gameObject);
         musicPlayer=GetComponent<AudioSource>();
-
+        
     }
-
-    void Update()
+    void OnEnable()
     {
-                    if(SceneManager.GetActiveScene().name == "main menu" || SceneManager.GetActiveScene().name == "level select")
+        SceneManager.sceneLoaded+=OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode scenemode)
+    {
+        if(scene.name=="main menu" || scene.name=="level select")
         {
             Debug.Log("play");
             if(musicPlayer.isPlaying==false)
@@ -34,5 +37,9 @@ public class menuMusic : MonoBehaviour
             musicPlayer.Stop();
             Debug.Log("s");
         }
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded-=OnSceneLoaded;
     }
 }

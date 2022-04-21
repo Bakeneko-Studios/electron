@@ -88,8 +88,12 @@ public class gameplayManager : MonoBehaviour
         {
             pause();
             god();
+            if(!escape)
+            {
+                pause();
+            }
         }
-
+        
         if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)))
         {
             if(Input.GetKeyDown(KeyCode.Z))
@@ -105,7 +109,7 @@ public class gameplayManager : MonoBehaviour
 
     void pause() 
     {
-        if(Input.GetButtonDown("Jump") && victory == false) 
+        if(Input.GetKeyDown(KeyCode.Space) && victory == false) 
         {
             start = !start;
         }
@@ -150,6 +154,7 @@ public class gameplayManager : MonoBehaviour
 
         if (escape)
         {
+            start=false;
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
