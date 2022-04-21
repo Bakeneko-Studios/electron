@@ -105,14 +105,14 @@ public void undo()
     {
         if (!gm.infiniteCharges)
         {
-            if (!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0)
+            if ((!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0) && !gm.victory)
             {
                 load.SetActive(true);
             }
         }
         else
         {
-            if (!electron.activeInHierarchy)
+            if (!electron.activeInHierarchy && !gm.victory)
             {
                 load.SetActive(true);
             }

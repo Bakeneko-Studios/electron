@@ -15,7 +15,7 @@ public class gameplayManager : MonoBehaviour
     public bool start;
     public bool infiniteCharges = false;
     public bool escape;
-    bool victory = false;
+    public bool victory = false;
 
     GameObject positiveSlot;
     GameObject negativeSlot;
@@ -23,8 +23,7 @@ public class gameplayManager : MonoBehaviour
     public UserData data;
     public scoring scoring;
 
-    public int nextSceneLoad;
-    int unlockedLevel;
+    int nextSceneLoad;
 
     public AudioSource moosicPlayer;
 
@@ -39,7 +38,6 @@ public class gameplayManager : MonoBehaviour
         moosicPlayer.Pause();
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
-        //unlockedLevel = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel;
     }
 
     public void win()
@@ -56,18 +54,15 @@ public class gameplayManager : MonoBehaviour
         moosicPlayer.Stop();
         scoring.results();
 
-        if(SceneManager.GetActiveScene().buildIndex == 18) 
+        if(SceneManager.GetActiveScene().buildIndex == 22) 
         {
             Debug.Log("finished");
         }
         else
         {
-            if (nextSceneLoad > unlockedLevel) 
+            if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 5) 
             {
-                if(GameObject.FindGameObjectWithTag("user data")!=null)
-                {
-                    GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
-                }
+                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
             }
         }
 

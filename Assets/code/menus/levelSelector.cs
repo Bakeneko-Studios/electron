@@ -20,56 +20,9 @@ public class levelSelector : MonoBehaviour
         }
     }
 
-    public void level1() {
-        SceneManager.LoadScene("level1");
-    }
-
-    public void level2() {
-        SceneManager.LoadScene("level2");
-    }
-
-    public void level3() {
-        SceneManager.LoadScene("level3");
-    }
-
-    public void level4() {
-        SceneManager.LoadScene("level4");
-    }
-
-    public void level5() {
-        SceneManager.LoadScene("level5");
-    }
-
-    public void level6() {
-        SceneManager.LoadScene("level6");
-    }
-
-    public void level7() {
-        SceneManager.LoadScene("level7");
-    }
-
-    public void level8() {
-        SceneManager.LoadScene("level8");
-    }
-
-    public void level9() {
-        SceneManager.LoadScene("level9");
-    }
-
-    public void level10() {
-        SceneManager.LoadScene("level10");
-    }
-
-    public void level11() {
-        SceneManager.LoadScene("level11");
-    }
-
-    public void level12() {
-        SceneManager.LoadScene("level12");
-    }
-
-    public void level13() {
-        SceneManager.LoadScene("level13");
+    public void loadLevel(int level)
+    {
+        SceneManager.LoadScene(level + 5);
     }
 
     public void levelDylan()
@@ -96,10 +49,11 @@ public class levelSelector : MonoBehaviour
         SceneManager.LoadScene("Minchan's scene");
     }
 
-    public void loadLevel(int level)
+    public void loadScene(int Index)
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(Index);
     }
+
 
     public void mainMenu()
     {
