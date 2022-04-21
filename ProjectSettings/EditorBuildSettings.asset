@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/recording/1.unity
     guid: a095993b433af476eafd3c722a3d07eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Trail Testing Area.unity
     guid: 8754b95a41eafdf4f9fb4b92efa893fb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/booger 1.unity
     guid: e055aa832a08ca744b530bd5a98b3e7a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/recording/bouncy boi.unity
     guid: 2ae9f69f36c274237a0de4fa9795456b
   - enabled: 1
@@ -74,19 +74,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/world2/level17.unity
     guid: 039b493aa16b34a099167671fed30b8c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dylan's scene.unity
     guid: 23d4bf8691bb044228e78621eb646ff8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ray's scene.unity
     guid: a5aa5c4f7c495438f9ee58f5c1429b3a
   - enabled: 1
     path: Assets/Scenes/world2/level18.unity
     guid: ecb40d87394fa438cb932942aa3a94b1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Minchan's scene.unity
     guid: fcb86902c118d734892823bfb8667eb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Alan's scene.unity
     guid: 2ff5de270f55dd74cba8c700ed63417f
   m_configObjects: {}
