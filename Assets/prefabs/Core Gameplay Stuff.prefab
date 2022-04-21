@@ -1287,7 +1287,6 @@ MonoBehaviour:
   scoring: {fileID: 0}
   nextSceneLoad: 0
   moosicPlayer: {fileID: 0}
-  moosic: {fileID: 0}
 --- !u!114 &2496080915236083301
 MonoBehaviour:
   m_ObjectHideFlags: 0

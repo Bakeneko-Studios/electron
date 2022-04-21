@@ -82,10 +82,7 @@ public class gameplayManager : MonoBehaviour
 
     void Update()
     {
-        if(!electron.activeInHierarchy)
-        {
-            esc();
-        }
+        esc();
 
         if (!escape)
         {
@@ -134,20 +131,21 @@ public class gameplayManager : MonoBehaviour
     {
         if(Input.GetKeyDown("g")) 
         {
-            GetComponent<gameplayManager>().infiniteCharges = true;
+            infiniteCharges = true;
         }
     }
 
     public void escapeButton()
     {
-        GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+        if (!victory)
+            escape = !escape;
     }
 
     void esc() 
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && victory == false) 
+        if (Input.GetKeyDown(KeyCode.Escape) && !victory) 
         {
-            GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+            escape = !escape;
         }
 
         if (escape)

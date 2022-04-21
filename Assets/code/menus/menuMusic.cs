@@ -16,8 +16,14 @@ public class menuMusic : MonoBehaviour
         }
         DontDestroyOnLoad(transform.gameObject);
         musicPlayer=GetComponent<AudioSource>();
-        if(SceneManager.GetActiveScene().name=="main menu" || SceneManager.GetActiveScene().name=="level select")
+
+    }
+
+    void Update()
+    {
+                    if(SceneManager.GetActiveScene().name == "main menu" || SceneManager.GetActiveScene().name == "level select")
         {
+            Debug.Log("play");
             if(musicPlayer.isPlaying==false)
             {
                 musicPlayer.Play();
@@ -26,6 +32,7 @@ public class menuMusic : MonoBehaviour
         else
         {
             musicPlayer.Stop();
+            Debug.Log("s");
         }
     }
 }
