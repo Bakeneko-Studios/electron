@@ -19,6 +19,9 @@ TagManager:
   - menu music
   - insulator
   - moosic
+  - fake wall
+  - portal
+  - ePlate
   layers:
   - Default
   - TransparentFX

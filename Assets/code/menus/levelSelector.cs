@@ -22,7 +22,7 @@ public class levelSelector : MonoBehaviour
 
     public void loadLevel(int level)
     {
-        SceneManager.LoadScene(level + 5);
+        SceneManager.LoadScene(level + 2);
     }
 
     public void levelDylan()
