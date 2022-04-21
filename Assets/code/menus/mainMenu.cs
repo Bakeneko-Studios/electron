@@ -14,4 +14,8 @@ public class mainMenu : MonoBehaviour
         Debug.Log("Game Should Quit");
         Application.Quit();
     }
+    public void toSettings()
+    {
+        SceneManager.LoadScene("settings menu");
+    }
 }

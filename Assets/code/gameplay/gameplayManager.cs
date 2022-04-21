@@ -26,6 +26,7 @@ public class gameplayManager : MonoBehaviour
     int nextSceneLoad;
 
     public AudioSource moosicPlayer;
+    public AudioClip pauseSound;
 
     void Start()
     {
@@ -53,7 +54,7 @@ public class gameplayManager : MonoBehaviour
         {
             hideOnEsc[i].SetActive(false);
         }
-        
+
         if(moosicPlayer.clip.name!="never gonna give you up.mp3")
             {
                 moosicPlayer.UnPause();
@@ -85,12 +86,21 @@ public class gameplayManager : MonoBehaviour
     {
         if(electron.activeInHierarchy)
         {
-            esc();
-            god();
-            if(!escape)
+            if(Input.GetKeyDown(KeyCode.Space) && victory == false && !escape) 
             {
+                start = !start;
                 pause();
             }
+            if (Input.GetKeyDown(KeyCode.Escape) && !victory) 
+            {
+                escape = !escape;
+                esc();
+            }
+            if(Input.GetKeyDown("g")) 
+            {
+                infiniteCharges = true;
+            }
+
         }
         
         if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)))
@@ -104,15 +114,11 @@ public class gameplayManager : MonoBehaviour
     public void pauseButton()
     {
         start = !start;
+        pause();
     }
 
-    void pause() 
+    void pause()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && victory == false) 
-        {
-            start = !start;
-        }
-
         if (start == true)
         {
             electron.GetComponent<repulsion>().startPhysics();
@@ -122,6 +128,7 @@ public class gameplayManager : MonoBehaviour
                 moosicPlayer.UnPause();
             }
             pausePanel.SetActive(false);
+            electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
 
         else
@@ -133,33 +140,25 @@ public class gameplayManager : MonoBehaviour
                 moosicPlayer.Pause();
             }
             pausePanel.SetActive(true);
-        }
-    }
-
-    void god() 
-    {
-        if(Input.GetKeyDown("g")) 
-        {
-            infiniteCharges = true;
+            electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
     }
 
     public void escapeButton()
     {
         if (!victory)
-            escape = !escape;
-    }
-
-    void esc() 
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && !victory) 
         {
             escape = !escape;
+            esc();
         }
+    }
 
+    void esc()
+    {
         if (escape)
         {
             start=false;
+            pause();
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
