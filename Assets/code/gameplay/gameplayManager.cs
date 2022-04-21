@@ -60,15 +60,15 @@ public class gameplayManager : MonoBehaviour
             }
         scoring.results();
 
-        if(SceneManager.GetActiveScene().buildIndex == 22) 
+        if(SceneManager.GetActiveScene().buildIndex == 20) 
         {
             Debug.Log("finished");
         }
         else
         {
-            if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 5) 
+            if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 2) 
             {
-                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 5;
+                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 2;
             }
         }
 
