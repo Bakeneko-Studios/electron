@@ -26,6 +26,7 @@ public class gameplayManager : MonoBehaviour
     int nextSceneLoad;
 
     public AudioSource moosicPlayer;
+    public AudioClip pauseSound;
 
     void Start()
     {
@@ -53,7 +54,7 @@ public class gameplayManager : MonoBehaviour
         {
             hideOnEsc[i].SetActive(false);
         }
-        
+
         if(moosicPlayer.clip.name!="never gonna give you up.mp3")
             {
                 moosicPlayer.UnPause();
@@ -122,6 +123,7 @@ public class gameplayManager : MonoBehaviour
                 moosicPlayer.UnPause();
             }
             pausePanel.SetActive(false);
+            electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
 
         else
@@ -133,6 +135,7 @@ public class gameplayManager : MonoBehaviour
                 moosicPlayer.Pause();
             }
             pausePanel.SetActive(true);
+            electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
     }
 
