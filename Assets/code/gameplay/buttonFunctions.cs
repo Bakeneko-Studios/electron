@@ -93,7 +93,7 @@ public void undo()
 
     public void mainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("level select");
     }
 
     public void nextLevel()

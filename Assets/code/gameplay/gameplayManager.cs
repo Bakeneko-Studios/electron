@@ -82,11 +82,9 @@ public class gameplayManager : MonoBehaviour
 
     void Update()
     {
-        esc();
-
-        if (!escape)
+        if(electron.activeInHierarchy)
         {
-            pause();
+            esc();
             god();
             if(!escape)
             {

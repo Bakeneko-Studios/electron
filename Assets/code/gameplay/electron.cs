@@ -44,7 +44,7 @@ public class electron : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!gm.escape && !gm.start)
+        if(!gm.escape && gm.start)
         {
             if (collision.collider.name == "Finish")
             {
