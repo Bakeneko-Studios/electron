@@ -81,7 +81,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Ray's scene.unity
     guid: a5aa5c4f7c495438f9ee58f5c1429b3a
   - enabled: 1
-    path: Assets/Scenes/world2/level20.unity
+    path: Assets/Scenes/world2/level18.unity
     guid: ecb40d87394fa438cb932942aa3a94b1
   - enabled: 1
     path: Assets/Scenes/Minchan's scene.unity

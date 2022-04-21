@@ -44,6 +44,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
                 updateText();
             }
             gameplayManager.GetComponent<scoring>().chargesUsed+=1;
+            gameplayManager.GetComponent<scoring>().chargesUsedSinceLoad+=1;
             dragging = false;
         }
     }

@@ -35,7 +35,10 @@ public class gameplayManager : MonoBehaviour
         scoring = GetComponent<scoring>();
         moosicPlayer = GameObject.FindGameObjectWithTag("moosic").GetComponent<AudioSource>();
         moosicPlayer.Play();
-        moosicPlayer.Pause();
+        if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.Pause();
+            }
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
     }
@@ -50,8 +53,11 @@ public class gameplayManager : MonoBehaviour
         {
             hideOnEsc[i].SetActive(false);
         }
-
-        moosicPlayer.Stop();
+        
+        if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.UnPause();
+            }
         scoring.results();
 
         if(SceneManager.GetActiveScene().buildIndex == 22) 
@@ -111,7 +117,10 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
-            moosicPlayer.UnPause();
+            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.UnPause();
+            }
             pausePanel.SetActive(false);
         }
 
@@ -119,7 +128,10 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
-            moosicPlayer.Pause();
+            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.Pause();
+            }
             pausePanel.SetActive(true);
         }
     }
@@ -151,7 +163,10 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
-            moosicPlayer.Pause();
+            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.Pause();
+            }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);
@@ -163,7 +178,10 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
-            moosicPlayer.UnPause();
+            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            {
+                moosicPlayer.UnPause();
+            }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);

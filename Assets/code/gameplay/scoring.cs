@@ -19,6 +19,7 @@ public class scoring : MonoBehaviour
     public int timeLimitSeconds;
     public int timeBonus;
     public int chargesUsed = 0;
+    public int chargesUsedSinceLoad = 0;
     public int chargeLimit;
     void Start()
     {

@@ -72,6 +72,8 @@ public void undo()
             negativeSlot.GetComponent<chargeSpawner>().updateText();
             positiveSlot.GetComponent<chargeSpawner>().updateText();
 
+            GetComponent<scoring>().chargesUsed-=GetComponent<scoring>().chargesUsedSinceLoad;
+
             while(gm.savedPositions.Count!=0)
             {
                 Destroy(gm.placedCharges.Pop());
