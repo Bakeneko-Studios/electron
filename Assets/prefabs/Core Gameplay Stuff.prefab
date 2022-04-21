@@ -553,7 +553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48, y: -215.5}
+  m_AnchoredPosition: {x: -48, y: -181}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1888040515735642659
@@ -843,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -215.5}
+  m_AnchoredPosition: {x: 48, y: -181}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1888040516656922488
@@ -1278,6 +1278,7 @@ MonoBehaviour:
   start: 0
   infiniteCharges: 0
   escape: 0
+  victory: 0
   hideOnEsc:
   - {fileID: 1888040516947904722}
   - {fileID: 6457945722584352943}
@@ -1285,7 +1286,6 @@ MonoBehaviour:
   - {fileID: 3756846721367551295}
   data: {fileID: 0}
   scoring: {fileID: 0}
-  nextSceneLoad: 0
   moosicPlayer: {fileID: 0}
 --- !u!114 &2496080915236083301
 MonoBehaviour:
@@ -1359,6 +1359,7 @@ MonoBehaviour:
   timeLimitSeconds: 0
   timeBonus: 0
   chargesUsed: 0
+  chargesUsedSinceLoad: 0
   chargeLimit: 0
 --- !u!1 &1973714604202916202
 GameObject:
