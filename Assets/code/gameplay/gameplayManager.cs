@@ -82,17 +82,16 @@ public class gameplayManager : MonoBehaviour
 
     void Update()
     {
-        if(!electron.activeInHierarchy)
+        if(electron.activeInHierarchy)
         {
             esc();
-        }
-
-        if (!escape)
-        {
-            pause();
             god();
+            if(!escape)
+            {
+                pause();
+            }
         }
-
+        
         if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)))
         {
             if(Input.GetKeyDown(KeyCode.Z))
@@ -108,7 +107,7 @@ public class gameplayManager : MonoBehaviour
 
     void pause() 
     {
-        if(Input.GetButtonDown("Jump") && victory == false) 
+        if(Input.GetKeyDown(KeyCode.Space) && victory == false) 
         {
             start = !start;
         }
@@ -134,24 +133,25 @@ public class gameplayManager : MonoBehaviour
     {
         if(Input.GetKeyDown("g")) 
         {
-            GetComponent<gameplayManager>().infiniteCharges = true;
+            infiniteCharges = true;
         }
     }
 
     public void escapeButton()
     {
-        GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+        escape = !escape;
     }
 
     void esc() 
     {
         if (Input.GetKeyDown(KeyCode.Escape) && victory == false) 
         {
-            GetComponent<gameplayManager>().escape = !GetComponent<gameplayManager>().escape;
+           escape = !escape;
         }
 
         if (escape)
         {
+            start=false;
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();

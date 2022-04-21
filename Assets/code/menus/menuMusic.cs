@@ -16,7 +16,15 @@ public class menuMusic : MonoBehaviour
         }
         DontDestroyOnLoad(transform.gameObject);
         musicPlayer=GetComponent<AudioSource>();
-        if(SceneManager.GetActiveScene().name=="main menu" || SceneManager.GetActiveScene().name=="level select")
+        
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded+=OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode scenemode)
+    {
+        if(scene.name=="main menu" || scene.name=="level select")
         {
             if(musicPlayer.isPlaying==false)
             {
@@ -27,5 +35,9 @@ public class menuMusic : MonoBehaviour
         {
             musicPlayer.Stop();
         }
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded-=OnSceneLoaded;
     }
 }
