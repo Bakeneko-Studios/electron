@@ -154,7 +154,7 @@ public class gameplayManager : MonoBehaviour
         }
     }
 
-    void esc()
+    public void esc()
     {
         if (escape)
         {

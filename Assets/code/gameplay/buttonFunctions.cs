@@ -91,6 +91,7 @@ public void undo()
     public void resume()
     {
         gm.escape = !gm.escape;
+        gm.esc();
     }
 
     public void mainMenu()
