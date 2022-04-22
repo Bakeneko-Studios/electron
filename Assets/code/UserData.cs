@@ -30,16 +30,9 @@ public class UserData : MonoBehaviour
         new int[2] {0,0},  //level 20
         new int[2] {0,0},  //level bonus
     };
-    
-    void Start()
-    {
 
-    }
-
-    void Update()
-    {
-        
-    }
+    public bool feildLines=true;
+    public bool timer=true;
 
     void Awake()
     {

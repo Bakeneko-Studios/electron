@@ -14,6 +14,11 @@ public class timer : MonoBehaviour
     public bool timerActive=false;
     public bool showTimer;
 
+    void Awake()
+    {
+        showTimer =  GameObject.Find("UserData").GetComponent<UserData>().timer;
+    }
+
     void Start()
     {
         timerActive=false;

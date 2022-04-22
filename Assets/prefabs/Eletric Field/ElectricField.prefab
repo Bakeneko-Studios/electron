@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7387301148907512923}
   - component: {fileID: 7387301148907512920}
+  - component: {fileID: -7082079545980530409}
   m_Layer: 0
   m_Name: ElectricField
   m_TagString: Untagged
@@ -46,12 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charges: []
   linePrefab: {fileID: 4340679821111114564, guid: 14f785c9cfde5f4469321dec316b1deb, type: 3}
-  arrowPrefab: {fileID: 8503282124017087205, guid: 9ae6d8215df8dcf44a1a3c7ab5337110, type: 3}
-  arrowRoationOffset: 90
   spawnArrows: 0
   showElectricField: 0
-  arrowPositionOffset: 0.4
   arrowStep: 50
   numOfPoints: 300
   step: 0.2
   margin: 0.4
+--- !u!114 &-7082079545980530409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387301148907512921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0656c27bd1854284493ef23c466377ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showLines: 1

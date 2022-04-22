@@ -25,4 +25,22 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.LoadScene("main menu");
     }
+    public void toCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    /*
+    public void SetFullScreen (bool isFullscreen)
+    {
+        Screen.fullscreen = isFullscreen;
+    }
+    */
+    public void SetTimer (bool timer)
+    {
+        GameObject.Find("UserData").GetComponent<UserData>().timer = timer;
+    }
+    public void SetFeildLines (bool fLines)
+    {
+        GameObject.Find("UserData").GetComponent<UserData>().feildLines = fLines;
+    }
 }

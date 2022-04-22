@@ -120,4 +120,9 @@ public void undo()
             }
         }
     }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene("settings menu");
+    }
 }
