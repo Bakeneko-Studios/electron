@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
+    public UserData UD;
+    public GameObject timerChecked;
+    public GameObject timerUnchecked;
+    public GameObject flinesChecked;
+    public GameObject flinesUnchecked;
 
     public void SetMasterVolume(float volumeMas)
     {
@@ -35,12 +40,26 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullscreen = isFullscreen;
     }
     */
-    public void SetTimer (bool timer)
+
+    void Start()
     {
-        GameObject.Find("UserData").GetComponent<UserData>().timer = timer;
+        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        timerChecked.SetActive(UD.showtimer);
+        timerUnchecked.SetActive(!UD.showtimer);
+        flinesChecked.SetActive(UD.showfieldLines);
+        flinesUnchecked.SetActive(!UD.showfieldLines);
     }
-    public void SetFeildLines (bool fLines)
+
+    public void toggleTimer()
     {
-        GameObject.Find("UserData").GetComponent<UserData>().feildLines = fLines;
+        UD.showtimer = !UD.showtimer;
+        timerChecked.SetActive(!timerChecked.activeInHierarchy);
+        timerUnchecked.SetActive(!timerUnchecked.activeInHierarchy);
+    }
+    public void toggleFLines()
+    {
+        UD.showfieldLines = !UD.showfieldLines;
+        flinesChecked.SetActive(!flinesChecked.activeInHierarchy);
+        flinesUnchecked.SetActive(!flinesUnchecked.activeInHierarchy);
     }
 }

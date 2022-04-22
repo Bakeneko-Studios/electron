@@ -13,10 +13,12 @@ public class timer : MonoBehaviour
     public TextMeshProUGUI timerDisplay;
     public bool timerActive=false;
     public bool showTimer;
+    UserData UD;
 
     void Awake()
     {
-        showTimer =  GameObject.Find("UserData").GetComponent<UserData>().timer;
+        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        showTimer =  UD.showtimer;
     }
 
     void Start()
