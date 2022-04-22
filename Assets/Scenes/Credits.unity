@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 422, y: -2836}
+  m_AnchoredPosition: {x: 422, y: -3485}
   m_SizeDelta: {x: 1202, y: 366.207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103531300
@@ -499,8 +499,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 973143135}
   m_HandleRect: {fileID: 973143133}
   m_Direction: 2
-  m_Value: 0.98406774
-  m_Size: 0.13507918
+  m_Value: 0.9831377
+  m_Size: 0.11258508
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -729,8 +729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 43.32343}
-  m_SizeDelta: {x: 0, y: 3143.9043}
+  m_AnchoredPosition: {x: 0, y: 56.44428}
+  m_SizeDelta: {x: 0, y: 3772.045}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &932868348
 MonoBehaviour:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251626634}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     Alan
     Yi
 
-    
+
 
     Level Design
 
@@ -1312,24 +1312,24 @@ MonoBehaviour:
 
     Minchan Kang
 
-    
 
-    Game
-    Director
 
-    Alan Yi
+    Game Director
 
-    
+    Alan
+    Yi
+
+
 
     Creative Director
 
     Derek Sun
 
-    
 
-    
 
-    
+
+
+
 
     Programming:
 
@@ -1338,79 +1338,78 @@ MonoBehaviour:
 
     Dylan Yu
 
-    
+
 
     Game Developers
 
     Anda Dong
 
-    Ray
-    Zhou
+    Ray Zhou
 
-    Alan Yi
+    Alan
+    Yi
 
-    
+
 
     Debugging & Quality
 
     Ray Zhou
 
-    Dylan
-    Yu
+    Dylan Yu
 
     Anda Dong
 
-    
 
-    Other Additions
 
-    Rick Astley, A piece of
-    wood
+    Other
+    Additions
 
-    
+    Rick Astley, A piece of wood
+
+
 
     UI Developers
 
     Derek Sun
 
-    Anda Dong
+    Anda
+    Dong
 
     Ray Zhou
 
-    
 
-    
 
-    
+
+
+
 
     Audio:
 
-    Lead
-    Sound Designer
+    Lead Sound Designer
 
     Dylan Yu
 
-    
 
-    Visual Arts:
+
+    Visual
+    Arts:
 
     UI Artists
+
+    Derek Sun
+
+    Sean Lin
+
+
+
+    Graphics/Assets Artist
 
     Derek
     Sun
 
-    Sean Lin
 
-    
 
-    Graphics/Assets Artist
-
-    Derek Sun
-
-    
-
-    Background
-    Artists
+    Background Artists
 
     Sean Ro
 
@@ -1418,14 +1417,14 @@ MonoBehaviour:
 
     Illya
 
-    
 
-    Motion Graphics Designer
 
-    Anda
-    Dong
+    Motion
+    Graphics Designer
 
-    
+    Anda Dong
+
+
 
     Effects Designer
 
