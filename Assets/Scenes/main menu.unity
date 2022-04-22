@@ -676,6 +676,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
   unlockedLevel: 0
+  feildLines: 1
+  timer: 0
 --- !u!4 &390978104
 Transform:
   m_ObjectHideFlags: 0

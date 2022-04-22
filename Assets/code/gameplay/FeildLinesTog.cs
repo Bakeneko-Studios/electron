@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FeildLinesTog : MonoBehaviour
 {
-    public bool showLines;
+    public bool showLines = true;
     void Awake() 
     {
         showLines =  GameObject.Find("UserData").GetComponent<UserData>().feildLines;
-        this.gameObject.SetActive(showLines);
+
+        gameObject.SetActive(showLines);
     }
 }
