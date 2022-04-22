@@ -54,10 +54,11 @@ public class gameplayManager : MonoBehaviour
         {
             hideOnEsc[i].SetActive(false);
         }
+        GameObject.Find("chargeSlots").SetActive(false);
 
         if(moosicPlayer.clip.name!="never gonna give you up.mp3")
             {
-                moosicPlayer.UnPause();
+                moosicPlayer.Pause();
             }
         scoring.results();
 
@@ -185,37 +186,6 @@ public class gameplayManager : MonoBehaviour
             {
                 hideOnEsc[i].SetActive(true);
             }
-        }
-    }
-
-    void Awake()
-    {
-        //data = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
-        if(data!=null)
-        {
-        if(GameObject.Find("Coins")!=null)
-        {
-            //if(data.coin0==true)
-            //{
-            //    GameObject.Find("Coin (0)").SetActive(false);
-            //}
-            //if(data.coin1==true)
-            //{
-            //    GameObject.Find("Coin (1)").SetActive(false);
-            //}
-            //if(data.coin2==true)
-            //{
-            //    GameObject.Find("Coin (2)").SetActive(false);
-            //}
-            //if(data.coin3==true)
-            //{
-            //    GameObject.Find("Coin (3)").SetActive(false);
-            //}
-            //if(data.coin4==true)
-            //{
-            //    GameObject.Find("Coin (4)").SetActive(false);
-            //}
-        }
         }
     }
 }

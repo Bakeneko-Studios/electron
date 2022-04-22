@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/level select.unity
     guid: 605be20036d28d042a1b4a2cee20ac17
   - enabled: 1
-    path: Assets/Scenes/recording/1.unity
+    path: Assets/Scenes/recording/21.unity
     guid: a095993b433af476eafd3c722a3d07eb
   - enabled: 0
     path: Assets/Scenes/Trail Testing Area.unity

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class scoring : MonoBehaviour
@@ -21,16 +22,19 @@ public class scoring : MonoBehaviour
     public int chargesUsed = 0;
     public int chargesUsedSinceLoad = 0;
     public int chargeLimit;
+    public UserData UD;
+    int levelIndex;
+    public Animator anim;
+    public GameObject[] starDisplays;
+
     void Start()
     {
         timer = GetComponent<timer>();
         GameObject []coinCount=GameObject.FindGameObjectsWithTag("collectible");
         maxCoins=coinCount.Length;
-    }
 
-    void Update()
-    {
-        
+        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        levelIndex = int.Parse((SceneManager.GetActiveScene().name).Remove(0,5))-1;
     }
 
     public void results()
@@ -40,10 +44,11 @@ public class scoring : MonoBehaviour
             calculateStars();
             calculateScore();
             showResults();
+            saveToData();
         }
     }
 
-    public void calculateStars()
+    void calculateStars()
     {
         stars+=1;
         if(collectedCoins==maxCoins)
@@ -64,7 +69,7 @@ public class scoring : MonoBehaviour
         }
     }
 
-    public void calculateScore()
+    void calculateScore()
     {
         score+=stars*20000;
         score+=collectedCoins*10000;
@@ -73,7 +78,7 @@ public class scoring : MonoBehaviour
         score+=timeBonus;
     }
 
-    public void showResults()
+    void showResults()
     {
         Debug.Log("coins collected: " + collectedCoins.ToString() + "/" + maxCoins.ToString());
         Debug.Log("deaths: " + deaths.ToString());
@@ -85,13 +90,27 @@ public class scoring : MonoBehaviour
         StartCoroutine(showBreakdown());
     }
 
+    void saveToData()
+    {
+        if(stars>UD.levels[levelIndex][0])
+        {
+            UD.levels[levelIndex][0] = stars;
+        }
+        if(score>UD.levels[levelIndex][1])
+        {
+            UD.levels[levelIndex][1] = score;
+        }
+    }
+
     IEnumerator showStars()
     {
         while(displayedStars<stars)
         {
-            yield return new WaitForSeconds(0.3f);
             displayedStars+=1;
-            starCount.text = "Stars: " + displayedStars.ToString();
+            yield return new WaitForSeconds(0.2f);
+            starDisplays[displayedStars-1].SetActive(true);
+            anim.SetInteger("starsDisplayed", displayedStars);
+            yield return new WaitForSeconds(0.8f);
         }
     }
 
@@ -99,8 +118,8 @@ public class scoring : MonoBehaviour
     {
         while(displayedScore<score)
         {
-            yield return new WaitForSeconds(0.015f);
-            displayedScore+=score/200;
+            yield return new WaitForSeconds(0.03f);
+            displayedScore+=score/100;
             scoreCount.text = "Score: " + displayedScore.ToString();
         }
     }
@@ -115,7 +134,7 @@ public class scoring : MonoBehaviour
         scoreBreakdown.text = "Death penalty (" + deaths.ToString() + "): -" + (deaths*5000).ToString();
         yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = "Time bonus: +" + timeBonus.ToString();
-        yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.7f);
+        scoreBreakdown.text = "High score: "+ UD.levels[levelIndex][1];
     }
 }
