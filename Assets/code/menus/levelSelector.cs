@@ -11,18 +11,18 @@ public class levelSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int levelAt = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 2;
+        int levelAt = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 1;
 
         for (int i = 0; i < lvlButtons.Length; i++)
         {
-            if (i + 2 > levelAt)
+            if (i + 1 > levelAt)
                 lvlButtons[i].interactable = false;
         }
     }
 
     public void loadLevel(int level)
     {
-        SceneManager.LoadScene(level + 2);
+        SceneManager.LoadScene(level + 1);
     }
 
     public void levelDylan()
