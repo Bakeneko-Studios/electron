@@ -36,7 +36,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void back()
     {
-        SceneManager.LoadScene("main menu");
+        SceneManager.LoadScene(GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().beforeSettings);
     }
     public void toCredits()
     {

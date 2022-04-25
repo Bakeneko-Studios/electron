@@ -21,7 +21,7 @@ public class creditsManager : MonoBehaviour
 
     public void escapeButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("settings menu");
     }
 
     void Update()

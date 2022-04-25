@@ -12,6 +12,7 @@ public class UserData : MonoBehaviour
     public int skinIndex;
 
     public int unlockedLevel;
+    public int beforeSettings;
     public List<int[]> levels = new List<int[]>
     {
         new int[2] {0,0},  //level 1

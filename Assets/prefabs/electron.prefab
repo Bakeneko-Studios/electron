@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb766e8a34ef89c44bdc2f540c3ebd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gm: {fileID: 0}
   loadPoint: {x: 0, y: 0, z: 0}
   negativeAmount: 0
   positiveAmount: 0
@@ -308,7 +308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_Name
-      value: Default Skin
+      value: DefultSkin
       objectReference: {fileID: 0}
     - target: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
       propertyPath: m_IsActive

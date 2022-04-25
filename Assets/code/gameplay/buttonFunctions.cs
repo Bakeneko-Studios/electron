@@ -9,6 +9,7 @@ public class buttonFunctions : MonoBehaviour
     GameObject positiveSlot;
     GameObject negativeSlot;
     gameplayManager gm;
+    UserData userData;
     public GameObject load;
 
     void Start()
@@ -17,6 +18,7 @@ public class buttonFunctions : MonoBehaviour
         gm = GetComponent<gameplayManager>();
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
+        userData = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
     }
 
     public void restart()
@@ -97,11 +99,13 @@ public void undo()
     public void mainMenu()
     {
         SceneManager.LoadScene("level select");
+        userData.beforeSettings = 0;
     }
 
     public void nextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        userData.beforeSettings = 0;
     }
 
     void Update()
@@ -124,6 +128,7 @@ public void undo()
 
     public void Settings()
     {
+        userData.beforeSettings = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("settings menu");
     }
 }
