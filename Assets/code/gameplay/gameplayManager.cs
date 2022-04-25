@@ -36,7 +36,7 @@ public class gameplayManager : MonoBehaviour
         scoring = GetComponent<scoring>();
         moosicPlayer = GameObject.FindGameObjectWithTag("moosic").GetComponent<AudioSource>();
         moosicPlayer.Play();
-        if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+        if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.Pause();
             }
@@ -56,7 +56,7 @@ public class gameplayManager : MonoBehaviour
         }
         GameObject.Find("chargeSlots").SetActive(false);
 
-        if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+        if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.Pause();
             }
@@ -73,6 +73,8 @@ public class gameplayManager : MonoBehaviour
                 GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 1;
             }
         }
+
+        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
 
         electron.SetActive(false);
     }
@@ -124,7 +126,7 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
-            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.UnPause();
             }
@@ -136,7 +138,7 @@ public class gameplayManager : MonoBehaviour
         {
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
-            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.Pause();
             }
@@ -163,7 +165,7 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
-            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.Pause();
             }
@@ -178,7 +180,7 @@ public class gameplayManager : MonoBehaviour
             escPanel.gameObject.SetActive(false);
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
-            if(moosicPlayer.clip.name!="never gonna give you up.mp3")
+            if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.UnPause();
             }

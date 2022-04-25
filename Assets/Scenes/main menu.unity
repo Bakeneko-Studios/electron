@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 3244697036439127432, guid: ab5953dc7f6c1944383567089746ca4b, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -868,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5785f25edf1684fb2bf894ca51d842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skin: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
+  skinIndex: 0
   unlockedLevel: 0
   showfieldLines: 0
   showtimer: 0
@@ -898,6 +902,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 1373102311645466305, guid: 6a51b80b840d2bc4d8e8b9f8dc54096b, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1088,6 +1096,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1942,6 +1954,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 4434351829811365678, guid: ee6f1a232b41cef47a50c1483d65076c, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2202,6 +2218,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 8507261348456595999, guid: 39fd2cfada49ea5449eb6d5f2f26d751, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2594,6 +2614,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 8166105892209049114, guid: 49afc192129726745a3c682ac8fd1c9a, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2792,6 +2816,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 6276549398711564179, guid: ea17f44d9e8ebdc48bc3f4f7ff3eecd0, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2906,6 +2934,10 @@ PrefabInstance:
       propertyPath: mySkin
       value: 
       objectReference: {fileID: 4762194954643372107, guid: 89805fbb14484a041b1a9213e1461903, type: 3}
+    - target: {fileID: -7708616653842444738, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
+      propertyPath: skinIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 823985333273270184, guid: 02753eb8e5c54684899e12a080dba7a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3332,6 +3364,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1039906924}
+        m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+        m_MethodName: saveData
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

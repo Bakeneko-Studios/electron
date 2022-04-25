@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class UserData : MonoBehaviour
 {
-    public GameObject skin;
+    //Volumes, they are not used, just for saving 
+    public float volumeMas;
+    public float volumeM;
+    public float volumeE;
+
+    public int skinIndex;
+
     public int unlockedLevel;
     public List<int[]> levels = new List<int[]>
     {

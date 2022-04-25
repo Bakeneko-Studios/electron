@@ -18,4 +18,39 @@ public class mainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("settings menu");
     }
+
+    public UserData dataDest;
+    public List<int[]> levels;
+    void Start()
+    {
+        //Loads in the saved data everytime mainmenu is loaded
+        dataDest = GameObject.Find("UserData").GetComponent<UserData>();
+        SavedData data = SavingSystem.LoadUser();
+
+        dataDest.skinIndex = data.skinIndex;
+        dataDest.unlockedLevel = data.unlockedLevel;
+        dataDest.showfieldLines = data.showfieldLines;
+        dataDest.showtimer = data.showtimer;
+        dataDest.volumeMas = data.volumeMas;
+        dataDest.volumeM = data.volumeM;
+        dataDest.volumeE = data.volumeE;
+
+        //levels
+        levels = dataDest.levels;
+        //stars
+        for (int i = 0; i < data.stars.Length; i++)
+        {
+            levels[i][0] = data.stars[i];
+        }
+        //score
+        for (int i = 0; i < data.score.Length; i++)
+        {
+            levels[i][1] = data.stars[i];
+        }        
+        dataDest.levels = levels;
+    }
+    public void saveData()
+    {
+        SavingSystem.SaveUser(dataDest);
+    }
 }

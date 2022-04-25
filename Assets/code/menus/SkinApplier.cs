@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class SkinApplier : MonoBehaviour
 {
-    //private GameObject[] daParent;
-    //public GameObject mySkin;
-    static GameObject skinSelected; 
-    public GameObject[] allSkins;
+    public GameObject[] allSkins; //all skins child applied on the electron 
+    public int skinIndex;
+    public string[] skinsList = new string[]//will modify to be automatic later on
+    {
+        "DefultSkin",
+        "EchoTrail",
+        "FlameTrail",
+        "IceTrail",
+        "RGBTrailG",
+        "TripleTrailG",
+        "BloodyBurst",
+        "LightningTrail"
+    };
     void Awake()
     {
         allSkins = GameObject.FindGameObjectsWithTag("skin");
@@ -15,41 +24,9 @@ public class SkinApplier : MonoBehaviour
         {
             child.SetActive(false);
         }
-        skinSelected = GameObject.Find("UserData").GetComponent<UserData>().skin;
-        //Debug.Log("Awake function called");
-        GameObject.FindGameObjectWithTag("Player").transform.Find(skinSelected.name).gameObject.SetActive(true);
+        skinIndex = GameObject.Find("UserData").GetComponent<UserData>().skinIndex;
+        GameObject.FindGameObjectWithTag("Player").transform.Find(skinsList[skinIndex]).gameObject.SetActive(true);                
+    }
 
 
-        //daParent = GameObject.FindGameObjectsWithTag("player");     
-        ///*   
-        ////Method1: make children
-        //foreach (GameObject electron in daParent)
-        //{
-        //    foreach (Transform child in electron.transform)
-        //    {
-        //        if (child.tag == "Skin")
-        //        {
-        //            GameObject.Destroy(child);
-        //        }
-        //    }        
-
-        //    Instantiate(skinSelected);
-        //    skinSelected.transform.SetParent(electron.transform);
-        //}
-        //*/
-        ////Method2: make visible
-        //foreach (GameObject electron in daParent)
-        //{
-        //    foreach (Transform child in electron.transform)
-        //    {
-        //        if (child.tag == "Skin")
-        //        {
-        //            child.gameObject.SetActive(false);
-        //        }
-        //    }
-        //    skinSelected.SetActive(true);
-        //}
-        ////Method3: spawn electron with the correct skin
-        
-    }      
 }

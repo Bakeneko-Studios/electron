@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -13,17 +14,24 @@ public class SettingsMenu : MonoBehaviour
     public GameObject flinesChecked;
     public GameObject flinesUnchecked;
 
-    public void SetMasterVolume(float volumeMas)
+    public float volumeMas;
+    public float volumeM;
+    public float volumeE;
+
+    public void SetMasterVolume(float masterVloume)
     {
-        masterAM.SetFloat("MasterVolume", volumeMas);
+        masterAM.SetFloat("MasterVolume", masterVloume);
+        volumeMas = masterVloume;
     }
-    public void SetMusicVolume(float volumeM)
+    public void SetMusicVolume(float musicVolume)
     {
-        masterAM.SetFloat("MusicVolume", volumeM);
+        masterAM.SetFloat("MusicVolume", musicVolume);
+        volumeM = musicVolume;
     }
-    public void SetEffectsVolume(float volumeE)
+    public void SetEffectsVolume(float effectsVolume)
     {
-        masterAM.SetFloat("EffectsVolume", volumeE);
+        masterAM.SetFloat("EffectsVolume", effectsVolume);
+        volumeE = effectsVolume;
     }
 
     public void back()
@@ -48,6 +56,28 @@ public class SettingsMenu : MonoBehaviour
         timerUnchecked.SetActive(!UD.showtimer);
         flinesChecked.SetActive(UD.showfieldLines);
         flinesUnchecked.SetActive(!UD.showfieldLines);
+
+        foreach (Transform child in GameObject.Find("MasterVolume").transform)
+        {
+            if (child.name == "Slider")
+            {
+                child.gameObject.GetComponent<Slider>().value = UD.volumeMas;   
+            }
+        }
+        foreach (Transform child in GameObject.Find("MusicVolume").transform)
+        {
+            if (child.name == "Slider")
+            {
+                child.gameObject.GetComponent<Slider>().value = UD.volumeM;   
+            }
+        }
+        foreach (Transform child in GameObject.Find("EffectsVolume").transform)
+        {
+            if (child.name == "Slider")
+            {
+                child.gameObject.GetComponent<Slider>().value = UD.volumeE;   
+            }
+        }                
     }
 
     public void toggleTimer()
@@ -61,5 +91,10 @@ public class SettingsMenu : MonoBehaviour
         UD.showfieldLines = !UD.showfieldLines;
         flinesChecked.SetActive(!flinesChecked.activeInHierarchy);
         flinesUnchecked.SetActive(!flinesUnchecked.activeInHierarchy);
+    }
+    public void saveData()
+    {
+
+        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
     }
 }
