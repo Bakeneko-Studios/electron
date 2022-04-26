@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UserData : MonoBehaviour
 {
+    //data not need to save
+    public int beforeSettings;
+
+    //data need to be saved
     //Volumes, they are not used, just for saving 
     public float volumeMas;
     public float volumeM;
@@ -12,7 +16,6 @@ public class UserData : MonoBehaviour
     public int skinIndex;
 
     public int unlockedLevel;
-    public int beforeSettings;
     public List<int[]> levels = new List<int[]>
     {
         new int[2] {0,0},  //level 1

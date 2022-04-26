@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6501191723754063591}
   - component: {fileID: 3974098993138016815}
   m_Layer: 0
-  m_Name: Default Skin
+  m_Name: DefultSkin
   m_TagString: skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
