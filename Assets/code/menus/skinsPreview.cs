@@ -4,22 +4,43 @@ using UnityEngine;
 
 public class skinsPreview : MonoBehaviour
 {
-    GameObject target;
-    GameObject slot;
-    Camera cam;
-    public GameObject[] allSkins; //all skins child applied on the electron 
+    public GameObject slot;
     public int skinIndex;
-    // Start is called before the first frame update
-    void Start()
+    public string[] skinsList = new string[]//will modify to be automatic later on
     {
-        target = this.gameObject;
-        slot = transform.parent.gameObject;
-        cam = GameObject.Find("SkinsMenu").GetComponent<skinsMenu>().cam;
+        "DefultSkin",
+        "EchoTrail",
+        "FlameTrail",
+        "IceTrail",
+        "RGBTrailG",
+        "TripleTrailG",
+        "BloodyBurst",
+        "LightningTrail"
+    };
+    void Awake()
+    {
+        skinIndex = slot.GetComponent<ItemSlot>().skinIndex;
+        transform.Find(skinsList[skinIndex]).gameObject.SetActive(true);                
     }
 
-    // Update is called once per frame
-    void Update()
+    public int steps = 100;
+    private bool offSet;
+
+    void FixedUpdate()
     {
-        target.transform.position = cam.ScreenToWorldPoint(slot.transform.position);
+        if (skinIndex == slot.transform.parent.gameObject.GetComponent<swipeManager>().selectedPanel)
+        {
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(40f,40f),0.1f);
+            if (!offSet) {
+                transform.localPosition = new Vector3(50f,0,0);
+                offSet = true;
+            }
+            transform.RotateAround(slot.transform.position, Vector3.forward, 1f);
+        }
+        else {
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(100f,100f),0.1f);
+            transform.localPosition = new Vector3(0,0,0);
+            offSet = false;
+        }
     }
 }

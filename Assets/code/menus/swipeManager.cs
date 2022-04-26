@@ -13,6 +13,8 @@ public class swipeManager : MonoBehaviour
     private float smoothTime = 0.01f;
     private float velocity;
 
+    public int selectedPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class swipeManager : MonoBehaviour
             {
                 if (scrollPos < pos[i] + (distance / 2) && scrollPos > pos[i] - (distance / 2)) {
                     transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f,1f),0.1f);
+                    selectedPanel = i;
                     for (int a=0; a < pos.Length; a++) 
                     {
                         if (a != i) {
