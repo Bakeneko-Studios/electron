@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3954319526082678628}
   - component: {fileID: 8609591446769204128}
+  - component: {fileID: 5616116880682204495}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -52,6 +53,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinIndex: 0
+--- !u!114 &5616116880682204495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881348411179859396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &2105618507151981405
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +444,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5643344737135839964}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -465,6 +479,7 @@ MonoBehaviour:
   - TripleTrailG
   - BloodyBurst
   - LightningTrail
+  velocity: 5
 --- !u!1001 &174989987639164804
 PrefabInstance:
   m_ObjectHideFlags: 0
