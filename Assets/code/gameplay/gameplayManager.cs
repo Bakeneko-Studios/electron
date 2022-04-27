@@ -162,6 +162,7 @@ public class gameplayManager : MonoBehaviour
         {
             start=false;
             pause();
+            escPanel.gameObject.SetActive(true);
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);

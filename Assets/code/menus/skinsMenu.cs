@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class skinsMenu : MonoBehaviour
 {
-    public Camera cam;
-
     public void mainMenu()
     {
         SceneManager.LoadScene("main menu");

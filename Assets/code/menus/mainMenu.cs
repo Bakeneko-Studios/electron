@@ -18,11 +18,10 @@ public class mainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("settings menu");
     }
-    //public void skinsMenu()
-    //{
-        //SceneManager.LoadScene("skins menu");
-
-    //}
+    public void website()
+    {
+        Application.OpenURL("https://www.bakeneko.games/");
+    }
 
     public UserData dataDest;
     public List<int[]> levels;

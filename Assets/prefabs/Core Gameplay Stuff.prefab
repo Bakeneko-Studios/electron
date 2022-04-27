@@ -1467,7 +1467,6 @@ MonoBehaviour:
   victory: 0
   hideOnEsc:
   - {fileID: 1888040516947904722}
-  - {fileID: 6457945722584352943}
   - {fileID: 4467767530970071163}
   - {fileID: 3756846721367551295}
   data: {fileID: 0}
