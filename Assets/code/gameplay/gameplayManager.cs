@@ -178,12 +178,12 @@ public class gameplayManager : MonoBehaviour
         else
         {
             escPanel.gameObject.SetActive(false);
-            electron.GetComponent<repulsion>().startPhysics();
-            GetComponent<timer>().unpauseTimer();
-            if(SceneManager.GetActiveScene().name!="level21")
-            {
-                moosicPlayer.UnPause();
-            }
+            // electron.GetComponent<repulsion>().startPhysics();
+            // GetComponent<timer>().unpauseTimer();
+            // if(SceneManager.GetActiveScene().name!="level21")
+            // {
+            //     moosicPlayer.UnPause();
+            // }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);

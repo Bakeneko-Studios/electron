@@ -18,10 +18,11 @@ public class mainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("settings menu");
     }
-    public void skinsMenu()
-    {
-        SceneManager.LoadScene("skins menu");
-    }
+    //public void skinsMenu()
+    //{
+        //SceneManager.LoadScene("skins menu");
+
+    //}
 
     public UserData dataDest;
     public List<int[]> levels;

@@ -34,7 +34,8 @@ public class scoring : MonoBehaviour
         maxCoins=coinCount.Length;
 
         UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
-        levelIndex = int.Parse((SceneManager.GetActiveScene().name).Remove(0,5))-1;
+        try {levelIndex = int.Parse((SceneManager.GetActiveScene().name).Remove(0,5))-1;}
+        catch{};
     }
 
     public void results()
