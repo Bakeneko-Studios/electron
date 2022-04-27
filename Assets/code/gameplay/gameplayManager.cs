@@ -162,13 +162,6 @@ public class gameplayManager : MonoBehaviour
         {
             start=false;
             pause();
-            escPanel.gameObject.SetActive(true);
-            electron.GetComponent<repulsion>().stopPhysics();
-            GetComponent<timer>().pauseTimer();
-            if(SceneManager.GetActiveScene().name!="level21")
-            {
-                moosicPlayer.Pause();
-            }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(false);
@@ -178,12 +171,6 @@ public class gameplayManager : MonoBehaviour
         else
         {
             escPanel.gameObject.SetActive(false);
-            // electron.GetComponent<repulsion>().startPhysics();
-            // GetComponent<timer>().unpauseTimer();
-            // if(SceneManager.GetActiveScene().name!="level21")
-            // {
-            //     moosicPlayer.UnPause();
-            // }
             for (int i = 0; i < hideOnEsc.Length; i++)
             {
                 hideOnEsc[i].SetActive(true);
