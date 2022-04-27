@@ -6,6 +6,7 @@ public class UserData : MonoBehaviour
 {
     //data not need to save
     public int beforeSettings;
+    public bool reloadActivate = true;
 
     //data need to be saved
     //Volumes, they are not used, just for saving 

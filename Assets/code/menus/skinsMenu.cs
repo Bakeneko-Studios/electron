@@ -11,4 +11,8 @@ public class skinsMenu : MonoBehaviour
     {
         SceneManager.LoadScene("main menu");
     }
+    public void saveData()
+    {
+        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
+    }
 }

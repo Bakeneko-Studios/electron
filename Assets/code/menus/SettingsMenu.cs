@@ -21,17 +21,17 @@ public class SettingsMenu : MonoBehaviour
     public void SetMasterVolume(float masterVloume)
     {
         masterAM.SetFloat("MasterVolume", masterVloume);
-        volumeMas = masterVloume;
+        UD.volumeMas = masterVloume;
     }
     public void SetMusicVolume(float musicVolume)
     {
         masterAM.SetFloat("MusicVolume", musicVolume);
-        volumeM = musicVolume;
+        UD.volumeM = musicVolume;
     }
     public void SetEffectsVolume(float effectsVolume)
     {
         masterAM.SetFloat("EffectsVolume", effectsVolume);
-        volumeE = effectsVolume;
+        UD.volumeE = effectsVolume;
     }
 
     public void back()

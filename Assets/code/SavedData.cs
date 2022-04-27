@@ -21,6 +21,10 @@ public class SavedData
     //SavedData is a class
     public SavedData (UserData user)
     {
+        //volumes
+        volumeMas = user.volumeMas;
+        volumeM = user.volumeM;
+        volumeE = user.volumeE;
         //skin is converted to an int, cuz you can't store a gameobject in binary
         skinIndex = user.skinIndex;
         showtimer = user.showtimer;

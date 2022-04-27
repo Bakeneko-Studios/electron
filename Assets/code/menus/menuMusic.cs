@@ -24,7 +24,7 @@ public class menuMusic : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode scenemode)
     {
-        if(scene.name=="main menu" || scene.name=="level select" || scene.name=="settings menu")
+        if(scene.name=="main menu" || scene.name=="level select" || scene.name=="settings menu" || scene.name=="skins menu")
         {
             Debug.Log("play");
             if(musicPlayer.isPlaying==false)
