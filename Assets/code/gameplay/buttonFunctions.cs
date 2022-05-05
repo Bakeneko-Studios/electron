@@ -60,34 +60,25 @@ public void undo()
     
     public void loadCheckpoint()
     {
-        if (electron.GetComponent<electron>().firstCheckpoint)
-        {
-            electron.SetActive(true);
-            electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
-            electron.transform.position = electron.GetComponent<electron>().loadPoint;
-            gm.start = false;
-            gm.escape = false;
-            
-            negativeSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().negativeAmount;
-            positiveSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().positiveAmount;
+        electron.SetActive(true);
+        electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
+        electron.transform.position = electron.GetComponent<electron>().loadPoint;
+        gm.start = false;
+        gm.escape = false;
+        
+        negativeSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().negativeAmount;
+        positiveSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().positiveAmount;
+        negativeSlot.GetComponent<chargeSpawner>().updateText();
+        positiveSlot.GetComponent<chargeSpawner>().updateText();
 
-            negativeSlot.GetComponent<chargeSpawner>().updateText();
-            positiveSlot.GetComponent<chargeSpawner>().updateText();
+        GetComponent<scoring>().chargesUsed-=GetComponent<scoring>().chargesUsedSinceLoad;
 
-            GetComponent<scoring>().chargesUsed-=GetComponent<scoring>().chargesUsedSinceLoad;
+        gm.placedCharges = new Stack<GameObject>();
+        gm.savedPositions = new Stack<Vector3>();
 
-            while(gm.savedPositions.Count!=0)
-            {
-                Destroy(gm.placedCharges.Pop());
-                gm.savedPositions.Pop();
-            }
-            Debug.Log("checkpoint loaded");
-        }
-        else
-        {
-            restart();
-        }
         load.SetActive(false);
+        electron.SetActive(true);
+        Debug.Log("checkpoint loaded");
     }
 
     public void resume()
@@ -112,7 +103,7 @@ public void undo()
     {
         if (!gm.infiniteCharges)
         {
-            if ((!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0) && !gm.victory)
+            if ((!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0) && !gm.victory && electron.GetComponent<Rigidbody2D>().velocity==Vector2.zero)
             {
                 load.SetActive(true);
             }

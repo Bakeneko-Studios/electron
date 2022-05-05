@@ -12,7 +12,7 @@ public class scoring : MonoBehaviour
     public TextMeshProUGUI scoreCount;
     public TextMeshProUGUI scoreBreakdown;
     public int displayedStars = 0;
-    public int displayedScore = 0;
+    public float displayedScore = 0;
     public int collectedCoins = 0;
     public int maxCoins = 0;
     public int deaths = 0;
@@ -42,14 +42,12 @@ public class scoring : MonoBehaviour
     {
         if(stars==0 && score==0)
         {
-            calculateStars();
-            calculateScore();
+            calculate();
             showResults();
-            saveToData();
         }
     }
 
-    void calculateStars()
+    void calculate()
     {
         stars+=1;
         if(collectedCoins==maxCoins)
@@ -68,15 +66,21 @@ public class scoring : MonoBehaviour
         {
             stars+=1;
         }
-    }
-
-    void calculateScore()
-    {
+        
         score+=stars*20000;
         score+=collectedCoins*10000;
         score-=deaths*5000;
         timeBonus=Mathf.Max(0, (int)((timeLimitSeconds-(float)timer.levelTime.Elapsed.TotalSeconds)*100));
         score+=timeBonus;
+
+        if(stars>UD.levels[levelIndex][0])
+        {
+            UD.levels[levelIndex][0] = stars;
+        }
+        if(score>UD.levels[levelIndex][1])
+        {
+            UD.levels[levelIndex][1] = score;
+        }
     }
 
     void showResults()
@@ -89,18 +93,6 @@ public class scoring : MonoBehaviour
         StartCoroutine(showStars());
         StartCoroutine(showScore());
         StartCoroutine(showBreakdown());
-    }
-
-    void saveToData()
-    {
-        if(stars>UD.levels[levelIndex][0])
-        {
-            UD.levels[levelIndex][0] = stars;
-        }
-        if(score>UD.levels[levelIndex][1])
-        {
-            UD.levels[levelIndex][1] = score;
-        }
     }
 
     IEnumerator showStars()
@@ -120,8 +112,8 @@ public class scoring : MonoBehaviour
         while(displayedScore<score)
         {
             yield return new WaitForSeconds(0.03f);
-            displayedScore+=score/100;
-            scoreCount.text = "Score: " + displayedScore.ToString();
+            displayedScore+=((float)score)/100;
+            scoreCount.text = "Score: " + ((int)displayedScore).ToString();
         }
     }
 
