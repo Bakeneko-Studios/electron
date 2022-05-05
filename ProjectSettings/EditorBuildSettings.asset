@@ -104,4 +104,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/skins menu.unity
     guid: 402008ef031a14ff5866e160dc7fdf43
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: b236c454405634ff4aa3beea243c1455, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: ae80417d5b58943d19bd63d414506e2f, type: 2}
