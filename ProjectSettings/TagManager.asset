@@ -22,6 +22,7 @@ TagManager:
   - fake wall
   - portal
   - ePlate
+  - slots
   layers:
   - Default
   - TransparentFX
