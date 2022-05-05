@@ -30,7 +30,7 @@ public class scoring : MonoBehaviour
     void Start()
     {
         timer = GetComponent<timer>();
-        GameObject []coinCount=GameObject.FindGameObjectsWithTag("collectible");
+        GameObject[] coinCount=GameObject.FindGameObjectsWithTag("collectible");
         maxCoins=coinCount.Length;
 
         UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();

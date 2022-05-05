@@ -32,8 +32,6 @@ public class electron : MonoBehaviour
 
         negativeText = GameObject.Find("chargeSlots/negative/Text (TMP)").GetComponent<TextMeshProUGUI>();
         positiveText = GameObject.Find("chargeSlots/positive/Text (TMP)").GetComponent<TextMeshProUGUI>();
-
-        saveAmount();
     }
 
     void Update()
@@ -89,12 +87,13 @@ public class electron : MonoBehaviour
         }
     }
 
-    void saveAmount()
+    public void saveAmount()
     {
+        gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<gameplayManager>();
         if(!gm.infiniteCharges)
         {
-            negativeAmount = int.Parse(negativeText.text);
-            positiveAmount = int.Parse(positiveText.text);
+            negativeAmount = gm.negativeSlot.GetComponent<chargeSpawner>().numOfCharges;
+            positiveAmount = gm.positiveSlot.GetComponent<chargeSpawner>().numOfCharges;
         }
     }
 }

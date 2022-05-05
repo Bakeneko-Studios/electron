@@ -85,7 +85,7 @@
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.burst": {
       "version": "1.6.4",
@@ -145,7 +145,7 @@
         "com.unity.addressables": "1.19.9",
         "com.unity.nuget.newtonsoft-json": "2.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.mathematics": {
       "version": "1.2.5",
@@ -159,14 +159,14 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.19.6",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.services.core": {
       "version": "1.0.1",

@@ -28,7 +28,7 @@ public class buttonFunctions : MonoBehaviour
         Debug.Log("scene restarted");
     }
 
-public void undo()
+    public void undo()
     {
         if(!gm.escape)
         {
@@ -64,7 +64,9 @@ public void undo()
         electron.GetComponent<Rigidbody2D>().velocity.Set(0,0);
         electron.transform.position = electron.GetComponent<electron>().loadPoint;
         gm.start = false;
+        gm.pause();
         gm.escape = false;
+        gm.esc();
         
         negativeSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().negativeAmount;
         positiveSlot.GetComponent<chargeSpawner>().numOfCharges = electron.GetComponent<electron>().positiveAmount;
@@ -73,8 +75,11 @@ public void undo()
 
         GetComponent<scoring>().chargesUsed-=GetComponent<scoring>().chargesUsedSinceLoad;
 
-        gm.placedCharges = new Stack<GameObject>();
-        gm.savedPositions = new Stack<Vector3>();
+        while(gm.placedCharges.Count>0)
+        {
+            Destroy(gm.placedCharges.Pop());
+            gm.savedPositions.Pop();
+        }
 
         load.SetActive(false);
         electron.SetActive(true);
@@ -101,19 +106,13 @@ public void undo()
 
     void Update()
     {
-        if (!gm.infiniteCharges)
+        if (!gm.infiniteCharges && (negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges) == 0 && !gm.victory && electron.GetComponent<Rigidbody2D>().velocity==Vector2.zero)
         {
-            if ((!electron.activeInHierarchy || negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges == 0) && !gm.victory && electron.GetComponent<Rigidbody2D>().velocity==Vector2.zero)
-            {
-                load.SetActive(true);
-            }
+            load.SetActive(true);
         }
-        else
+        else if(!electron.activeInHierarchy && !gm.victory)
         {
-            if (!electron.activeInHierarchy && !gm.victory)
-            {
-                load.SetActive(true);
-            }
+            load.SetActive(true);
         }
     }
 

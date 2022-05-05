@@ -17,8 +17,8 @@ public class gameplayManager : MonoBehaviour
     public bool escape;
     public bool victory = false;
 
-    GameObject positiveSlot;
-    GameObject negativeSlot;
+    public GameObject positiveSlot;
+    public GameObject negativeSlot;
     public GameObject[] hideOnEsc;
     public UserData data;
     public scoring scoring;
@@ -42,6 +42,7 @@ public class gameplayManager : MonoBehaviour
             }
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
+        electron.GetComponent<electron>().saveAmount();
     }
 
     public void win()
@@ -120,7 +121,7 @@ public class gameplayManager : MonoBehaviour
         pause();
     }
 
-    void pause()
+    public void pause()
     {
         if (start == true)
         {
