@@ -15,7 +15,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     public int numOfCharges = 0;
     public TextMeshProUGUI text;
     public Color selected;
-    public GameObject gameplayManager;
+    public gameplayManager gm;
     public GameObject electricField;
     Color unselected;
     public void OnDrag(PointerEventData eventData)
@@ -31,20 +31,20 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
 
     public void spawnCharge(Vector3 position)
     {
-        if(numOfCharges>0)
+        if(numOfCharges>0 || gm.infiniteCharges)
         {
             GameObject spawnedCharge = Instantiate(spawningCharge);
             spawnedCharge.transform.position = position;
-            gameplayManager.GetComponent<gameplayManager>().placedCharges.Push(spawnedCharge);
-            gameplayManager.GetComponent<gameplayManager>().savedPositions.Push(gameplayManager.GetComponent<gameplayManager>().electron.transform.position);
+            gm.placedCharges.Push(spawnedCharge);
+            gm.savedPositions.Push(gm.electron.transform.position);
 
             electricField.GetComponent<electricFieldLines>().updateCharges();
-            if (!gameplayManager.GetComponent<gameplayManager>().infiniteCharges) {
+            if (!gm.infiniteCharges) {
                 numOfCharges--;
                 updateText();
             }
-            gameplayManager.GetComponent<scoring>().chargesUsed+=1;
-            gameplayManager.GetComponent<scoring>().chargesUsedSinceLoad+=1;
+            gm.GetComponent<scoring>().chargesUsed+=1;
+            gm.GetComponent<scoring>().chargesUsedSinceLoad+=1;
             dragging = false;
         }
     }
@@ -73,6 +73,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
 
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<gameplayManager>();
         unselected = this.GetComponent<Image>().color;
         updateText();
     }
@@ -80,7 +81,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     // Update is called once per frame
     void Update()
     {
-        if(gameplayManager.GetComponent<gameplayManager>().infiniteCharges)
+        if(gm.infiniteCharges)
             text.text = "∞";
     }
 }
