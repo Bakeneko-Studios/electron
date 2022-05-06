@@ -110,10 +110,6 @@ public class buttonFunctions : MonoBehaviour
         {
             load.SetActive(true);
         }
-        else if(!electron.activeInHierarchy && !gm.victory)
-        {
-            load.SetActive(true);
-        }
     }
 
     public void Settings()

@@ -25,6 +25,7 @@ public class insulator : MonoBehaviour
             other.gameObject.GetComponent<repulsion>().stopPhysics();
             other.gameObject.SetActive(false);
             gameManager.GetComponent<scoring>().deaths+=1;
+            gameManager.GetComponent<buttonFunctions>().loadCheckpoint();
         }
     }
 }

@@ -63,16 +63,10 @@ public class gameplayManager : MonoBehaviour
             }
         scoring.results();
 
-        if(SceneManager.GetActiveScene().buildIndex == 20) 
+
+        if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 1) 
         {
-            Debug.Log("finished");
-        }
-        else
-        {
-            if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 1) 
-            {
-                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 1;
-            }
+            GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 1;
         }
 
         SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());

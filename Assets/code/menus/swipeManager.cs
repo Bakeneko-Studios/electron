@@ -15,20 +15,21 @@ public class swipeManager : MonoBehaviour
 
     public int selectedPanel;
 
+    float distance;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos = new float[transform.childCount];
+        distance = 1f / (pos.Length - 1f);
+        for (int i=0; i < pos.Length;i++) {
+            pos[i] = distance * i;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        pos = new float[transform.childCount];
-        float distance = 1f / (pos.Length - 1f);
-        for (int i=0; i < pos.Length;i++) {
-            pos[i] = distance * i;
-        }
         if (Input.GetMouseButton(0)) {
             scrollPos = scrollBar.GetComponent<Scrollbar>().value;
         }
