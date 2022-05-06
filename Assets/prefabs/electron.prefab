@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8841835174373067566}
   - component: {fileID: 8841835174373067563}
   - component: {fileID: 8841835174373067560}
-  - component: {fileID: 3182296804862511671}
   - component: {fileID: 5969996639765434165}
   m_Layer: 0
   m_Name: electron
@@ -80,7 +79,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &8841835174373067563
 MonoBehaviour:
@@ -106,6 +105,8 @@ MonoBehaviour:
   deathFX: {fileID: 8300000, guid: 637379b85d75842d0be4b7b043e49979, type: 3}
   teleportFX: {fileID: 8300000, guid: 14079ed00ca8d4e9f844472964d359c4, type: 3}
   fakewallFX: {fileID: 8300000, guid: 9fc349c819abb46dbbd3190802a19650, type: 3}
+  scoring: {fileID: 0}
+  collectRelease: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
 --- !u!114 &8841835174373067560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,22 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qt: -0.0001
   started: 0
---- !u!114 &3182296804862511671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8841835174373067565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bd67f97e174492a8c76074f4acf485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coins: 0
-  userData: {fileID: 0}
-  scoring: {fileID: 0}
-  collectRelease: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
 --- !u!82 &5969996639765434165
 AudioSource:
   m_ObjectHideFlags: 0

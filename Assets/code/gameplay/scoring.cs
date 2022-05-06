@@ -50,7 +50,7 @@ public class scoring : MonoBehaviour
     void calculate()
     {
         stars+=1;
-        if(collectedCoins==maxCoins)
+        if(collectedCoins/2==maxCoins)
         {
             stars+=1;
         }
@@ -68,9 +68,9 @@ public class scoring : MonoBehaviour
         }
         
         score+=stars*20000;
-        score+=collectedCoins*10000;
+        score+=collectedCoins/2*10000;
         score-=deaths*5000;
-        timeBonus=Mathf.Max(0, (int)((timeLimitSeconds-(float)timer.levelTime.Elapsed.TotalSeconds)*100));
+        timeBonus=Mathf.Max(0, (int)((timeLimitSeconds-(float)timer.levelTime.Elapsed.TotalSeconds)*1000));
         score+=timeBonus;
 
         if(stars>UD.levels[levelIndex][0])

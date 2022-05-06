@@ -7,9 +7,8 @@ using TMPro;
 public class timer : MonoBehaviour
 {
     public Stopwatch levelTime = new Stopwatch();
-    public int milliseconds=0;
-    public int seconds=0;
-    public int minutes=0;
+    public string seconds="00";
+    public string minutes="0";
     public TextMeshProUGUI timerDisplay;
     public bool timerActive=false;
     public bool showTimer;
@@ -24,32 +23,31 @@ public class timer : MonoBehaviour
     void Start()
     {
         timerActive=false;
-        if(showTimer==true)
-        {
-            timerDisplay.gameObject.SetActive(true);
-        }
-        if(showTimer==false)
-        {
-            timerDisplay.gameObject.SetActive(false);
-        }
+        timerDisplay.gameObject.SetActive(showTimer);
     }
 
     void Update()
     {
-        if(timerActive==false && levelTime.IsRunning==true)
+        if(!timerActive && levelTime.IsRunning)
         {
             levelTime.Stop();
         }
-        if(timerActive==true && levelTime.IsRunning==false)
+        if(timerActive && !levelTime.IsRunning)
         {
             levelTime.Start();
         }
-        if(timerActive==true)
+        if(timerActive)
         {
-            minutes=levelTime.Elapsed.Minutes;
-            seconds=levelTime.Elapsed.Seconds;
-            milliseconds=levelTime.Elapsed.Milliseconds;
-            timerDisplay.text=minutes.ToString() + " : " + seconds.ToString() + " : " + milliseconds.ToString();
+            minutes=levelTime.Elapsed.Minutes.ToString();
+            if(levelTime.Elapsed.Seconds<10)
+            {
+                seconds="0"+levelTime.Elapsed.Seconds.ToString();
+            }
+            else
+            {
+                seconds=levelTime.Elapsed.Seconds.ToString();
+            }
+            timerDisplay.text=minutes.ToString() + " : " + seconds.ToString();
         }
     }
 

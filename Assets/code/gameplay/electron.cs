@@ -21,10 +21,13 @@ public class electron : MonoBehaviour
     public AudioClip deathFX;
     public AudioClip teleportFX;
     public AudioClip fakewallFX;
+    public scoring scoring;
+    public GameObject collectRelease;
 
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<gameplayManager>();
+        scoring = GameObject.FindGameObjectWithTag("game manager").GetComponent<scoring>();
         loadPoint=this.transform.position;
 
         rib=GetComponent<Rigidbody2D>();
@@ -81,7 +84,13 @@ public class electron : MonoBehaviour
             
             saveAmount();
         }
-        if(other.gameObject.tag=="fake wall")
+        else if(other.gameObject.tag=="collectible")
+        {
+            Destroy(other.gameObject);
+            scoring.collectedCoins+=1;
+            Instantiate(collectRelease, gameObject.transform.position, Quaternion.identity);
+        }
+        else if(other.gameObject.tag=="fake wall")
         {
             soundPlayer.PlayOneShot(fakewallFX);
         }
