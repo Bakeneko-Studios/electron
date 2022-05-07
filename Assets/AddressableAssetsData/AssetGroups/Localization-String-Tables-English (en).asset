@@ -23,6 +23,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     - Preload
+  - m_GUID: 7f4508b0f8ecf4c47b77c18c3caa0fbf
+    m_Address: Tutorial Text_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+  - m_GUID: 7c15c441dc9ba45d8bdf1bd49f88d893
+    m_Address: Skinnames_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a8246145b1232468bbb6281a2ddf7e11, type: 2}
   m_SchemaSet:

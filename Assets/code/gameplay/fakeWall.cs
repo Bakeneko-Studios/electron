@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class fakeWall : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
+    public int delay = 0;
     
-    void OnTriggerEnter2D(Collider2D other)
+    IEnumerator OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag=="Player")
         {
+            yield return new WaitForSeconds(delay);
             Destroy(this.gameObject);
         }
     }

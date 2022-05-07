@@ -54,6 +54,34 @@ MonoBehaviour:
     m_Localized: 'SCORE:'
     m_Metadata:
       m_Items: []
+  - m_Id: 644060162285568
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644109223059456
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644190315732992
+    m_Localized: Effects Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644428254404608
+    m_Localized: Field Lines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644477331955712
+    m_Localized: Timer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644698371776512
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644914160328704
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

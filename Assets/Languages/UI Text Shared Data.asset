@@ -51,6 +51,34 @@ MonoBehaviour:
     m_Key: score
     m_Metadata:
       m_Items: []
+  - m_Id: 644060162285568
+    m_Key: masterVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644109223059456
+    m_Key: musicVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644190315732992
+    m_Key: effectsVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644428254404608
+    m_Key: assistLine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644477331955712
+    m_Key: timer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644698371776512
+    m_Key: credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644914160328704
+    m_Key: language
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
