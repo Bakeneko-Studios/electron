@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class mainMenu : MonoBehaviour
 {
+    public AudioMixer masterAM;
     public void playGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -17,6 +19,10 @@ public class mainMenu : MonoBehaviour
     public void toSettings()
     {
         SceneManager.LoadScene("settings menu");
+    }
+    public void toSkins()
+    {
+        SceneManager.LoadScene("skins menu");
     }
     public void website()
     {
@@ -53,6 +59,11 @@ public class mainMenu : MonoBehaviour
                 levels[i][1] = data.stars[i];
             }        
             dataDest.levels = levels;
+
+            //set initial volume
+            masterAM.SetFloat("MasterVolume", data.volumeMas);
+            masterAM.SetFloat("MusicVolume", data.volumeM);
+            masterAM.SetFloat("EffectsVolume", data.volumeE);
 
             //load once
             dataDest.reloadActivate = false;

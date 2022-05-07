@@ -21,8 +21,12 @@ public class electron : MonoBehaviour
     public AudioClip deathFX;
     public AudioClip teleportFX;
     public AudioClip fakewallFX;
+    public AudioClip collectionFX;
     public scoring scoring;
     public GameObject collectRelease;
+
+    //collision
+    public bool colliding;
 
     void Start()
     {
@@ -44,6 +48,7 @@ public class electron : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        colliding = true;
         if(!gm.escape && gm.start)
         {
             if (collision.collider.name == "Finish")
@@ -89,6 +94,7 @@ public class electron : MonoBehaviour
             Destroy(other.gameObject);
             scoring.collectedCoins+=1;
             Instantiate(collectRelease, gameObject.transform.position, Quaternion.identity);
+            soundPlayer.PlayOneShot(collectionFX);
         }
         else if(other.gameObject.tag=="fake wall")
         {

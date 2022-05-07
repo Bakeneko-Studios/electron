@@ -8,26 +8,27 @@ public class impactRelease : MonoBehaviour
     public bool directional = true;
 
     private Vector2 curDirection;
-    //Get Direction
     private void Update() 
     {
+        //Get Direction
         curDirection = gameObject.GetComponentInParent<Rigidbody2D>().velocity;
-    }
 
-    //Release Partical
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        Vector3 daPos = new Vector3(transform.position.x+(curDirection.x/30), transform.position.y+(curDirection.y/30), transform.position.z);
-        Quaternion daQuat = Quaternion.LookRotation(Vector3.forward, curDirection);
+        //Release Partical
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<electron>().colliding == true)
+        {
+            Vector3 daPos = new Vector3(transform.position.x+(curDirection.x/30), transform.position.y+(curDirection.y/30), transform.position.z);
+            Quaternion daQuat = Quaternion.LookRotation(Vector3.forward, curDirection);
 
-        if (directional == true)
-        {
-            GameObject particalC = Instantiate(myPartical, daPos, daQuat);
-        }
-        else
-        {
-            GameObject particalC = Instantiate(myPartical, gameObject.transform.position, Quaternion.identity);
+            if (directional == true)
+            {
+                GameObject particalC = Instantiate(myPartical, daPos, daQuat);
+            }
+            else
+            {
+                GameObject particalC = Instantiate(myPartical, gameObject.transform.position, Quaternion.identity);
+            }
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<electron>().colliding = false;
         }
     }
 }
-//Quaternion(0.707106829,0,0,0.707106829)

@@ -105,6 +105,7 @@ MonoBehaviour:
   deathFX: {fileID: 8300000, guid: 637379b85d75842d0be4b7b043e49979, type: 3}
   teleportFX: {fileID: 8300000, guid: 14079ed00ca8d4e9f844472964d359c4, type: 3}
   fakewallFX: {fileID: 8300000, guid: 9fc349c819abb46dbbd3190802a19650, type: 3}
+  collectionFX: {fileID: 8300000, guid: a4b68c3868787c64e8c061c09e6b18ce, type: 3}
   scoring: {fileID: 0}
   collectRelease: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
 --- !u!114 &8841835174373067560
