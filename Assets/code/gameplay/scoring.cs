@@ -27,6 +27,13 @@ public class scoring : MonoBehaviour
     public Animator anim;
     public GameObject[] starDisplays;
 
+    string scorestr;
+    string starstr;
+    string coinstr;
+    string deathsstr;
+    string timestr;
+    string highScorestr;
+
     void Start()
     {
         timer = GetComponent<timer>();
@@ -34,6 +41,7 @@ public class scoring : MonoBehaviour
         maxCoins=coinCount.Length;
 
         UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
+        findLanguage();
         try {levelIndex = int.Parse((SceneManager.GetActiveScene().name).Remove(0,5))-1;}
         catch{};
     }
@@ -113,21 +121,43 @@ public class scoring : MonoBehaviour
         {
             yield return new WaitForSeconds(0.03f);
             displayedScore+=((float)score)/100;
-            scoreCount.text = "Score: " + ((int)displayedScore).ToString();
+            scoreCount.text = scorestr + ((int)displayedScore).ToString();
         }
     }
 
     IEnumerator showBreakdown()
     {
         yield return new WaitForSeconds(0.2f);
-        scoreBreakdown.text = "Star bonus (" + stars.ToString() + "): +" + (stars*20000).ToString();
+        scoreBreakdown.text = starstr + stars.ToString() + "): +" + (stars*20000).ToString();
         yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.text = "Coin bonus (" + collectedCoins.ToString() + "/" + maxCoins.ToString() + "): +" + (collectedCoins*10000).ToString();
+        scoreBreakdown.text = coinstr + collectedCoins.ToString() + "/" + maxCoins.ToString() + "): +" + (collectedCoins*10000).ToString();
         yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.text = "Death penalty (" + deaths.ToString() + "): -" + (deaths*5000).ToString();
+        scoreBreakdown.text = deathsstr + deaths.ToString() + "): -" + (deaths*5000).ToString();
         yield return new WaitForSeconds(0.7f);
-        scoreBreakdown.text = "Time bonus: +" + timeBonus.ToString();
+        scoreBreakdown.text = timestr + timeBonus.ToString();
         yield return new WaitForSeconds(1.7f);
-        scoreBreakdown.text = "High score: "+ UD.levels[levelIndex][1];
+        scoreBreakdown.text = highScorestr + UD.levels[levelIndex][1];
+    }
+
+    void findLanguage() 
+    {
+        if (UD.language == 1) {
+            scorestr = "成绩: ";
+            starstr = "星加成 (";
+            coinstr = "硬币加成 (";
+            deathsstr = "死亡扣分 (";
+            timestr = "时间加成: +";
+            highScorestr = "最高分: ";
+        }
+        else {
+            scorestr = "Score: ";
+            starstr = "Star bonus (";
+            coinstr = "Coin bonus (";
+            deathsstr = "Death penalty (";
+            timestr = "Time bonus: +";
+            highScorestr = "High score: ";
+        }
+
+
     }
 }
