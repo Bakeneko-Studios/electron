@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.Localization.Settings;
 
 public static class SavingSystem
 {
@@ -26,7 +27,11 @@ public static class SavingSystem
             SavedData data = formatter.Deserialize(stream) as SavedData;
             stream.Close();
             return data;
+
+            if (Application.systemLanguage == SystemLanguage.Chinese) 
+                GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().language = 1;
         }
+
         else
         {
             Debug.Log("Save file not found in "+ path);

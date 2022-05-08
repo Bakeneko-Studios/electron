@@ -8,6 +8,7 @@ public class gameplayManager : MonoBehaviour
     public GameObject electron;
     public GameObject victoryPanel;
     public GameObject pausePanel;
+    public GameObject unpausePanel;
     public GameObject escPanel;
     public Stack<GameObject> placedCharges = new Stack<GameObject>();
     public Stack<Vector3> savedPositions = new Stack<Vector3>();
@@ -43,6 +44,8 @@ public class gameplayManager : MonoBehaviour
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
         electron.GetComponent<electron>().saveAmount();
+        pausePanel.GetComponent<UnityEngine.Video.VideoPlayer>().targetCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        unpausePanel.GetComponent<UnityEngine.Video.VideoPlayer>().targetCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     public void win()
@@ -119,6 +122,7 @@ public class gameplayManager : MonoBehaviour
     {
         if (start == true)
         {
+            unpausePanel.SetActive(true);
             electron.GetComponent<repulsion>().startPhysics();
             GetComponent<timer>().unpauseTimer();
             if(SceneManager.GetActiveScene().name!="level21")
@@ -131,13 +135,14 @@ public class gameplayManager : MonoBehaviour
 
         else
         {
+            pausePanel.SetActive(true);
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
             if(SceneManager.GetActiveScene().name!="level21")
             {
                 moosicPlayer.Pause();
             }
-            pausePanel.SetActive(true);
+            unpausePanel.SetActive(false);
             electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
     }
