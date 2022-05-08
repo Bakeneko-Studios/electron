@@ -45,6 +45,7 @@ public class mainMenu : MonoBehaviour
             dataDest.volumeMas = data.volumeMas;
             dataDest.volumeM = data.volumeM;
             dataDest.volumeE = data.volumeE;
+            dataDest.language = data.language;
 
             //levels
             levels = dataDest.levels;

@@ -16,6 +16,7 @@ public class SavedData
     public float volumeMas;
     public float volumeM;
     public float volumeE;    
+    public int language;
 
     private int levelAmt = 21;
     //SavedData is a class
@@ -30,6 +31,7 @@ public class SavedData
         showtimer = user.showtimer;
         showfieldLines = user.showfieldLines;
         unlockedLevel = user.unlockedLevel;
+        language = user.language;
         
         //status of each level
         //Stars, index 20 is bonus level

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class UserData : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class UserData : MonoBehaviour
     public float volumeMas;
     public float volumeM;
     public float volumeE;
+    public int language;
 
     public int skinIndex;
 
@@ -53,5 +55,11 @@ public class UserData : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    IEnumerator Start() {
+        yield return LocalizationSettings.InitializationOperation;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language];
     }
 }
