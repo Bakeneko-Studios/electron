@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Paused
+  m_text: Game Active
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0503e2a61430c4e259c37eb519801b86, type: 2}
   m_sharedMaterial: {fileID: 6628117505200346639, guid: 0503e2a61430c4e259c37eb519801b86, type: 2}
@@ -1298,7 +1298,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:8ec7769623a7649d0ba5003bcf80118c
     m_TableEntryReference:
-      m_KeyId: 1391895652589568
+      m_KeyId: 1395241193037824
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -5449,7 +5449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Active
+  m_text: Game Paused
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0503e2a61430c4e259c37eb519801b86, type: 2}
   m_sharedMaterial: {fileID: 6628117505200346639, guid: 0503e2a61430c4e259c37eb519801b86, type: 2}
@@ -5534,7 +5534,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:8ec7769623a7649d0ba5003bcf80118c
     m_TableEntryReference:
-      m_KeyId: 1395241193037824
+      m_KeyId: 1391895652589568
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
