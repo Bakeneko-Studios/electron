@@ -1,0 +1,80 @@
+-Future Features:
+	-Disabled toggle for now (button funtions on charged slots removed), cuz you can place charges in walls with toggle, will readd
+	
+	-Play button shadow
+		
+	-Perhaps add repeating patterns for walls
+
+	-PC fullscreen toggle and resolution select
+
+	-Should have an interface in settings that changed the position of the ui in game
+
+	-The intergrations of obsticals are not that clear, perhaps add a glow or outline to the obsticals(insulator, succ platform, etc.)
+
+	-Level selection slider has low sensitivity, this may be cause by the level buttons on screen, so when you scroll on the buttons, the slider doesnt respond, you have to scroll in places where there's no buttons
+
+
+
+---------------------------These are done---------------------------------
+-Priority I:
+//	-Level music not connected to slider
+
+//	-4Stars automaticly given upon entering Rickroll level
+
+//	-World 2 background made the victory line almost invisible
+
+//	-Skin selection should be easier to select, video obstructing clicking
+
+//	-Skin selection buttons do not have clicking sound when clicked
+
+//	-"Checkpoint" option not that clear, maybe change to "Load Checkpoint"
+
+//	-Credits music not connected to slider
+
+//	-Need to make it so that vertical screen is not possible to do
+
+//	-Timer text too dark
+
+//	-Need indicator of which skin is currently choosen
+
+//	-Exiting the Rickroll level will lead to settings instead of Credits, need to change the build index
+
+//	-Score is always higher then Highscore, perhaps wrong display position
+
+
+-Priority II (Discussion Needed):
+//	-Indicator of where checkpoints are in the level
+
+//	-Sound indicator of reacing a checkpoint in a level
+
+//	-Coin collection sound
+
+//	-Victory menu is silent, perhaps add sound effect of points building up and for stars building up
+
+//	-Rickroll level when load checkpoing, cannot place any charges
+
+//	-World 1 background has a stripe on it, confusing
+
+//	-Timer changes length every second, changed 1 into 001 in the milisecond
+
+
+-Priority III (Level bugs):
+no	-Level Difficulty should be reconsidered
+
+//	-1.7 wall breaks
+
+//	-2.1 right curve wall break
+
+
+-Priority IV (Future Features):
+	-Play button shadow
+
+	-Improvments for the scoring system
+		-Pauses used
+		-Charges used
+		
+	-Perhaps add repeating patterns for walls
+
+	-Should have an interface in settings that changed the position of the ui in game
+
+	-The intergrations of obsticals are not that clear, perhaps add a glow or outline to the obsticals(insulator, succ platform, etc.)
