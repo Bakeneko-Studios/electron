@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class mainMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
+    public GameObject[] titles;
     public void playGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -69,6 +70,15 @@ public class mainMenu : MonoBehaviour
 
             //load once
             dataDest.reloadActivate = false;
+        }
+        
+        for (int i = 0; i < titles.Length; i++)
+        {
+            if (i != dataDest.language - 1) {
+                titles[i].SetActive(false);
+            } else {
+                titles[i].SetActive(true);                
+            }
         }
 
         
