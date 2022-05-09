@@ -180,6 +180,15 @@ public class gameplayManager : MonoBehaviour
             {
                 hideOnEsc[i].SetActive(true);
             }
+            if (start) {
+                for (int i = 0; i < pausePanel.Length; i++)
+                {
+                    pausePanel[i].SetActive(false);
+                }
+            }
+            else {
+                unpausePanel.SetActive(false);
+            }
         }
     }
 }
