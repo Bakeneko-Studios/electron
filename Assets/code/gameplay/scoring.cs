@@ -33,6 +33,9 @@ public class scoring : MonoBehaviour
     string deathsstr;
     string timestr;
     string highScorestr;
+    //Aduio
+    public AudioSource soundPlayer;
+    public AudioClip starsBuildup;
 
     void Start()
     {
@@ -110,6 +113,7 @@ public class scoring : MonoBehaviour
             displayedStars+=1;
             yield return new WaitForSeconds(0.2f);
             starDisplays[displayedStars-1].SetActive(true);
+            soundPlayer.PlayOneShot(starsBuildup);
             anim.SetInteger("starsDisplayed", displayedStars);
             yield return new WaitForSeconds(0.8f);
         }

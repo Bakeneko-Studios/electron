@@ -23,10 +23,13 @@ public class electron : MonoBehaviour
     public AudioClip fakewallFX;
     public AudioClip collectionFX;
     public scoring scoring;
-    public GameObject collectRelease;
 
     //collision
     public bool colliding;
+
+    //particals
+    public GameObject checkpointRelease;
+    public GameObject collectRelease;
 
     void Start()
     {
@@ -86,7 +89,7 @@ public class electron : MonoBehaviour
         {
             gm.resetSaves();
             loadPoint = other.gameObject.transform.position;
-            
+            Instantiate(checkpointRelease, gameObject.transform.position, Quaternion.identity);
             saveAmount();
         }
         else if(other.gameObject.tag=="collectible")

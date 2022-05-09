@@ -107,6 +107,8 @@ MonoBehaviour:
   fakewallFX: {fileID: 8300000, guid: 9fc349c819abb46dbbd3190802a19650, type: 3}
   collectionFX: {fileID: 8300000, guid: a4b68c3868787c64e8c061c09e6b18ce, type: 3}
   scoring: {fileID: 0}
+  colliding: 0
+  checkpointRelease: {fileID: 4627206693024277575, guid: 4f7f13b3541db084aba3603f8ff62848, type: 3}
   collectRelease: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
 --- !u!114 &8841835174373067560
 MonoBehaviour:
