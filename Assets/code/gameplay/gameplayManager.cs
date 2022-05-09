@@ -7,7 +7,7 @@ public class gameplayManager : MonoBehaviour
 {
     public GameObject electron;
     public GameObject victoryPanel;
-    public GameObject pausePanel;
+    public GameObject[] pausePanel;
     public GameObject unpausePanel;
     public GameObject escPanel;
     public Stack<GameObject> placedCharges = new Stack<GameObject>();
@@ -127,13 +127,19 @@ public class gameplayManager : MonoBehaviour
             {
                 moosicPlayer.UnPause();
             }
-            pausePanel.SetActive(false);
+            for (int i = 0; i < pausePanel.Length; i++)
+            {
+                pausePanel[i].SetActive(false);
+            }
             electron.GetComponent<AudioSource>().PlayOneShot(pauseSound);
         }
 
         else
         {
-            pausePanel.SetActive(true);
+            for (int i = 0; i < pausePanel.Length; i++)
+            {
+                pausePanel[i].SetActive(true);
+            };
             electron.GetComponent<repulsion>().stopPhysics();
             GetComponent<timer>().pauseTimer();
             if(SceneManager.GetActiveScene().name!="level21")

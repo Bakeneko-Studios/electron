@@ -22,10 +22,12 @@ public class impactRelease : MonoBehaviour
             if (directional == true)
             {
                 GameObject particalC = Instantiate(myPartical, daPos, daQuat);
+                Destroy(particalC,3f);
             }
             else
             {
                 GameObject particalC = Instantiate(myPartical, gameObject.transform.position, Quaternion.identity);
+                Destroy(particalC,3f);
             }
 
             GameObject.FindGameObjectWithTag("Player").GetComponent<electron>().colliding = false;
