@@ -3,7 +3,15 @@ guid: 4fb2c6449535f4b098c5a4ae2abb2f8e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - starCount: {instanceID: 0}
+  - scoreCount: {instanceID: 0}
+  - scoreBreakdown: {instanceID: 0}
+  - timer: {instanceID: 0}
+  - UD: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - soundPlayer: {instanceID: 0}
+  - starsBuildup: {fileID: 8300000, guid: a0604feecca55ec4ca58aacb1b3e24d1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

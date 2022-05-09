@@ -11,6 +11,7 @@ public class buttonFunctions : MonoBehaviour
     gameplayManager gm;
     UserData userData;
     public GameObject load;
+    public GameObject collectRelease;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class buttonFunctions : MonoBehaviour
 
         load.SetActive(false);
         electron.SetActive(true);
+        Instantiate(collectRelease, electron.transform.position, Quaternion.identity);
         Debug.Log("checkpoint loaded");
     }
 
