@@ -44,8 +44,6 @@ public class gameplayManager : MonoBehaviour
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
         electron.GetComponent<electron>().saveAmount();
-        pausePanel.GetComponent<UnityEngine.Video.VideoPlayer>().targetCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        unpausePanel.GetComponent<UnityEngine.Video.VideoPlayer>().targetCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     public void win()
