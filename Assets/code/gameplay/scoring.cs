@@ -141,7 +141,7 @@ public class scoring : MonoBehaviour
 
     void findLanguage() 
     {
-        if (UD.language == 1) {
+        if (UD.language == 2) {
             scorestr = "成绩: ";
             starstr = "星加成 (";
             coinstr = "硬币加成 (";

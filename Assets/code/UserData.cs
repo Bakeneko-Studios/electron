@@ -58,8 +58,15 @@ public class UserData : MonoBehaviour
     }
 
     IEnumerator Start() {
+        if (language == 0) {
+            if (Application.systemLanguage == SystemLanguage.Chinese) {
+                language = 2;
+            }
+            else {
+                language = 1;
+            }
+        }
         yield return LocalizationSettings.InitializationOperation;
-
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language];
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language - 1];
     }
 }
