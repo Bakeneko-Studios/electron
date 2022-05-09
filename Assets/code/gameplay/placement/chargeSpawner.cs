@@ -18,6 +18,7 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
     public gameplayManager gm;
     public GameObject electricField;
     Color unselected;
+    public bool isSelected = false;
     public void OnDrag(PointerEventData eventData)
     {
         if (!dragging)
@@ -47,18 +48,21 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
             gm.GetComponent<scoring>().chargesUsedSinceLoad+=1;
             dragging = false;
         }
+        // unselect();
     }
   
 
     public void select()
     {
         this.GetComponent<Image>().color = selected;
+        isSelected = true;
     }
 
     public void unselect()
     {
 
         this.GetComponent<Image>().color = unselected;
+        isSelected = false;
     }
 
     public void invalidSpawn()
@@ -78,7 +82,6 @@ public class chargeSpawner : MonoBehaviour, IDragHandler
         updateText();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(gm.infiniteCharges)

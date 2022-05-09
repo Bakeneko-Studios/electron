@@ -8,7 +8,8 @@ public class positiveCharge : MonoBehaviour
     {
         if(other.gameObject.tag=="Player")
         {
-            Destroy(this.gameObject);
+            GetComponent<chargepos>().chargeColomb=0f;
+            GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
         }
     }
 }

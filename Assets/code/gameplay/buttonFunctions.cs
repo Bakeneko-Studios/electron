@@ -31,15 +31,13 @@ public class buttonFunctions : MonoBehaviour
 
     public void undo()
     {
-        if(!gm.escape)
+        if(GameObject.FindGameObjectsWithTag("efield").Length!=0 && !gm.escape)
         {
             if(gm.placedCharges.Count!=0 && gm.savedPositions.Count!=0)
             {
-
-                Destroy(gm.placedCharges.Pop());
                 if (gm.infiniteCharges!=true)
                 {
-                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb>0)
+                    if(gm.placedCharges.Peek().GetComponent<chargepos>().chargeColomb==0)
                     {
                         positiveSlot.GetComponent<chargeSpawner>().numOfCharges++;
                         positiveSlot.GetComponent<chargeSpawner>().updateText();
@@ -50,6 +48,8 @@ public class buttonFunctions : MonoBehaviour
                         negativeSlot.GetComponent<chargeSpawner>().updateText();
                     }
                 }
+                Destroy(gm.placedCharges.Pop());
+                GetComponent<scoring>().chargesUsed-=1;
                 electron.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 electron.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 electron.transform.position=gm.savedPositions.Pop();
@@ -57,6 +57,7 @@ public class buttonFunctions : MonoBehaviour
                 Debug.Log("undid placement");
             }
         }
+        else Debug.Log("no charge detected");
     }
     
     public void loadCheckpoint()

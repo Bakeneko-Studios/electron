@@ -11,7 +11,7 @@ public class placement : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (clickedIndex != -1)
+        if (clickedIndex != -1 /*&& chargeSlots[clickedIndex].GetComponent<chargeSpawner>().isSelected*/)
         {
             if (chargeSlots[clickedIndex] == null)
             {
@@ -24,16 +24,16 @@ public class placement : MonoBehaviour, IPointerDownHandler
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // if did not click on object
-            if (hit.collider == null || hit.collider.tag=="room")
+            if (hit.collider.tag=="room")
             {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().spawnCharge(new Vector3(mousePos.x, mousePos.y, 0));
+                // chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
             }
         }
     }
 
     public void spawn(int i)
     {
-       
         if (clickedIndex == i)
         {
             chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
@@ -67,10 +67,9 @@ public class placement : MonoBehaviour, IPointerDownHandler
         return false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && clickedIndex != -1)
+        if (Input.GetMouseButtonDown(0) && clickedIndex != -1 /*&& chargeSlots[clickedIndex].GetComponent<chargeSpawner>().isSelected*/)
         {
             if (IsPointerOverUIObject())
                 return;
@@ -86,7 +85,8 @@ public class placement : MonoBehaviour, IPointerDownHandler
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             // if did not click on object
-            if(hit.collider == null || hit.collider.tag=="room")
+            Debug.Log(hit.collider.tag);
+            if(hit.collider.tag=="room")
             {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().spawnCharge(new Vector3(mousePos.x, mousePos.y, 0));
             }
