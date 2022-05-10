@@ -34,19 +34,21 @@ public class placement : MonoBehaviour, IPointerDownHandler
 
     public void spawn(int i)
     {
-        if (clickedIndex == i)
-        {
-            chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
-            clickedIndex = -1;
-        }
-        else
-        {
-            if (clickedIndex != -1 && chargeSlots[clickedIndex] != null)
+        if (GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().device != 1) {
+            if (clickedIndex == i)
             {
                 chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
+                clickedIndex = -1;
             }
-            chargeSlots[i].GetComponent<chargeSpawner>().select();
-            clickedIndex = i;
+            else
+            {
+                if (clickedIndex != -1 && chargeSlots[clickedIndex] != null)
+                {
+                    chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
+                }
+                chargeSlots[i].GetComponent<chargeSpawner>().select();
+                clickedIndex = i;
+            }
         }
     }
     public static bool IsPointerOverUIObject()

@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class mainMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
+    public GameObject exit;
     public GameObject[] titles;
     public void playGame()
     {
@@ -81,6 +82,12 @@ public class mainMenu : MonoBehaviour
             }
         }
 
+        if (SystemInfo.deviceType == DeviceType.Handheld) {
+            exit.SetActive(false);
+            dataDest.device = 1;
+        } else {
+            dataDest.device = 0;
+        }
         
     }
     public void saveData()
