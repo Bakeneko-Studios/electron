@@ -8,9 +8,6 @@ public class UserData : MonoBehaviour
     //data not need to save
     public int beforeSettings;
     public bool reloadActivate = true;
-    public int device;
-    //0 = pc
-    //1 = mobile
 
     //data need to be saved
     //Volumes, they are not used, just for saving 

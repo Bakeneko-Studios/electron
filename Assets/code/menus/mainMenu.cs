@@ -7,7 +7,6 @@ using UnityEngine.Audio;
 public class mainMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
-    public GameObject exit;
     public GameObject[] titles;
     public void playGame()
     {
@@ -73,6 +72,14 @@ public class mainMenu : MonoBehaviour
             dataDest.reloadActivate = false;
         }
         
+    }
+    public void saveData()
+    {
+        SavingSystem.SaveUser(dataDest);
+    }
+
+    void Update()
+    {
         for (int i = 0; i < titles.Length; i++)
         {
             if (i != dataDest.language - 1) {
@@ -81,17 +88,5 @@ public class mainMenu : MonoBehaviour
                 titles[i].SetActive(true);                
             }
         }
-
-        if (SystemInfo.deviceType == DeviceType.Handheld) {
-            exit.SetActive(false);
-            dataDest.device = 1;
-        } else {
-            dataDest.device = 0;
-        }
-        
-    }
-    public void saveData()
-    {
-        SavingSystem.SaveUser(dataDest);
     }
 }
