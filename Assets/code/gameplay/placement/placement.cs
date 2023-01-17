@@ -36,16 +36,16 @@ public class placement : MonoBehaviour, IPointerDownHandler
     {
         if (clickedIndex == i)
         {
-            chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
+            //chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
             clickedIndex = -1;
         }
         else
         {
             if (clickedIndex != -1 && chargeSlots[clickedIndex] != null)
             {
-                chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
+                //chargeSlots[clickedIndex].GetComponent<chargeSpawner>().unselect();
             }
-            chargeSlots[i].GetComponent<chargeSpawner>().select();
+            //chargeSlots[i].GetComponent<chargeSpawner>().select();
             clickedIndex = i;
         }
     }

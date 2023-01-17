@@ -109,6 +109,7 @@ public class gameplayManager : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space) && victory == false && !escape) 
             {
+                Debug.Log("E");
                 start = !start;
                 pause();
             }
