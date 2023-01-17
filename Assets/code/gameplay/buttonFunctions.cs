@@ -109,6 +109,7 @@ public class buttonFunctions : MonoBehaviour
 
     void Update()
     {
+        if (positiveSlot == null || negativeSlot == null) return;
         if (!gm.infiniteCharges && (negativeSlot.GetComponent<chargeSpawner>().numOfCharges + positiveSlot.GetComponent<chargeSpawner>().numOfCharges) == 0 && !gm.victory && electron.GetComponent<Rigidbody2D>().velocity==Vector2.zero)
         {
             load.SetActive(true);

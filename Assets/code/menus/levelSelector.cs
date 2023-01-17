@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class levelSelector : MonoBehaviour
 {
     public Button[] lvlButtons;
+    public Scrollbar scrollBar;
 
     // Start is called before the first frame update
     void Start()
