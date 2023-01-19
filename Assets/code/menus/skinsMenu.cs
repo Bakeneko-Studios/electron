@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class skinsMenu : MonoBehaviour
 {
+    public GameObject levelLoader;
     public void mainMenu()
     {
-        SceneManager.LoadScene("main menu");
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(0);
     }
     public void saveData()
     {

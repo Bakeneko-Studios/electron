@@ -13,6 +13,8 @@ public class buttonFunctions : MonoBehaviour
     public GameObject load;
     public GameObject collectRelease;
 
+    public GameObject levelLoader;
+
     void Start()
     {
         electron = GameObject.FindGameObjectWithTag("Player");
@@ -24,7 +26,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex);
         GetComponent<timer>().pauseTimer();
         Debug.Log("scene restarted");
     }
@@ -97,13 +99,13 @@ public class buttonFunctions : MonoBehaviour
 
     public void mainMenu()
     {
-        SceneManager.LoadScene("level select");
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(1);
         userData.beforeSettings = 0;
     }
 
     public void nextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex + 1);
         userData.beforeSettings = 0;
     }
 
@@ -118,6 +120,6 @@ public class buttonFunctions : MonoBehaviour
     public void Settings()
     {
         userData.beforeSettings = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene("settings menu");
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(24);
     }
 }

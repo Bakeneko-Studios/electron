@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class levelSelector : MonoBehaviour
 {
     public Button[] lvlButtons;
+    public GameObject levelLoader;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class levelSelector : MonoBehaviour
 
     public void loadLevel(int level)
     {
-        SceneManager.LoadScene(level + 1);
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(level + 1);
     }
 
     public void levelDylan()
@@ -57,6 +58,6 @@ public class levelSelector : MonoBehaviour
 
     public void mainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

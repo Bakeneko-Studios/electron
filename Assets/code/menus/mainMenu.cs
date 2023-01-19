@@ -8,10 +8,13 @@ public class mainMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
     public GameObject[] titles;
+    public GameObject levelLoader;
+
     public void playGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
     public void quitGame()
     {
         Debug.Log("Game Should Quit");
@@ -19,11 +22,11 @@ public class mainMenu : MonoBehaviour
     }
     public void toSettings()
     {
-        SceneManager.LoadScene("settings menu");
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(24);
     }
     public void toSkins()
     {
-        SceneManager.LoadScene("skins menu");
+        levelLoader.GetComponent<levelLoader>().callLevelLoader(25);
     }
     public void website()
     {
