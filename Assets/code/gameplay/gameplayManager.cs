@@ -28,6 +28,18 @@ public class gameplayManager : MonoBehaviour
 
     public AudioSource moosicPlayer;
     public AudioClip pauseSound;
+    public Animator cameraAnim;
+
+    IEnumerator startCinematics()
+    {
+        // Play the animation for getting suck in
+        cameraAnim.Play("start");
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(cameraAnim.GetCurrentAnimatorStateInfo(0).length - 0.1f);
+        positiveSlot.SetActive(true);
+        negativeSlot.SetActive(true);
+        cameraAnim.enabled = false;
+    }
 
     void Start()
     {
@@ -44,6 +56,16 @@ public class gameplayManager : MonoBehaviour
 
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex;
         electron.GetComponent<electron>().saveAmount();
+
+        if (cameraAnim != null)
+        {
+            positiveSlot.SetActive(false);
+            negativeSlot.SetActive(false);
+            StartCoroutine(startCinematics());
+        }
+        else
+        {
+        }
     }
 
     public void win()
@@ -87,6 +109,7 @@ public class gameplayManager : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space) && victory == false && !escape) 
             {
+                Debug.Log("E");
                 start = !start;
                 pause();
             }

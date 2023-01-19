@@ -17,6 +17,17 @@ public class swipeManager : MonoBehaviour
 
     float distance;
 
+    public void movePanel(int dir)
+    {
+        
+        if (scrollPos + (dir * distance) > (pos.Length - 1) * distance)
+            scrollPos = 0;
+        else if (scrollPos + (dir * distance) < -0.1)
+            scrollPos = (pos.Length-1) * distance;
+        else
+            scrollPos += (dir * distance);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

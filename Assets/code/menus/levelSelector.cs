@@ -8,6 +8,7 @@ public class levelSelector : MonoBehaviour
 {
     public Button[] lvlButtons;
     public GameObject levelLoader;
+    public Scrollbar scrollBar;
 
     // Start is called before the first frame update
     void Start()
