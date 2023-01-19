@@ -17,8 +17,8 @@ public class SavedData
     public float volumeM;
     public float volumeE;    
     public int language;
+    public int coinCount;
 
-    private int levelAmt = 21;
     //SavedData is a class
     public SavedData (UserData user)
     {
@@ -32,19 +32,21 @@ public class SavedData
         showfieldLines = user.showfieldLines;
         unlockedLevel = user.unlockedLevel;
         language = user.language;
+        coinCount = user.coinCount;
+        int lvlCount = user.levels.Length;
         
         //status of each level
         //Stars, index 20 is bonus level
-        stars = new int[levelAmt];
-        for (int i = 0; i < levelAmt; i++)
+        stars = new int[lvlCount];
+        for (int i = 0; i < lvlCount; i++)
         {
-            stars[i] = user.levels[i][0];
+            stars[i] = user.levels[i,0];
         }
         //score, index 20 is bonus level
-        score = new int[levelAmt];
-        for (int i = 0; i < levelAmt; i++)
+        score = new int[lvlCount];
+        for (int i = 0; i < lvlCount; i++)
         {
-            score[i] = user.levels[i][1];
+            score[i] = user.levels[i,1];
         }        
     }
 }

@@ -14,7 +14,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject flinesChecked;
     public GameObject flinesUnchecked;
 
-    public GameObject levelLoader;
+    public GameObject loader;
 
     public float volumeMas;
     public float volumeM;
@@ -38,11 +38,11 @@ public class SettingsMenu : MonoBehaviour
 
     public void back()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().beforeSettings);
+        loader.GetComponent<levelLoader>().callLevelLoader(GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().beforeSettings);
     }
     public void toCredits()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(23);
+        loader.GetComponent<levelLoader>().callLevelLoader(23);
     }
     /*
     public void SetFullScreen (bool isFullscreen)

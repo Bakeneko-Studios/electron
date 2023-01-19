@@ -95,7 +95,8 @@ public class electron : MonoBehaviour
         else if(other.gameObject.tag=="collectible")
         {
             Destroy(other.gameObject);
-            scoring.collectedCoins+=1;
+            scoring.collectedCoins++;
+            gm.data.coinCount++;
             Instantiate(collectRelease, gameObject.transform.position, Quaternion.identity);
             soundPlayer.PlayOneShot(collectionFX);
         }

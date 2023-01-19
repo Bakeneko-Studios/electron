@@ -10,7 +10,7 @@ public class creditsManager : MonoBehaviour
     public GameObject scrollBar;
     private bool escape;
 
-    public GameObject levelLoader;
+    public GameObject loader;
 
     void Awake() {
         musicPlayer.Play();
@@ -23,14 +23,14 @@ public class creditsManager : MonoBehaviour
 
     public void escapeButton()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(24);
+        loader.GetComponent<levelLoader>().callLevelLoader(24);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            levelLoader.GetComponent<levelLoader>().callLevelLoader(0);
+            loader.GetComponent<levelLoader>().callLevelLoader(0);
         }
     }
 }

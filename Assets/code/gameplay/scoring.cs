@@ -84,13 +84,13 @@ public class scoring : MonoBehaviour
         timeBonus=Mathf.Max(0, (int)((timeLimitSeconds-(float)timer.levelTime.Elapsed.TotalSeconds)*1000));
         score+=timeBonus;
 
-        if(stars>UD.levels[levelIndex][0])
+        if(stars>UD.levels[levelIndex,0])
         {
-            UD.levels[levelIndex][0] = stars;
+            UD.levels[levelIndex,0] = stars;
         }
-        if(score>UD.levels[levelIndex][1])
+        if(score>UD.levels[levelIndex,1])
         {
-            UD.levels[levelIndex][1] = score;
+            UD.levels[levelIndex,1] = score;
         }
     }
 
@@ -140,7 +140,7 @@ public class scoring : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = timestr + timeBonus.ToString();
         yield return new WaitForSeconds(1.7f);
-        scoreBreakdown.text = highScorestr + UD.levels[levelIndex][1];
+        scoreBreakdown.text = highScorestr + UD.levels[levelIndex,1];
     }
 
     void findLanguage() 

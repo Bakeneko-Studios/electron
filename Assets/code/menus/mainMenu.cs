@@ -8,11 +8,11 @@ public class mainMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
     public GameObject[] titles;
-    public GameObject levelLoader;
+    public GameObject loader;
 
     public void playGame()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex + 1);
+        loader.GetComponent<levelLoader>().callLevelLoader(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void quitGame()
@@ -22,11 +22,11 @@ public class mainMenu : MonoBehaviour
     }
     public void toSettings()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(24);
+        loader.GetComponent<levelLoader>().callLevelLoader(24);
     }
     public void toSkins()
     {
-        levelLoader.GetComponent<levelLoader>().callLevelLoader(25);
+        loader.GetComponent<levelLoader>().callLevelLoader(25);
     }
     public void website()
     {
@@ -34,7 +34,7 @@ public class mainMenu : MonoBehaviour
     }
 
     public UserData dataDest;
-    public List<int[]> levels;
+    public int[,] levels;
     void Start()
     {
         //Loads in the saved data the first time mainmenu is loaded
@@ -57,12 +57,12 @@ public class mainMenu : MonoBehaviour
             //stars
             for (int i = 0; i < data.stars.Length; i++)
             {
-                levels[i][0] = data.stars[i];
+                levels[i,0] = data.stars[i];
             }
             //score
             for (int i = 0; i < data.score.Length; i++)
             {
-                levels[i][1] = data.stars[i];
+                levels[i,1] = data.stars[i];
             }        
             dataDest.levels = levels;
 

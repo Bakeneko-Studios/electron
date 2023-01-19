@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SavingSystem
 {
-    public static string path = Application.persistentDataPath + "/user.data";//insert file name in quotes
+    public static string path = Application.persistentDataPath + "/E.yomama";//insert file name in quotes
     public static void SaveUser (UserData user)
     {
         BinaryFormatter formatter = new BinaryFormatter();

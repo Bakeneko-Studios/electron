@@ -11,7 +11,7 @@ public class levelStars : MonoBehaviour
     void Awake()
     {
         UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
-        stars = UD.levels[level-1][0];
+        stars = UD.levels[level-1,0];
         GetComponent<Image>().fillAmount = (float)stars/5;
     }
 }
