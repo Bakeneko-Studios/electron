@@ -13,7 +13,7 @@ public class levelSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int levelAt = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 1;
+        int levelAt = UserData.unlockedLevel + 1;
 
         for (int i = 0; i < lvlButtons.Length; i++)
         {

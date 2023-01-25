@@ -96,7 +96,7 @@ public class electron : MonoBehaviour
         {
             Destroy(other.gameObject);
             scoring.collectedCoins++;
-            gm.data.coinCount++;
+            UserData.coinCount++;
             Instantiate(collectRelease, gameObject.transform.position, Quaternion.identity);
             soundPlayer.PlayOneShot(collectionFX);
         }

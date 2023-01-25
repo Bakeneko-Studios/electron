@@ -22,7 +22,6 @@ public class scoring : MonoBehaviour
     public int chargesUsed = 0;
     public int chargesUsedSinceLoad = 0;
     public int chargeLimit;
-    public UserData UD;
     int levelIndex;
     public Animator anim;
     public GameObject[] starDisplays;
@@ -43,7 +42,6 @@ public class scoring : MonoBehaviour
         GameObject[] coinCount=GameObject.FindGameObjectsWithTag("collectible");
         maxCoins=coinCount.Length;
 
-        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
         findLanguage();
         try {levelIndex = int.Parse((SceneManager.GetActiveScene().name).Remove(0,5))-1;}
         catch{};
@@ -84,13 +82,13 @@ public class scoring : MonoBehaviour
         timeBonus=Mathf.Max(0, (int)((timeLimitSeconds-(float)timer.levelTime.Elapsed.TotalSeconds)*1000));
         score+=timeBonus;
 
-        if(stars>UD.levels[levelIndex,0])
+        if(stars>UserData.levels[levelIndex,0])
         {
-            UD.levels[levelIndex,0] = stars;
+            UserData.levels[levelIndex,0] = stars;
         }
-        if(score>UD.levels[levelIndex,1])
+        if(score>UserData.levels[levelIndex,1])
         {
-            UD.levels[levelIndex,1] = score;
+            UserData.levels[levelIndex,1] = score;
         }
     }
 
@@ -140,12 +138,12 @@ public class scoring : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         scoreBreakdown.text = timestr + timeBonus.ToString();
         yield return new WaitForSeconds(1.7f);
-        scoreBreakdown.text = highScorestr + UD.levels[levelIndex,1];
+        scoreBreakdown.text = highScorestr + UserData.levels[levelIndex,1];
     }
 
     void findLanguage() 
     {
-        if (UD.language == 2) {
+        if (UserData.language == 2) {
             scorestr = "成绩: ";
             starstr = "星加成 (";
             coinstr = "硬币加成 (";

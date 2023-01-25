@@ -23,7 +23,7 @@ public class electricFieldLines : MonoBehaviour
     public float margin = 3;
     bool invert = false; // switch electron to proton for testing
     GameObject electron;
-    UserData UD;
+
     Vector3 netE(Vector2 pos, GameObject curCharge)
     {
         float x = pos.x;
@@ -50,8 +50,7 @@ public class electricFieldLines : MonoBehaviour
 
     void Awake()
     {
-        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
-        showElectricField = UD.showfieldLines;
+        showElectricField = UserData.showfieldLines;
     }
 
     void Start()

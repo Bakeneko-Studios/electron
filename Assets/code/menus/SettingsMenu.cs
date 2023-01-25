@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer masterAM;
-    public UserData UD;
     public GameObject timerChecked;
     public GameObject timerUnchecked;
     public GameObject flinesChecked;
@@ -23,22 +22,22 @@ public class SettingsMenu : MonoBehaviour
     public void SetMasterVolume(float masterVloume)
     {
         masterAM.SetFloat("MasterVolume", masterVloume);
-        UD.volumeMas = masterVloume;
+        UserData.volumeMas = masterVloume;
     }
     public void SetMusicVolume(float musicVolume)
     {
         masterAM.SetFloat("MusicVolume", musicVolume);
-        UD.volumeM = musicVolume;
+        UserData.volumeM = musicVolume;
     }
     public void SetEffectsVolume(float effectsVolume)
     {
         masterAM.SetFloat("EffectsVolume", effectsVolume);
-        UD.volumeE = effectsVolume;
+        UserData.volumeE = effectsVolume;
     }
 
     public void back()
     {
-        loader.GetComponent<levelLoader>().callLevelLoader(GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().beforeSettings);
+        loader.GetComponent<levelLoader>().callLevelLoader(UserData.beforeSettings);
     }
     public void toCredits()
     {
@@ -53,50 +52,49 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        UD = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>();
-        timerChecked.SetActive(UD.showtimer);
-        timerUnchecked.SetActive(!UD.showtimer);
-        flinesChecked.SetActive(UD.showfieldLines);
-        flinesUnchecked.SetActive(!UD.showfieldLines);
+        timerChecked.SetActive(UserData.showtimer);
+        timerUnchecked.SetActive(!UserData.showtimer);
+        flinesChecked.SetActive(UserData.showfieldLines);
+        flinesUnchecked.SetActive(!UserData.showfieldLines);
 
         foreach (Transform child in GameObject.Find("MasterVolume").transform)
         {
             if (child.name == "Slider")
             {
-                child.gameObject.GetComponent<Slider>().value = UD.volumeMas;   
+                child.gameObject.GetComponent<Slider>().value = UserData.volumeMas;   
             }
         }
         foreach (Transform child in GameObject.Find("MusicVolume").transform)
         {
             if (child.name == "Slider")
             {
-                child.gameObject.GetComponent<Slider>().value = UD.volumeM;   
+                child.gameObject.GetComponent<Slider>().value = UserData.volumeM;   
             }
         }
         foreach (Transform child in GameObject.Find("EffectsVolume").transform)
         {
             if (child.name == "Slider")
             {
-                child.gameObject.GetComponent<Slider>().value = UD.volumeE;   
+                child.gameObject.GetComponent<Slider>().value = UserData.volumeE;   
             }
         }                
     }
 
     public void toggleTimer()
     {
-        UD.showtimer = !UD.showtimer;
+        UserData.showtimer = !UserData.showtimer;
         timerChecked.SetActive(!timerChecked.activeInHierarchy);
         timerUnchecked.SetActive(!timerUnchecked.activeInHierarchy);
     }
     public void toggleFLines()
     {
-        UD.showfieldLines = !UD.showfieldLines;
+        UserData.showfieldLines = !UserData.showfieldLines;
         flinesChecked.SetActive(!flinesChecked.activeInHierarchy);
         flinesUnchecked.SetActive(!flinesUnchecked.activeInHierarchy);
     }
     public void saveData()
     {
 
-        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
+        SavingSystem.SaveUser();
     }
 }

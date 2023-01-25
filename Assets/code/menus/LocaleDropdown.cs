@@ -15,7 +15,7 @@ public class LocaleDropdown : MonoBehaviour
 
         // Generate list of available Locales
         var options = new List<Dropdown.OptionData>();
-        int selected = GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().language - 1;
+        int selected = UserData.language - 1;
         for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; ++i)
         {
             var locale = LocalizationSettings.AvailableLocales.Locales[i];
@@ -32,6 +32,6 @@ public class LocaleDropdown : MonoBehaviour
     static void LocaleSelected(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
-        GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().language = index + 1;
+        UserData.language = index + 1;
     }
 }

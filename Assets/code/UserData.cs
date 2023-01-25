@@ -1,23 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Localization.Settings;
-
-public class UserData : MonoBehaviour
+public static class UserData
 {
     //data not need to save
-    public int beforeSettings;
-    public bool reloadActivate = true;
+    public static int beforeSettings;
+    public static bool reloadActivate = true;
 
     //data need to be saved
     //Volumes, they are not used, just for saving 
-    public float volumeMas;
-    public float volumeM;
-    public float volumeE;
-    public int language;
-    public int skinIndex;
-    public int unlockedLevel;
-    public int[,] levels = new int[21,2]{{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
+    public static float volumeMas;
+    public static float volumeM;
+    public static float volumeE;
+    public static int language;
+    public static int skinIndex=0;
+    public static bool[] unlockedSkins = new bool[8];
+    public static int unlockedLevel;
+    public static int[,] levels = new int[21,2]{{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
     // public List<int[]> levels = new List<int[]>
     // {
     //     new int[2] {0,0},  //level 1
@@ -42,30 +38,7 @@ public class UserData : MonoBehaviour
     //     new int[2] {0,0},  //level 20
     //     new int[2] {0,0},  //level bonus
     // };
-    public int coinCount=0;
-    public bool showfieldLines = false;
-    public bool showtimer = false;
-
-    void Awake()
-    {
-        GameObject[] dataCarriers = GameObject.FindGameObjectsWithTag("user data");
-        if (dataCarriers.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    IEnumerator Start() {
-        if (language == 0) {
-            if (Application.systemLanguage == SystemLanguage.Chinese) {
-                language = 2;
-            }
-            else {
-                language = 1;
-            }
-        }
-        yield return LocalizationSettings.InitializationOperation;
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language - 1];
-    }
+    public static int coinCount=0;
+    public static bool showfieldLines = false;
+    public static bool showtimer = false;
 }

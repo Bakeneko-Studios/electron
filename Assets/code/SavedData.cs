@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 [System.Serializable]
 public class SavedData
 {
@@ -20,33 +16,33 @@ public class SavedData
     public int coinCount;
 
     //SavedData is a class
-    public SavedData (UserData user)
+    public SavedData()
     {
         //volumes
-        volumeMas = user.volumeMas;
-        volumeM = user.volumeM;
-        volumeE = user.volumeE;
+        volumeMas = UserData.volumeMas;
+        volumeM = UserData.volumeM;
+        volumeE = UserData.volumeE;
         //skin is converted to an int, cuz you can't store a gameobject in binary
-        skinIndex = user.skinIndex;
-        showtimer = user.showtimer;
-        showfieldLines = user.showfieldLines;
-        unlockedLevel = user.unlockedLevel;
-        language = user.language;
-        coinCount = user.coinCount;
-        int lvlCount = user.levels.Length;
+        skinIndex = UserData.skinIndex;
+        showtimer = UserData.showtimer;
+        showfieldLines = UserData.showfieldLines;
+        unlockedLevel = UserData.unlockedLevel;
+        language = UserData.language;
+        coinCount = UserData.coinCount;
         
         //status of each level
         //Stars, index 20 is bonus level
-        stars = new int[lvlCount];
-        for (int i = 0; i < lvlCount; i++)
+        int l = UserData.levels.GetLength(0);
+        stars = new int[l];
+        for (int i = 0; i < l; i++)
         {
-            stars[i] = user.levels[i,0];
+            stars[i] = UserData.levels[i,0];
         }
         //score, index 20 is bonus level
-        score = new int[lvlCount];
-        for (int i = 0; i < lvlCount; i++)
+        score = new int[l];
+        for (int i = 0; i < l; i++)
         {
-            score[i] = user.levels[i,1];
+            score[i] = UserData.levels[i,1];
         }        
     }
 }

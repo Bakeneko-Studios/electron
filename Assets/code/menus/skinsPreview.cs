@@ -6,21 +6,11 @@ public class skinsPreview : MonoBehaviour
 {
     public GameObject slot;
     public int skinIndex;
-    public string[] skinsList = new string[]//will modify to be automatic later on
-    {
-        "DefultSkin",
-        "EchoTrail",
-        "FlameTrail",
-        "IceTrail",
-        "RGBTrailG",
-        "TripleTrailG",
-        "BloodyBurst",
-        "LightningTrail"
-    };
+    public GameObject[] skinsList;
     void Awake()
     {
         skinIndex = slot.GetComponent<ItemSlot>().skinIndex;
-        transform.Find(skinsList[skinIndex]).gameObject.SetActive(true);                
+        transform.Find(skinsList[skinIndex].name).gameObject.SetActive(true);                
     }
 
     private bool offSet;

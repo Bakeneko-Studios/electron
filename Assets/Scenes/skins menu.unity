@@ -642,11 +642,11 @@ PrefabInstance:
     - target: {fileID: 138504106309298151, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 565d8613a75cc4618a6a18354c8965dc, type: 3}
+      objectReference: {fileID: 32900000, guid: d7f6a2ca1772f864c8166d993bbb913c, type: 3}
     - target: {fileID: 138504106309298151, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 8400000, guid: bfb3199db8f9e4c8e9732cc1083dbb9a, type: 2}
+      objectReference: {fileID: 8400000, guid: b5fe257aea1576b4582937d539d2c523, type: 2}
     - target: {fileID: 2228462340697284386, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -666,7 +666,7 @@ PrefabInstance:
     - target: {fileID: 5980060741039099871, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 8400000, guid: bfb3199db8f9e4c8e9732cc1083dbb9a, type: 2}
+      objectReference: {fileID: 8400000, guid: b5fe257aea1576b4582937d539d2c523, type: 2}
     - target: {fileID: 6097456736349223674, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24d382f883754a1681db7ae3f564c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLoader: {fileID: 408213325}
+  loader: {fileID: 408213325}
 --- !u!1 &1650996077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,6 +2474,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 435995443}
     m_Modifications:
+    - target: {fileID: -7708616653842444738, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
+      propertyPath: unlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 138504106309298151, guid: 3f1c341071c834105adb06c0c7a26a44, type: 3}
       propertyPath: m_VideoClip
       value: 

@@ -21,7 +21,6 @@ public class gameplayManager : MonoBehaviour
     public GameObject positiveSlot;
     public GameObject negativeSlot;
     public GameObject[] hideOnEsc;
-    public UserData data;
     public scoring scoring;
 
     int nextSceneLoad;
@@ -87,12 +86,12 @@ public class gameplayManager : MonoBehaviour
         scoring.results();
 
 
-        if (nextSceneLoad > GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel + 1) 
+        if (nextSceneLoad > UserData.unlockedLevel + 1) 
         {
-            GameObject.FindGameObjectWithTag("user data").GetComponent<UserData>().unlockedLevel = nextSceneLoad - 1;
+            UserData.unlockedLevel = nextSceneLoad - 1;
         }
 
-        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
+        SavingSystem.SaveUser();
 
         electron.SetActive(false);
     }

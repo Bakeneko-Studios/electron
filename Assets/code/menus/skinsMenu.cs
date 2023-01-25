@@ -12,6 +12,6 @@ public class skinsMenu : MonoBehaviour
     }
     public void saveData()
     {
-        SavingSystem.SaveUser(GameObject.Find("UserData").GetComponent<UserData>());
+        SavingSystem.SaveUser();
     }
 }

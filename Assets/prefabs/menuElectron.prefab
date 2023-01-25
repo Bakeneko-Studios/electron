@@ -92,17 +92,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
-  allSkins: []
   skinIndex: 0
   skinsList:
-  - DefultSkin
-  - EchoTrail
-  - FlameTrail
-  - IceTrail
-  - RGBTrailG
-  - TripleTrailG
-  - BloodyBurst
-  - LightningTrail
+  - {fileID: 3243440368094071028, guid: 449486049f95bc74d846b0e93ce5e3c0, type: 3}
+  - {fileID: 4434351829811365678, guid: ee6f1a232b41cef47a50c1483d65076c, type: 3}
+  - {fileID: 8166105892209049114, guid: 49afc192129726745a3c682ac8fd1c9a, type: 3}
+  - {fileID: 4762194954643372107, guid: 89805fbb14484a041b1a9213e1461903, type: 3}
+  - {fileID: 3244697036439127432, guid: ab5953dc7f6c1944383567089746ca4b, type: 3}
+  - {fileID: 8507261348456595999, guid: 39fd2cfada49ea5449eb6d5f2f26d751, type: 3}
+  - {fileID: 6276549398711564179, guid: ea17f44d9e8ebdc48bc3f4f7ff3eecd0, type: 3}
+  - {fileID: 1373102311645466305, guid: 6a51b80b840d2bc4d8e8b9f8dc54096b, type: 3}
+  velocity: 0
 --- !u!1001 &2044524003325600215
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -32,28 +32,26 @@ public class mainMenu : MonoBehaviour
     {
         Application.OpenURL("https://www.bakeneko.games/");
     }
-
-    public UserData dataDest;
     public int[,] levels;
     void Start()
     {
         //Loads in the saved data the first time mainmenu is loaded
-        dataDest = GameObject.Find("UserData").GetComponent<UserData>();
         SavedData data = SavingSystem.LoadUser();
-        if (dataDest.reloadActivate == true)
+        if(data==null) SavingSystem.SaveUser();
+        else if (UserData.reloadActivate == true)
         {
-            dataDest.skinIndex = data.skinIndex;
-            dataDest.unlockedLevel = data.unlockedLevel;
-            dataDest.showfieldLines = data.showfieldLines;
-            dataDest.showtimer = data.showtimer;
-            dataDest.volumeMas = data.volumeMas;
-            dataDest.volumeM = data.volumeM;
-            dataDest.volumeE = data.volumeE;
-            dataDest.language = data.language;
+            UserData.skinIndex = data.skinIndex;
+            UserData.unlockedLevel = data.unlockedLevel;
+            UserData.showfieldLines = data.showfieldLines;
+            UserData.showtimer = data.showtimer;
+            UserData.volumeMas = data.volumeMas;
+            UserData.volumeM = data.volumeM;
+            UserData.volumeE = data.volumeE;
+            UserData.language = data.language;
 
 
             //levels
-            levels = dataDest.levels;
+            levels = UserData.levels;
             //stars
             for (int i = 0; i < data.stars.Length; i++)
             {
@@ -64,7 +62,7 @@ public class mainMenu : MonoBehaviour
             {
                 levels[i,1] = data.stars[i];
             }        
-            dataDest.levels = levels;
+            UserData.levels = levels;
 
             //set initial volume
             masterAM.SetFloat("MasterVolume", data.volumeMas);
@@ -72,20 +70,20 @@ public class mainMenu : MonoBehaviour
             masterAM.SetFloat("EffectsVolume", data.volumeE);
 
             //load once
-            dataDest.reloadActivate = false;
+            UserData.reloadActivate = false;
         }
         
     }
     public void saveData()
     {
-        SavingSystem.SaveUser(dataDest);
+        SavingSystem.SaveUser();
     }
 
     void Update()
     {
         for (int i = 0; i < titles.Length; i++)
         {
-            if (i != dataDest.language - 1) {
+            if (i != UserData.language - 1) {
                 titles[i].SetActive(false);
             } else {
                 titles[i].SetActive(true);                

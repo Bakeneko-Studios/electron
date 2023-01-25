@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   load: {fileID: 7095726593673172383}
   collectRelease: {fileID: 4627206693024277575, guid: 4f7f13b3541db084aba3603f8ff62848, type: 3}
+  loader: {fileID: 0}
 --- !u!114 &1888040515656397880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1674,17 +1675,16 @@ MonoBehaviour:
   infiniteCharges: 0
   escape: 0
   victory: 0
-  positiveSlot: {fileID: 0}
-  negativeSlot: {fileID: 0}
+  positiveSlot: {fileID: 1888040516656922492}
+  negativeSlot: {fileID: 1888040515735642663}
   hideOnEsc:
   - {fileID: 1828842080148530743}
   - {fileID: 3756846721367551295}
   - {fileID: 1888040516656922492}
   - {fileID: 1888040515735642663}
   - {fileID: 1888040516947904722}
-  data: {fileID: 0}
-  scoring: {fileID: 0}
-  moosicPlayer: {fileID: 0}
+  scoring: {fileID: 6679022524301463192}
+  moosicPlayer: {fileID: 1395290230652563334}
   pauseSound: {fileID: 8300000, guid: 3c0992b975b5d4aca98b56719a9649fc, type: 3}
   cameraAnim: {fileID: 0}
 --- !u!114 &2496080915236083301
@@ -1714,7 +1714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23be8d088846e74cbc6d45bb2d794cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allSkins: []
   skinIndex: 0
   skinsList:
   - DefultSkin
@@ -1764,13 +1763,12 @@ MonoBehaviour:
   collectedCoins: 0
   maxCoins: 0
   deaths: 0
-  timer: {fileID: 0}
+  timer: {fileID: 2731312586191820095}
   timeLimitSeconds: 0
   timeBonus: 0
   chargesUsed: 0
   chargesUsedSinceLoad: 0
   chargeLimit: 0
-  UD: {fileID: 0}
   anim: {fileID: 3175416373983468549}
   starDisplays:
   - {fileID: 5569186719465192432}

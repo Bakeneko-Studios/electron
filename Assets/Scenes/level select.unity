@@ -621,7 +621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 16
   stars: 0
 --- !u!114 &241344118
@@ -822,7 +821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 17
   stars: 0
 --- !u!114 &283804581
@@ -1520,7 +1518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 20
   stars: 0
 --- !u!114 &359107449
@@ -1747,7 +1744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 2
   stars: 0
 --- !u!114 &410417569
@@ -2560,7 +2556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -27.799988, y: 0}
+  m_AnchoredPosition: {x: -27.800049, y: 0}
   m_SizeDelta: {x: 34.33551, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626575615
@@ -2911,7 +2907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 19
   stars: 0
 --- !u!114 &690896745
@@ -3316,7 +3311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 5
   stars: 0
 --- !u!114 &720860441
@@ -3408,7 +3402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 13
   stars: 0
 --- !u!114 &730476139
@@ -4359,7 +4352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 18
   stars: 0
 --- !u!114 &851649672
@@ -4629,7 +4621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 7
   stars: 0
 --- !u!114 &869582985
@@ -5115,7 +5106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 15
   stars: 0
 --- !u!114 &943881538
@@ -5811,7 +5801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 8
   stars: 0
 --- !u!114 &1092654157
@@ -5903,7 +5892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 21
   stars: 0
 --- !u!114 &1120321522
@@ -6731,7 +6719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 11
   stars: 0
 --- !u!114 &1204676230
@@ -7661,7 +7648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 4
   stars: 0
 --- !u!114 &1432318946
@@ -7753,7 +7739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 10
   stars: 0
 --- !u!114 &1443966465
@@ -9627,7 +9612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 6
   stars: 0
 --- !u!114 &1629541566
@@ -10032,7 +10016,7 @@ MonoBehaviour:
   - {fileID: 1300925567}
   - {fileID: 1141924454}
   - {fileID: 1309639625}
-  levelLoader: {fileID: 929081270}
+  loader: {fileID: 929081270}
   scrollBar: {fileID: 656864194}
 --- !u!224 &1660468477
 RectTransform:
@@ -10970,7 +10954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 3
   stars: 0
 --- !u!114 &1796796500
@@ -11332,7 +11315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 12
   stars: 0
 --- !u!114 &1829957448
@@ -11846,7 +11828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 14
   stars: 0
 --- !u!114 &1958464965
@@ -12014,7 +11995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 9
   stars: 0
 --- !u!114 &1984763692
@@ -12884,7 +12864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e4cd8dd12624764968b52b56688201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UD: {fileID: 0}
   level: 1
   stars: 0
 --- !u!114 &2104582015

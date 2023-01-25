@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkinApplier : MonoBehaviour
 {
-    public GameObject[] allSkins; //all skins child applied on the electron 
+    public static GameObject[] allSkins; //all skins child applied on the electron 
     public int skinIndex;
     public string[] skinsList = new string[]//will modify to be automatic later on
     {
@@ -24,7 +24,7 @@ public class SkinApplier : MonoBehaviour
         {
             child.SetActive(false);
         }
-        skinIndex = GameObject.Find("UserData").GetComponent<UserData>().skinIndex;
+        skinIndex = UserData.skinIndex;
         GameObject.FindGameObjectWithTag("Player").transform.Find(skinsList[skinIndex]).gameObject.SetActive(true);                
     }
 
