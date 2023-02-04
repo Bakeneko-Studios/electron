@@ -1,0 +1,1 @@
+using UnityEngine; using TMPro; public class rkyfyevdfjhb : MonoBehaviour {void Start(){GetComponent<TextMeshProUGUI>().text=UserData.coinCount.ToString();}}
