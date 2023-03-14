@@ -20,6 +20,7 @@ public class buttonFunctions : MonoBehaviour
         gm = GetComponent<gameplayManager>();
         positiveSlot = GameObject.FindGameObjectWithTag("positive slot");
         negativeSlot = GameObject.FindGameObjectWithTag("negative slot");
+    
     }
 
     public void restart()
